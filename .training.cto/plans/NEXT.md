@@ -1,10 +1,10 @@
 # NEXT — CTO training
 
-**Updated:** YYYY-MM-DD
+**Updated:** 2026-07-17
 
 ## Immediate next action
 
-1. `@cto-bootstrap init` (if PROFILE incomplete) **or** `@cto-assess run` **or** `@cto-mentor run`
+1. `@cto-bootstrap init` — complete PROFILE (role, level, primary goal)
 
 ## Queue
 
