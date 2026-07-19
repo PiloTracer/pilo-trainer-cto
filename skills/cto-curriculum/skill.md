@@ -17,7 +17,7 @@ description: >-
 
 ## design
 
-Produce a module plan; if no program folder yet, create draft under `programs/<slug>/` or hand off to `@cto-program-custom` for full SPEC.
+Produce a module plan following `standards/program-spec.md`'s required sections (outcomes, audience/level, duration, modules with drill + sources + exit check, assessment rubrics, exit criteria). If no program folder yet, create a draft under `programs/<slug>/` with those sections stubbed, or hand off to `@cto-program-custom` for the full SPEC.
 
 ## refine
 

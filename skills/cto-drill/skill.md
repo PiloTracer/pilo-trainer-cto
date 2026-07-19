@@ -32,10 +32,31 @@ description: >-
 
 1. Set scenario (use PROFILE company stage; invent plausible details labeled as scenario).
 2. Time-box: learner responds; professor critiques.
-3. Score against rubric (clarity, leverage, risk, stakeholder care, learnability).
+3. Score against the `standards/assessment.md` drill rubric (clarity, leverage, risk, stakeholder care, learnability — each 1–5). Pass: average ≥3 and no dimension at 1.
 4. Write `.training.cto/assessments/drill-YYYY-MM-DD-<type>.md`.
-5. Update COMPETENCY evidence if strong.
+5. Update COMPETENCY evidence if strong (score-backed, per `standards/assessment.md` — do not award 4–5 without evidence).
+
+## drill-*.md shape
+
+```markdown
+# Drill — YYYY-MM-DD — <type>
+
+## Scenario
+## Learner response
+## Critique
+## Rubric scores
+| Dimension | Score | Notes |
+|-----------|-------|-------|
+| Clarity | | |
+| Leverage | | |
+| Risk | | |
+| Stakeholder care | | |
+| Learnability | | |
+
+## Pass/fail
+## Follow-up
+```
 
 ## Rules
 
-Drills are practice — not real instructions to harm systems. Keep scenarios realistic.
+Drills are practice — not real instructions to harm systems. Keep scenarios realistic. Follow `standards/assessment.md` (binding) for rubric and pass bar.

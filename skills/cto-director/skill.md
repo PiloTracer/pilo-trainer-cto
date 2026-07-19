@@ -20,7 +20,7 @@ description: >-
 
 | Intent cluster | Skill chain |
 |----------------|-------------|
-| Setup / empty memory | `@cto-bootstrap init` |
+| Setup / empty memory (explicit training-project intent only — never inferred from an incomplete PROFILE during framework-dev work) | `@cto-bootstrap init` |
 | Level / gaps / diagnostic | `@cto-assess run` |
 | Install catalog program | `@cto-program-standard list` → `install - <slug>` |
 | Custom program / special request | `@cto-program-custom - <request>` |

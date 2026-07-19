@@ -19,7 +19,11 @@
 git clone https://github.com/PiloTracer/pilo-trainer-cto.git
 cd pilo-trainer-cto
 
-# Thin-client into any target project
+# Target project must already exist (mkdir + git init if it's brand new)
+mkdir -p /abs/path/to/target && (cd /abs/path/to/target && git init -q)
+
+# Thin-client into that target project — run from THIS (source) repo/chat,
+# not from inside the target: only the source session inherently knows its own path.
 bash scripts/deploy-basic.sh /abs/path/to/target
 ```
 
@@ -117,6 +121,8 @@ Full registry: [`skills/README.md`](skills/README.md) · Router: [`PROCESS_ROUTE
 ---
 
 ## Deploy
+
+Target directory must already exist (`mkdir -p` + `git init` if it's a brand-new repo) — both scripts scaffold *into* an existing directory, neither creates the repo itself.
 
 ```bash
 # Thin-client (preferred)

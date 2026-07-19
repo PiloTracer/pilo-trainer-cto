@@ -20,12 +20,16 @@
 
 ## 1. Decision tree
 
+**First fork — which repo/session is this?** If you are editing `skills/`, `curricula/`, `standards/`, `templates/`, `scripts/`, or `.cursorrules` themselves (framework-dev work on this OS), **stop here** — everything below is for a *training project* (a learner using the pipeline). Do not run `@cto-bootstrap init` or chain into the learner pipeline just because a self-hosted `.training.cto/` looks empty; that only applies when you (or the user) explicitly want to create/initialize a training project.
+
 ```text
 ┌──────────────────────────────────────────┐
 │  Where am I right now?                   │
 └──────────────────────────────────────────┘
        │
-       ├── "Empty / no .training.cto"     ──► `@cto-bootstrap init`
+       ├── "Setting up a NEW training project" ──► `@deploy-basic - <path>` (from source) or `@cto-bootstrap init`
+       │
+       ├── "Empty / no .training.cto" AND explicit training intent ──► `@cto-bootstrap init`
        │
        ├── "Just opened / lost"           ──► §2 Resume
        │
@@ -64,9 +68,11 @@
 
 ## 3. First-time setup
 
+**Brand-new target project, thin-client (recommended):** create the repo (`mkdir` + `git init`) → from **this source** repo/chat run `@deploy-basic - /path/to/new-repo` (only the source session knows its own path) → open the target and continue below. `@cto-bootstrap init` run standalone inside a never-deployed target cannot wire the thin-client pointer on its own — pass the source explicitly (`@cto-bootstrap init - <source-path>`) if you must run it that way.
+
 | Step | Run |
 |------|-----|
-| 1. Scaffold memory | `@cto-bootstrap init` |
+| 1. Scaffold memory (if not already done by `@deploy-basic`) | `@cto-bootstrap init` |
 | 2. Fill profile | Edit `.training.cto/context/PROFILE.md` (or let bootstrap interview) |
 | 3. Assess | `@cto-assess run` |
 | 4. Install or design program | `@cto-program-standard install - <slug>` **or** `@cto-program-custom - <request>` |

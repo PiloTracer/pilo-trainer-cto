@@ -1,6 +1,8 @@
 # Learner profile
 
 > Fill during `@cto-bootstrap init` / `@cto-assess run`. Keep factual and current.
+>
+> **Intentionally unfilled:** this is the framework's own self-hosted repo. The `REPLACE:` tokens below are left open on purpose, pending an explicit request to use this repo as a real training project — not an oversight. Do not auto-fill via interview during framework-dev sessions.
 
 ## Identity
 

@@ -17,10 +17,11 @@ description: >-
 
 ## start
 
+0. **Classify session type first:** framework-dev (the request is about editing/improving `skills/`, `curricula/`, `standards/`, `templates/`, `scripts/`, or `.cursorrules` themselves) vs training (a learner using the pipeline). If framework-dev, stop here — there is no learner session to open; say so and hand off to the framework task instead of steps 1-4.
 1. Read `{HANDOFF}`, `{NEXT}`, `{PROFILE}`, `{UNKNOWNS}`, active program if any.
 2. Summarize: readiness state, active program/module, top next action, blockers.
 3. Update HANDOFF session state → `active`, date today.
-4. Propose one concrete action for this session (mentor / drill / consult / assess).
+4. Propose one concrete action for this session (mentor / drill / consult / assess). **Never default to `@cto-bootstrap init` solely because `{PROFILE}` has unfilled `REPLACE:` tokens** — only propose it if the user's stated goal for this session is actually starting/setting up a training project.
 
 ## status
 

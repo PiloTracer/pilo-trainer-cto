@@ -6,8 +6,15 @@
 #   REPO_ROOT=/path/to/app bash templates/bootstrap.sh
 #   TRAINER_CTO_SOURCE=/path/to/trainer-cto REPO_ROOT=/path bash templates/bootstrap.sh
 #
+# When TRAINER_CTO_SOURCE is explicitly passed and differs from REPO_ROOT, a freshly
+# written .cursorrules gets TRAINER_CTO_SOURCE substituted with the real path (thin-client).
+# Otherwise (self-hosted, or fat-client via deploy-files.sh which sets
+# BOOTSTRAP_SKIP_CURSERRULES=1 and writes .cursorrules itself) the REPLACE_BASICSOURCE
+# placeholder is left untouched.
+#
 set -euo pipefail
 
+CALLER_TRAINER_CTO_SOURCE="${TRAINER_CTO_SOURCE:-}"
 if [[ -n "${TRAINER_CTO_SOURCE:-}" ]]; then
   CTO_ROOT="$(cd "$TRAINER_CTO_SOURCE" && pwd)"
 else
@@ -70,6 +77,13 @@ if [[ -n "${BOOTSTRAP_SKIP_CURSERRULES:-}" ]]; then
   echo "skip (.cursorrules owned by caller): ${REPO_ROOT}/.cursorrules"
 elif [[ -f "${REPO_ROOT}/.cursorrules" ]]; then
   echo "skip (exists): ${REPO_ROOT}/.cursorrules"
+elif [[ -n "${CALLER_TRAINER_CTO_SOURCE}" ]] && [[ "${CTO_ROOT}" != "${REPO_ROOT}" ]]; then
+  # Caller explicitly named a source that differs from this target: true thin-client —
+  # substitute the real pointer instead of leaving the REPLACE_BASICSOURCE placeholder.
+  CTO_ROOT_ESC="${CTO_ROOT//\//\\/}"
+  perl -pe "s/TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE/TRAINER_CTO_SOURCE=${CTO_ROOT_ESC}/" \
+    "${CTO_ROOT}/templates/cursorrules.template" > "${REPO_ROOT}/.cursorrules"
+  echo "created (thin-client, TRAINER_CTO_SOURCE=${CTO_ROOT}): ${REPO_ROOT}/.cursorrules"
 else
   copy_if_missing "${CTO_ROOT}/templates/cursorrules.template" "${REPO_ROOT}/.cursorrules"
 fi

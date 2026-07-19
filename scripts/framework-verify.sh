@@ -43,12 +43,18 @@ while IFS= read -r d; do
 done < <(find "$CTO_ROOT/skills" -mindepth 1 -maxdepth 1 -type d ! -name '.*' | sort)
 ok "${skill_count} skills registered"
 
-readme_count="$(grep -oE '[0-9]+ skills in total' "$CTO_ROOT/README.md" | grep -oE '[0-9]+' | head -1 || true)"
-if [[ -n "$readme_count" ]] && [[ "$readme_count" -eq "$skill_count" ]]; then
-  ok "README.md skill count (${readme_count}) matches"
+readme_row_count="$(awk '/^### Skills at a glance$/{flag=1; next} flag && /^## /{flag=0} flag && /^\| \*\*/{c++} END{print c+0}' "$CTO_ROOT/README.md")"
+if [[ "$readme_row_count" -eq "$skill_count" ]]; then
+  ok "README.md 'Skills at a glance' row count (${readme_row_count}) matches"
 else
-  die "README.md skill count (${readme_count:-missing}) != folder count (${skill_count})"
+  die "README.md 'Skills at a glance' row count (${readme_row_count}) != folder count (${skill_count})"
 fi
+
+while IFS= read -r skill_id; do
+  [[ -z "$skill_id" ]] && continue
+  grep -qE "^\\| \\*\\*${skill_id}\\*\\* " "$CTO_ROOT/README.md" || die "README.md 'Skills at a glance' missing '${skill_id}'"
+done < <(find "$CTO_ROOT/skills" -mindepth 1 -maxdepth 1 -type d ! -name '.*' -printf '%f\n' | sort)
+ok "README.md 'Skills at a glance' covers every skills/ folder"
 
 while IFS= read -r skill_id; do
   [[ -z "$skill_id" ]] && continue
@@ -74,6 +80,13 @@ while IFS= read -r f; do
 done < <(find "$CTO_ROOT/curricula" -maxdepth 1 -type f -name '*.md' ! -name 'README.md' | sort)
 [[ "$cur_count" -ge 7 ]] && ok "${cur_count} curricula" || die "expected ≥7 curricula, got ${cur_count}"
 
+note ".cursorrules / template sync"
+if diff -q "$CTO_ROOT/.cursorrules" "$CTO_ROOT/templates/cursorrules.template" &>/dev/null; then
+  ok ".cursorrules matches templates/cursorrules.template"
+else
+  die ".cursorrules has drifted from templates/cursorrules.template (self-hosted copy must stay identical to the deployable template)"
+fi
+
 note "Thin deploy smoke"
 SMOKE="$(mktemp -d)"
 bash "$CTO_ROOT/scripts/deploy-basic.sh" "$SMOKE" || die "deploy-basic failed"
@@ -82,6 +95,27 @@ bash "$CTO_ROOT/scripts/deploy-basic.sh" "$SMOKE" || die "deploy-basic failed"
 grep -q "TRAINER_CTO_SOURCE=$CTO_ROOT" "$SMOKE/.cursorrules" || die "smoke pointer wrong"
 ok "deploy-basic smoke → $SMOKE"
 rm -rf "$SMOKE"
+
+note "Standalone cto-bootstrap init smoke (thin-client via explicit source arg)"
+SMOKE2="$(mktemp -d)"
+TRAINER_CTO_SOURCE="$CTO_ROOT" REPO_ROOT="$SMOKE2" bash "$CTO_ROOT/templates/bootstrap.sh" &>/dev/null \
+  || die "standalone bootstrap.sh failed"
+grep -q "TRAINER_CTO_SOURCE=$CTO_ROOT" "$SMOKE2/.cursorrules" 2>/dev/null \
+  && ok "standalone bootstrap.sh smoke (explicit source) → $SMOKE2" \
+  || die "standalone bootstrap.sh did not substitute TRAINER_CTO_SOURCE for an explicit, differing source"
+rm -rf "$SMOKE2"
+
+note "Self-hosted bootstrap.sh smoke (no TRAINER_CTO_SOURCE arg → placeholder stays)"
+SMOKE3="$(mktemp -d)"
+mkdir -p "$SMOKE3/templates"
+cp "$CTO_ROOT/templates/bootstrap.sh" "$SMOKE3/templates/bootstrap.sh"
+cp -r "$CTO_ROOT/templates/training" "$SMOKE3/templates/training"
+cp "$CTO_ROOT/templates/cursorrules.template" "$SMOKE3/templates/cursorrules.template"
+(cd "$SMOKE3" && git init -q && bash templates/bootstrap.sh &>/dev/null) || die "self-hosted bootstrap.sh smoke failed"
+grep -q "TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE" "$SMOKE3/.cursorrules" 2>/dev/null \
+  && ok "self-hosted bootstrap.sh smoke (placeholder preserved) → $SMOKE3" \
+  || die "self-hosted bootstrap.sh smoke unexpectedly substituted TRAINER_CTO_SOURCE"
+rm -rf "$SMOKE3"
 
 echo ""
 if [[ "$errors" -eq 0 ]]; then

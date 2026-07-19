@@ -29,7 +29,7 @@ Report:
 
 ## certify
 
-Promote only with evidence:
+Promote only with evidence, scored per `standards/assessment.md` (binding — do not certify `assessed` or drill-backed competency claims without artifact evidence at the required scoring bar):
 
 | Target state | Evidence required |
 |--------------|-------------------|

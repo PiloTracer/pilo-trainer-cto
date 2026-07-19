@@ -69,6 +69,7 @@ Default to **minimal diffs**. Prefer append/merge over overwrite.
 | No collateral edits | Touch only files required by the task | Drive-by refactors, dependency bumps, "while I'm here" changes |
 | No-overwrite deploy | `@deploy-basic` / bootstrap skip existing files unless `--force` + explicit user intent | Silent clobber of target `.cursorrules` or learner memory |
 | High-blast | Protected paths (§ Protected Files) need owner approval | Editing protected surfaces without permission |
+| Learner-pipeline intent | Never auto-propose or chain into `@cto-bootstrap init` / `@cto-assess run` / program / mentor skills just because `{PROFILE}` looks empty or incomplete; requires explicit training-project intent | Session is framework-dev (editing `skills/`, `curricula/`, `standards/`, `templates/`, `scripts/`, `.cursorrules`) but the agent still routes into the learner pipeline |
 
 **Declare scope first** when changing multiple framework files. **No collateral edits.**
 
