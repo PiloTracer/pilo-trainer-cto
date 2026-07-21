@@ -1,20 +1,22 @@
 # NEXT — CTO training
 
-**Updated:** 2026-07-18
+**Updated:** 2026-07-20
 
 ## Immediate next action
 
-This self-hosted instance is framework-dev, not an active learner pipeline (see `{HANDOFF}`). The single best next step is a framework decision, not a skill invoke:
+Thin-client target is ready at `/mnt/work/Projects/trainer-cto-custom`. In that repo:
 
-1. Bump `CHANGELOG.md` (e.g. v0.0.2) documenting the bootstrap-wiring fix, the routing-intent guard, and the `framework-verify.sh` fixes from the 2026-07-18 session — then decide whether to tag/release.
+```
+@session-cto start → @cto-bootstrap init → @cto-assess run
+```
 
-## If/when a real training project starts here
+Optional first: `git init` in the target if version control is desired.
+
+## Source repo (framework-dev)
 
 | Priority | Action | Skill |
 |----------|--------|-------|
-| 1 | Complete profile (only on explicit training-project intent) | `@cto-bootstrap init` |
-| 2 | Run assessment | `@cto-assess run` |
-| 3 | Install or design program | `@cto-program-standard` / `@cto-program-custom` |
+| 1 | Bump `CHANGELOG.md` (v0.0.2) for 2026-07-18 fixes | manual / `@cto-consult memo - release scope` |
 
 ## Blocked
 
