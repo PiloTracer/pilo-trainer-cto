@@ -23,7 +23,9 @@
 | Refresh continuous learning | `@cto-update run` |
 | Check gates / progress | `@cto-review status` / `certify` |
 | Deploy into another project | `@deploy-basic - /path` |
+| Re-sync an existing deploy | `@deploy-basic - /path --update` |
 | Vendor framework into project | `@deploy-files copy - /path` |
+| Standalone copy or backup of the framework | `@deploy-repo clone - <url> <target>` / `archive - <dir>` |
 
 **Engineering / UI / biz work?** Route to `@ai-director`, `@ui-director`, `@biz-director`, or `@x-director` — not CTO Professor skills.
 

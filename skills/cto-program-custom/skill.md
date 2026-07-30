@@ -8,6 +8,7 @@ description: >-
 # cto-program-custom
 
 **Requires:** profile-ready.
+On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
 
 ## Parse
 
@@ -21,7 +22,7 @@ Flags: `-y` skip confirm · `--dry-run` plan only
 3. Draft program SPEC (see standards/program-spec.md).
 4. **Confirm** with learner unless `-y`.
 5. Slugify title → `.training.cto/programs/<slug>/PROGRAM.md` + `progress.md` + `notes.md`.
-6. Seed the `progress.md` **task ledger** from `templates/training/programs/progress.md.template` — one row per drill, per source work, and per exit-check item, with counted items (e.g. "≥3 ADRs") as a single `0/3` row. See `@cto-program-standard` § *Seeding the task ledger* (same binding rules).
+6. Seed the `progress.md` **task ledger** from `templates/training/programs/progress.md.template` — one row per drill, per source work, and per exit-check item, with counted items (e.g. "≥3 ADRs") as a single `0/3` row. See `@cto-program-standard` § *Seeding the task ledger* (same binding rules). Create `notes.md` from `templates/training/programs/notes.md.template` so the retrieval queue exists from day one.
 7. Seed `.training.cto/sources/README.md` from the program's `Sources:` lines (`Status: assigned`), per `standards/citation.md`.
 8. Mark program-active; update HANDOFF/NEXT; optionally chain `@cto-sources curate`.
 

@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.0.4 — 2026-07-30
+
+**Contract completion pass.** v0.0.3 added capability; this closes the gaps that audit exposed,
+including several carried over unfixed from the original review.
+
+- **Gate contracts are now uniform and enforced.** Every gated skill declares `Requires:`, emits the canonical BLOCKED report, and documents its `-y` waiver. `@cto-director` checks each step's gate before proposing a chain instead of routing past it. Verify parses the gate table and fails on any skill that drifts.
+- **`mentoring-loop` reconciled.** Three files disagreed on what certifies it; the strict reading wins — a prep file alone is not a session, and an intention recorded in NEXT is not evidence.
+- **`decision-case` drill type defined.** Two curricula and the case library referenced a type the drill skill never listed. Verify now fails on any drill type a curriculum uses but `@cto-drill` does not define.
+- **`notes.md.template`** — the retrieval queue introduced in v0.0.3 was read by the mentoring protocol but seeded by nothing; program install created an empty file. Both install skills now seed it.
+- **Artifact shapes** for `@cto-update` reports, `@cto-review certify`, and `@cto-curriculum design` — each previously named an output path with no section contract.
+- **`deploy-files` and `deploy-repo`** grew parse tables, failure handling, and output contracts; both were stubs whose scripts had outrun their specs, and `deploy-files copy` was a verb the router told users to type but the skill never documented.
+- **Case 11, tech debt with a price on it** — closes the last curriculum drill reference with no case behind it.
+- Cross-reference and catalog sync across `.quick/`, `START_HERE.md`, `CONTRIBUTING.md`, `skills/README.md`, and `PROCESS_ROUTER.md`: the eighth curriculum, `references/` and `drills/`, the `update` verb, `deploy-repo`, and the new `@cto-review` modes.
+
+Every new guard was confirmed to fail when its invariant is broken. Verify: **PASS**.
+
 ## v0.0.3 — 2026-07-30
 
 **Ten improvements to training quality.** Every source added here was checked against a live

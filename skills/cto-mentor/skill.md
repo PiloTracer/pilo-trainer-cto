@@ -8,6 +8,7 @@ description: >-
 # cto-mentor
 
 **Requires:** program-active (waiver `-y` for ad-hoc; still write a session log).
+On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
 
 ## Parse
 

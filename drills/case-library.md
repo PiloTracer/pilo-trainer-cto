@@ -182,6 +182,26 @@ and the compensating control for the gap you are not filling.
 
 ---
 
+## 11. Tech debt with a price on it
+
+**Type:** `tech-debt` · **Time-box:** 40 min · **Synthetic scenario, real pattern**
+
+A service everyone calls "the legacy one" absorbs roughly a third of the team's time. An
+engineer proposes a rewrite. The CEO asks what it buys.
+
+**Requirements:** state the current cost per month in money or engineer-time, the cost of the
+rewrite with a range, and what you would ship *instead* with the same budget. Then pick, and
+name one debt item you are explicitly choosing to keep.
+
+**Testing:** whether debt is a number or a mood. "It slows us down" is not an answer, and
+neither is a rewrite without the counterfactual — the money spent rewriting is money not spent
+on something else, and that comparison is the decision.
+
+**Failure mode to catch:** the estimate that arrives as a single confident figure. Ask for the
+range, then ask which end they would tell the board.
+
+---
+
 ## Adding cases
 
 `@cto-update` may extend this file. Requirements: a real URL, an explicit pre-read boundary,

@@ -7,6 +7,10 @@ description: >-
 
 # cto-curriculum
 
+**Requires:** profile-ready for `design`; program-active for `refine` (waiver `-y`, logged in HANDOFF).
+
+On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
+
 ## Parse
 
 | Invoke | Action |
@@ -17,14 +21,21 @@ description: >-
 
 ## design
 
-Produce a module plan following `standards/program-spec.md`'s required sections (outcomes, audience/level, duration, modules with drill + sources + exit check, assessment rubrics, exit criteria). If no program folder yet, create a draft under `programs/<slug>/` with those sections stubbed, or hand off to `@cto-program-custom` for the full SPEC.
+Produce a module plan following `standards/program-spec.md`'s required sections (outcomes, audience/level, duration, modules with drill + sources + exit check, assessment rubrics, exit criteria).
+
+**Output:** `.training.cto/programs/<slug>/PROGRAM.md` with every SPEC section present, stubbed where unknown — never a plan that exists only in chat. If the scope is a full program rather than a module set, hand off to `@cto-program-custom` instead of half-building one here.
+
+Seed `progress.md` and `notes.md` from their templates alongside it, per `@cto-program-standard` § *Seeding the task ledger*. A program folder without a ledger is invisible to `@cto-review status`.
 
 ## refine
 
 1. Load `programs/<slug>/PROGRAM.md`.
 2. Fix sequencing, prune fluff, strengthen drills, align sources.
-3. Write changes; note delta in `notes.md`.
+3. Write changes; record the delta in `notes.md` § *Deltas* with the date and the reason.
+4. **Re-sync the task ledger** in `progress.md`: add rows for new drills, sources, and exit-check items; move rows whose premise you deferred into the Deferred table with the unblocking condition. Never silently drop a row a learner has already partly completed.
 
 ## Rules
 
-Follow `standards/program-spec.md`. Cite public sources honestly via `@cto-sources` patterns.
+Follow `standards/program-spec.md`. Cite public sources honestly via `@cto-sources` patterns, drawing from `references/core-library.md` first.
+
+Refining a module never rewrites completed history — a module split creates new rows, it does not erase evidence already filed against the old ones.

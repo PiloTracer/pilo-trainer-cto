@@ -15,9 +15,12 @@
 | cto-curriculum | `@cto-curriculum design` · `refine - <slug>` |
 | cto-mentor | `@cto-mentor run` · `prepare` |
 | cto-consult | `@cto-consult memo - <topic>` · `board` · `review` |
-| cto-drill | `@cto-drill run - incident` (see skill for types) |
-| cto-sources | `@cto-sources curate` · `add` · `list` |
+| cto-drill | `@cto-drill run - decision-case` · `list` — cases in [`drills/case-library.md`](../drills/case-library.md) |
+| cto-sources | `@cto-sources curate` · `add` · `list` — start from [`references/core-library.md`](../references/core-library.md) |
 | cto-update | `@cto-update run` |
-| cto-review | `@cto-review status` · `certify` |
+| cto-review | `@cto-review status` · `tasks` · `status --full` · `certify` |
+
+Blocked on a gate? Every gated skill emits the canonical BLOCKED report — see
+[`gates.md`](gates.md). Progress questions → [`progress.md`](progress.md).
 
 Full detail: [`skills/README.md`](../skills/README.md)

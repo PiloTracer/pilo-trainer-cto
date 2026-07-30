@@ -11,10 +11,11 @@ description: >-
 ## Free-text intake
 
 1. **Capture** — quote user request in HANDOFF when executing.
-2. **Load** — `{HANDOFF}`, `{NEXT}`, `{PROFILE}`, `skills/README.md`, `SKILL_DEPENDENCIES.md`.
+2. **Load** — `{HANDOFF}`, `{NEXT}`, `{PROFILE}`, `{UNKNOWNS}`, `skills/README.md`, `SKILL_DEPENDENCIES.md`.
 3. **Classify** — intent → skill (table below). Max 3 probe questions if unclear.
-4. **Confirm** — show planned skill chain; wait unless `-y` or `--dry-run`.
-5. **Execute** — run chain; update HANDOFF/NEXT.
+4. **Check gates** — for every skill in the planned chain, verify its prerequisite before proposing it. If one is unmet, emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md` for that step and offer the unlock command instead of silently routing past it.
+5. **Confirm** — show planned skill chain; wait unless `-y` or `--dry-run`.
+6. **Execute** — run chain; update HANDOFF/NEXT.
 
 ## Intent → skill
 

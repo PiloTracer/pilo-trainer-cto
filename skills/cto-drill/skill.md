@@ -8,6 +8,7 @@ description: >-
 # cto-drill
 
 **Requires:** assessed recommended (`-y` to skip).
+On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
 
 ## Parse
 
@@ -29,6 +30,7 @@ three options is a structural failure reported separately from the rubric averag
 
 | Type | Practice |
 |------|----------|
+| `decision-case` | Architecture/strategy decision from a public already-decided case; record written before reading the outcome |
 | `incident` | SEV handling, comms, postmortem quality |
 | `org-design` | Team topology for a constraint |
 | `roadmap-cut` | Cut 40% without killing strategy |

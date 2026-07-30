@@ -8,6 +8,7 @@ description: >-
 # cto-assess
 
 **Requires:** profile-ready (or `-y` waiver logged in HANDOFF).
+On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
 
 Score against the level anchors in `standards/assessment.md` — scope of effect and whether the
 behaviour survives pressure — not a bare 1–5 impression. Self-report caps every area at 3 until

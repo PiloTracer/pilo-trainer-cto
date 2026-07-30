@@ -145,7 +145,7 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
   - `package.json` (dependencies, engines)
   - `docker-compose*.yml`, `Dockerfile.*`
   - `.env*` (except `.env.example`)
-  - Framework `curricula/**` and `standards/**` for learner-specific content (copy into `.training.cto/` instead)
+  - Framework `curricula/**`, `standards/**`, `references/**`, and `drills/**` for learner-specific content (copy into `.training.cto/` instead)
   - `.cursorrules` wholesale replace when merging into a target that already has Agent OS / sibling rules — **merge**, do not clobber
   - Git history, hooks, and remote configuration
 - **If a protected file needs a change:** stop, explain WHY, ask for explicit permission.

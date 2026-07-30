@@ -7,7 +7,9 @@ description: >-
 
 # cto-consult
 
-**Requires:** profile-ready.
+**Requires:** profile-ready (waiver `-y`, logged in HANDOFF; assessed recommended).
+
+On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
 
 ## Parse
 

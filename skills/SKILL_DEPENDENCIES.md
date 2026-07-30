@@ -32,7 +32,7 @@ cto-review status / certify
 | 1 | profile-ready | `{PROFILE}` has role + goal (no REPLACE: leftovers for required fields) | `@cto-bootstrap init` + PROFILE fill |
 | 2 | assessed | `.training.cto/assessments/baseline.md` exists | `@cto-assess run` |
 | 3 | program-active | At least one `.training.cto/programs/<slug>/PROGRAM.md` | `@cto-program-standard install` or `@cto-program-custom` |
-| 4 | mentoring-loop | Active program + ≥1 session log OR NEXT points to mentor | `@cto-mentor run` |
+| 4 | mentoring-loop | Active program + ≥1 **real** session log (a prep file alone does not count) | `@cto-mentor run` |
 | 5 | consultancy-ready | profile-ready (assessed recommended) | `@cto-bootstrap init` |
 
 ## Skill requirements

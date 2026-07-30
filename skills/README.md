@@ -61,5 +61,22 @@ Portable mentoring workflows. Each skill is a folder with `skill.md`.
 | `memo` / `board` / `review` | Consultancy modes |
 | `add` / `curate` | Sources |
 | `certify` | Gate promotion |
+| `tasks` | Alias for `status` on `cto-review` |
 | `start` / `close` | Session bookends |
 | `copy` / `clone` / `archive` | Deploy modes |
+| `update` | Re-sync an existing deploy (`deploy-basic`) |
+
+Flags: `-y` skips a gate where a waiver exists (logged in HANDOFF) · `--full` expands a
+`status` report · `--force` overwrites on deploy · `--dry-run` plans without writing.
+
+---
+
+## Framework assets skills read
+
+| Path | Contents |
+|------|----------|
+| `standards/` | Seven binding standards — see the table in [`PROCESS_ROUTER.md`](../PROCESS_ROUTER.md) |
+| `references/core-library.md` | Verified sources by competency area |
+| `drills/case-library.md` | Runnable drill cases with pre-read boundaries |
+| `curricula/` | Eight catalog programs |
+| [`SKILL_DEPENDENCIES.md`](SKILL_DEPENDENCIES.md) | Gate graph, waivers, and the canonical BLOCKED shape |

@@ -1,0 +1,28 @@
+# Notes — REPLACE:PROGRAM_SLUG
+
+Working notes, deltas, and the retrieval queue for this program.
+
+## Retrieval queue
+
+Concepts due for closed-book recall at the start of a session, per
+`standards/mentoring.md` § *Retrieval opening*.
+
+Revisit roughly after 1 session, then 3, then 8. A concept leaves the queue after **two clean
+unaided recalls at least a week apart**. A concept the learner cannot retrieve goes back to the
+front — that is a re-teach signal, not a failure.
+
+| Concept | Module | Added | Last recalled | Clean recalls | Status |
+|---------|--------|-------|---------------|---------------|--------|
+| | | | | 0 | queued |
+
+Status: `queued` · `re-teach` · `retired`
+
+## Deltas
+
+Program changes with the date and the reason. Refinements from `@cto-curriculum refine` land here.
+
+- REPLACE:START_DATE — program installed
+
+## Working notes
+
+Free-form. Anything durable belongs in a session log, a memo, or the ledger instead.

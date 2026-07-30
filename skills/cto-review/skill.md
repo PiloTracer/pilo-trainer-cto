@@ -7,6 +7,10 @@ description: >-
 
 # cto-review
 
+**Requires:** scaffold (`.training.cto/` exists). No waiver — run `@cto-bootstrap init` first.
+
+On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
+
 ## Parse
 
 | Invoke | Action |
@@ -111,4 +115,30 @@ Promote only with evidence, scored per `standards/assessment.md` (binding — do
 
 On success: write `.training.cto/reports/certify-YYYY-MM-DD.md`, update PROFILE readiness, HANDOFF.
 
-On failure: BLOCKED report with missing evidence paths.
+### certify-*.md shape
+
+```markdown
+# Certification — YYYY-MM-DD — <target state>
+
+## Target state
+<from → to>
+
+## Evidence
+| Requirement | Artifact path | Verdict |
+
+## Competency deltas
+| Area | From → To | Artifact justifying the move |
+
+## Not certified
+<what was claimed but not supported, and what would support it>
+
+## Next gate
+<state, and the concrete work that unlocks it>
+```
+
+Competency moves recorded here must also land in `progress/COMPETENCY.md` § *Movement log*,
+per `standards/assessment.md` — a score that rises in a report but not in the map will silently
+revert at the next review.
+
+On failure: the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`, listing the exact
+missing evidence paths. Never certify partially — a gate is met or it is not.

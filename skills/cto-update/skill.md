@@ -7,6 +7,10 @@ description: >-
 
 # cto-update
 
+**Requires:** scaffold (`.training.cto/` exists). No waiver — run `@cto-bootstrap init` first.
+
+On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
+
 ## Parse
 
 | Invoke | Action |
@@ -21,6 +25,32 @@ description: >-
 3. Research with web tools when available; add only verifiable sources via `@cto-sources` rules.
 4. Write `.training.cto/reports/update-YYYY-MM-DD.md` with themes, new sources, recommended drill/mentor focus.
 5. Update NEXT (one concrete action).
+
+## update-*.md shape
+
+```markdown
+# Update — YYYY-MM-DD
+
+## Themes (3–7)
+| Theme | Why it matters to this learner | Practice implication |
+|-------|-------------------------------|----------------------|
+
+## Sources added
+| Title | Author / URL | Status | Added to |
+
+## Recommended focus
+<one drill or mentor topic, and why it beats the alternatives>
+
+## Unverified
+<anything that could not be confirmed against a live page — kept, labelled, not silently dropped>
+
+## Nothing-changed note
+<if the field genuinely produced nothing worth acting on, say so; a thin month is a finding>
+```
+
+New sources go to `.training.cto/sources/README.md` with `Status: assigned`, and get a
+`reading` row in the active program's task ledger. A source added nowhere but this report is
+invisible by next week.
 
 ## Quality
 

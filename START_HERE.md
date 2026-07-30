@@ -106,6 +106,16 @@
 
 1. This file  
 2. [`README.md`](README.md) — bird's-eye  
-3. [`PROCESS_ROUTER.md`](PROCESS_ROUTER.md) — how-to → skill  
-4. [`skills/README.md`](skills/README.md) — registry  
-5. Active program under `.training.cto/programs/`
+3. [`PROCESS_ROUTER.md`](PROCESS_ROUTER.md) — how-to → skill, plus the binding-standards table  
+4. [`skills/README.md`](skills/README.md) — registry and canonical verbs  
+5. Active program under `.training.cto/programs/` — `PROGRAM.md`, then `progress.md` (the task ledger)
+
+Then, as needed rather than up front:
+
+| Read | When |
+|------|------|
+| [`.quick/progress.md`](.quick/progress.md) | "What have I finished and what's left?" |
+| [`.quick/gates.md`](.quick/gates.md) | Blocked on a readiness gate |
+| [`references/core-library.md`](references/core-library.md) | Looking for something to read |
+| [`drills/case-library.md`](drills/case-library.md) | Want a drill built on a real case |
+| [`standards/`](standards/) | Only the one that matches the work — the table in `PROCESS_ROUTER.md` says which |

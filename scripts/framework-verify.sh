@@ -89,7 +89,7 @@ while IFS= read -r f; do
   grep -qF "\`${slug}\`" "$CTO_ROOT/curricula/README.md" || die "curriculum ${slug} not in curricula/README.md"
   grep -qF "\`${slug}\`" "$CTO_ROOT/skills/cto-program-standard/skill.md" || die "curriculum ${slug} not in cto-program-standard catalog table"
 done < <(find "$CTO_ROOT/curricula" -maxdepth 1 -type f -name '*.md' ! -name 'README.md' | sort)
-[[ "$cur_count" -ge 7 ]] && ok "${cur_count} curricula, all SPEC-compliant and registered" || die "expected ≥7 curricula, got ${cur_count}"
+[[ "$cur_count" -ge 8 ]] && ok "${cur_count} curricula, all SPEC-compliant and registered" || die "expected ≥8 curricula, got ${cur_count}"
 
 note "References library"
 if [[ -f "$CTO_ROOT/references/core-library.md" ]] && [[ -f "$CTO_ROOT/references/README.md" ]]; then
@@ -108,6 +108,42 @@ if [[ -f "$CTO_ROOT/drills/case-library.md" ]] && [[ -f "$CTO_ROOT/drills/README
 else
   die "missing drills/ case library"
 fi
+
+note "Gate contracts"
+# Every skill with a row in the SKILL_DEPENDENCIES requirements table must declare
+# Requires:, emit the canonical BLOCKED report, and document a -y waiver if one is granted.
+deps="$CTO_ROOT/skills/SKILL_DEPENDENCIES.md"
+while IFS='|' read -r _ sid req waiver _; do
+  sid="$(echo "$sid" | tr -d '`[:space:]')"
+  [[ -z "$sid" || "$sid" == "Skill" || "$sid" =~ ^-+$ ]] && continue
+  f="$CTO_ROOT/skills/${sid}/skill.md"
+  [[ -f "$f" ]] || { die "SKILL_DEPENDENCIES lists unknown skill '${sid}'"; continue; }
+  grep -qF '**Requires:**' "$f" || die "skills/${sid} has a gate row but no '**Requires:**' line"
+  grep -qF 'BLOCKED' "$f" || die "skills/${sid} is gated but never emits the canonical BLOCKED report"
+  if echo "$waiver" | grep -q '\-y'; then
+    grep -qF -- '-y' "$f" || die "skills/${sid} is granted a -y waiver in SKILL_DEPENDENCIES but does not document it"
+  fi
+done < <(awk '/^## Skill requirements$/{flag=1; next} flag && /^## /{flag=0} flag && /^\|/{print}' "$deps")
+ok "gated skills declare Requires, BLOCKED, and their waivers"
+
+# Drill types referenced by curricula must exist in the cto-drill type table.
+while IFS= read -r dtype; do
+  grep -qF "\`${dtype}\`" "$CTO_ROOT/skills/cto-drill/skill.md" \
+    || die "drill type '${dtype}' used by a curriculum but absent from cto-drill's type table"
+done < <(grep -rhoE '\*\*Drill:\*\* `[a-z-]+`' "$CTO_ROOT/curricula" | sed 's/.*`\([a-z-]*\)`.*/\1/' | sort -u)
+ok "every drill type referenced by a curriculum is defined"
+
+note "Program folder templates"
+for t in progress.md.template notes.md.template README.md.template; do
+  [[ -f "$CTO_ROOT/templates/training/programs/$t" ]] || die "missing templates/training/programs/${t}"
+done
+grep -qF "Retrieval queue" "$CTO_ROOT/templates/training/programs/notes.md.template" \
+  || die "notes.md.template has no retrieval queue — standards/mentoring.md depends on it"
+for s in cto-program-standard cto-program-custom; do
+  grep -qF "notes.md.template" "$CTO_ROOT/skills/$s/skill.md" \
+    || die "skills/${s} does not seed notes.md from its template (retrieval queue would be missing)"
+done
+ok "program folder templates present and seeded"
 
 note "Standards are bound by a skill"
 for std in "$CTO_ROOT"/standards/*.md; do

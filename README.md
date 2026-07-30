@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/PiloTracer/pilo-trainer-cto?display_name=tag&sort=semver)](https://github.com/PiloTracer/pilo-trainer-cto/releases)
-[![Version](https://img.shields.io/badge/version-0.0.3-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.0.4-blue.svg)](CHANGELOG.md)
 
 > **Expert CTO professor / mentor** as a portable operating system: gated skills, binding standards, standard + custom programs, and learner memory under `.training.cto/`. Continuous training, consultancy, and source-backed updates — next to your real work.
 
@@ -118,7 +118,7 @@ In the **target** project chat:
 | **cto-drill** | Practical drills | `run - <type>` |
 | **cto-sources** | Curate sources | `add` · `curate` · `list` |
 | **cto-update** | Continuous refresh | `run` · `status` |
-| **cto-review** | Progress + certify | `status` · `certify` |
+| **cto-review** | Progress + certify | `status` · `tasks` · `status --full` · `certify` |
 
 Full registry: [`skills/README.md`](skills/README.md) · Router: [`PROCESS_ROUTER.md`](PROCESS_ROUTER.md)
 
@@ -129,11 +129,18 @@ Full registry: [`skills/README.md`](skills/README.md) · Router: [`PROCESS_ROUTE
 Target directory must already exist (`mkdir -p` + `git init` if it's a brand-new repo) — both scripts scaffold *into* an existing directory, neither creates the repo itself.
 
 ```bash
-# Thin-client (preferred)
+# Thin-client (preferred) — target reads skills from this source
 bash scripts/deploy-basic.sh /abs/path/to/target
 
-# Fat-client
+# Re-sync an existing thin deploy
+bash scripts/deploy-basic.sh /abs/path/to/target --update
+
+# Fat-client — target gets its own .ai.cto/ copy, works offline
 bash scripts/deploy-files.sh /abs/path/to/target
+
+# Standalone copy or backup of the framework itself
+bash scripts/deploy-repo.sh clone <url> /abs/path/to/target
+bash scripts/deploy-repo.sh archive /abs/path/to/dir
 ```
 
 Or from source chat: `@deploy-basic - /abs/path/to/target`.

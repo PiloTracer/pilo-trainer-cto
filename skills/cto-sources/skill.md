@@ -7,6 +7,10 @@ description: >-
 
 # cto-sources
 
+**Requires:** scaffold (`.training.cto/` exists). No waiver — run `@cto-bootstrap init` first.
+
+On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
+
 ## Parse
 
 | Invoke | Action |

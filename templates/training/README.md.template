@@ -2,7 +2,7 @@
 
 All CTO training, consultancy, and progress artifacts for this project live here.
 
-**Never** put learner-specific content into the framework tree (`skills/`, `curricula/`, `standards/`). Copy catalog curricula into `programs/` instead.
+**Never** put learner-specific content into the framework tree (`skills/`, `curricula/`, `standards/`, `references/`, `drills/`). Copy catalog curricula into `programs/` instead.
 
 | Path | Purpose |
 |------|---------|
@@ -11,7 +11,9 @@ All CTO training, consultancy, and progress artifacts for this project live here
 | `plans/NEXT.md` | Next action |
 | `plans/UNKNOWNS.md` | Open unknowns |
 | `plans/ASSUMPTIONS.md` | Assumption ledger |
-| `programs/` | Active / archived programs |
+| `programs/<slug>/PROGRAM.md` | The program SPEC |
+| `programs/<slug>/progress.md` | **Task ledger** — every deliverable; evidence path required to mark done |
+| `programs/<slug>/notes.md` | Retrieval queue + program deltas |
 | `sessions/` | Mentoring session logs |
 | `consultancy/` | Advisory memos |
 | `sources/` | Curated reading/video backlog |
