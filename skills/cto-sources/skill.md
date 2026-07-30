@@ -16,6 +16,15 @@ description: >-
 | `@cto-sources list` | Show backlog |
 | `@cto-sources status` | Coverage vs active program |
 
+## Start from the framework library
+
+`references/core-library.md` holds verified sources by competency area. Draw from it first and
+search the web only for genuine gaps — its *Gaps worth filling* section names the areas where
+nothing is verified yet.
+
+New material earns a place in the learner's `sources/` only after the same verification bar:
+a live public page, or an explicit **Unverified** label.
+
 ## Rules (binding — see standards/citation.md)
 
 1. Every entry needs **title** + (**author** or **URL**).

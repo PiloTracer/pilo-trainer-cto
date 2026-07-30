@@ -64,7 +64,7 @@ Default to **minimal diffs**. Prefer append/merge over overwrite.
 | Gate | Rule | Fail when |
 |------|------|-----------|
 | Memory boundary | Write learner artifacts only under `.training.cto/` | Writes outside `.training.cto/` for training/consultancy |
-| Framework integrity | Do not edit `curricula/` or `standards/` for learner-specific content | Mutating catalog instead of copying into `.training.cto/programs/` |
+| Framework integrity | Do not edit `curricula/`, `standards/`, `references/`, or `drills/` for learner-specific content | Mutating catalog instead of copying into `.training.cto/programs/` |
 | Citation honesty | Public sources need title + author or URL | Invented citations |
 | No collateral edits | Touch only files required by the task | Drive-by refactors, dependency bumps, "while I'm here" changes |
 | No-overwrite deploy | `@deploy-basic` / bootstrap skip existing files unless `--force` + explicit user intent | Silent clobber of target `.cursorrules` or learner memory |
@@ -217,7 +217,7 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
 
 | Path | Layer |
 |------|-------|
-| `skills/`, `curricula/`, `standards/`, `templates/`, `scripts/` | Framework (shared) |
+| `skills/`, `curricula/`, `standards/`, `references/`, `drills/`, `templates/`, `scripts/` | Framework (shared) |
 | `.training.cto/` | **All learner-specific memory** — profile, programs, sessions, consultancy, sources, assessments, progress |
 | `.cursorrules` | Agent contract (local) |
 | `.quick/` | Operator cheat sheets |

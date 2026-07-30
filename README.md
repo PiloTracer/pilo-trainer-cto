@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/PiloTracer/pilo-trainer-cto?display_name=tag&sort=semver)](https://github.com/PiloTracer/pilo-trainer-cto/releases)
-[![Version](https://img.shields.io/badge/version-0.0.2-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.0.3-blue.svg)](CHANGELOG.md)
 
 > **Expert CTO professor / mentor** as a portable operating system: gated skills, binding standards, standard + custom programs, and learner memory under `.training.cto/`. Continuous training, consultancy, and source-backed updates — next to your real work.
 
@@ -48,6 +48,7 @@ In the **target** project chat:
 | [`.quick/deploy-to-project.md`](.quick/deploy-to-project.md) | Thin / fat deploy |
 | [`.quick/daily-loop.md`](.quick/daily-loop.md) | Session start → train → close |
 | [`.quick/programs.md`](.quick/programs.md) | Standard + custom programs |
+| [`.quick/progress.md`](.quick/progress.md) | What's done vs pending |
 | [`.quick/skills.md`](.quick/skills.md) | All 17 skills at a glance |
 | [`.quick/gates.md`](.quick/gates.md) | Readiness states |
 
@@ -58,10 +59,13 @@ In the **target** project chat:
 | Piece | Role |
 |-------|------|
 | **17 skills** | Mentoring, consultancy, drills, programs, updates |
-| **Standards** | Mentoring quality, citation honesty, assessment, program SPECs |
+| **7 standards** | Mentoring, citation, assessment, program SPECs, decision records, metrics, anti-patterns |
+| **`references/`** | Verified source library — no empty-reading-list cold start |
+| **`drills/`** | Case library built on real public incidents and decisions |
 | **`.training.cto/`** | Learner memory (profile, programs, sessions, sources, progress) |
 | **Gates** | `profile-ready` → `assessed` → `program-active` → `mentoring-loop` |
-| **Curricula** | Seven catalog programs + custom design on request |
+| **Curricula** | Eight catalog programs + custom design on request |
+| **Task ledger** | Per-program deliverable tracking; evidence path required to mark anything done |
 
 ---
 
@@ -154,9 +158,10 @@ Target receives `.cursorrules` (`TRAINER_CTO_SOURCE`) + `.training.cto/`. **All 
 | `product-stakeholder` | Product partnership, exec/board |
 | `governance-risk` | Security, compliance, vendor, AI governance |
 | `strategy-scale` | Scale, diligence, platform bets |
+| `ai-engineering-leadership` | Leading an org through AI adoption |
 | `continuous-edge` | Ongoing updates (`@cto-update`) |
 
-Catalog: [`curricula/`](curricula/)
+Catalog: [`curricula/`](curricula/) · Cases: [`drills/`](drills/) · Sources: [`references/`](references/)
 
 ---
 

@@ -15,6 +15,16 @@ description: >-
 `@cto-drill list`  
 `@cto-drill status`
 
+## Case library first
+
+Read `drills/case-library.md` before inventing a scenario. It holds runnable cases built on
+real public incidents and decisions, each with a pre-read boundary and a time-box. Invent a
+scenario only when no case fits, and say that you are doing so.
+
+Decision-case drills are additionally bound by `standards/decision-record.md` — ≥3 options
+including a genuine defer, decision drivers, and an observable reversal trigger. Fewer than
+three options is a structural failure reported separately from the rubric average.
+
 ## Drill types
 
 | Type | Practice |
@@ -30,7 +40,7 @@ description: >-
 
 ## Protocol
 
-1. Set scenario (use PROFILE company stage; invent plausible details labeled as scenario).
+1. Select a case from `drills/case-library.md`, or set a scenario using PROFILE company stage (invent plausible details, labeled as scenario). State the pre-read boundary before the learner starts.
 2. Time-box: learner responds; professor critiques.
 3. Score against the `standards/assessment.md` drill rubric (clarity, leverage, risk, stakeholder care, learnability — each 1–5). Pass: average ≥3 and no dimension at 1.
 4. Write `.training.cto/assessments/drill-YYYY-MM-DD-<type>.md`.
@@ -60,4 +70,7 @@ description: >-
 
 ## Rules
 
-Drills are practice — not real instructions to harm systems. Keep scenarios realistic. Follow `standards/assessment.md` (binding) for rubric and pass bar.
+Drills are practice — not real instructions to harm systems. Keep scenarios realistic. Follow `standards/assessment.md` (binding) for rubric and pass bar, and report structural failures separately from the average.
+
+Never let the learner edit a decision-case record after reading the real outcome. The gap
+between the two is the entire result of the drill.

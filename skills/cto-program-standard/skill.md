@@ -27,6 +27,7 @@ description: >-
 | `product-stakeholder` | `curricula/product-stakeholder.md` |
 | `governance-risk` | `curricula/governance-risk.md` |
 | `strategy-scale` | `curricula/strategy-scale.md` |
+| `ai-engineering-leadership` | `curricula/ai-engineering-leadership.md` |
 | `continuous-edge` | `curricula/continuous-edge.md` |
 
 Resolve curricula path via `$TRAINER_CTO_SOURCE/curricula/` (thin) or local / `.ai.cto/curricula/` (fat/self-hosted).
@@ -39,7 +40,7 @@ Resolve curricula path via `$TRAINER_CTO_SOURCE/curricula/` (thin) or local / `.
 4. Create `progress.md` from `templates/training/programs/progress.md.template` and seed the **task ledger** (see below). Create an empty `notes.md`.
 5. Set PROFILE active program; readiness → `program-active`.
 6. Update NEXT → `@cto-mentor prepare` or `run`.
-7. Seed `.training.cto/sources/README.md` from every `Sources:` line in the program (one row per work, `Status: assigned`), per `standards/citation.md`. Chain `@cto-sources curate` to enrich.
+7. Seed `.training.cto/sources/README.md` from every `Sources:` line in the program (one row per work, `Status: assigned`), per `standards/citation.md`. Carry the verification status across from `references/core-library.md` rather than re-asserting it. Chain `@cto-sources curate` to enrich.
 
 ## Seeding the task ledger (binding)
 

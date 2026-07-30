@@ -90,6 +90,7 @@
 | `product-stakeholder` | Product partnership, exec/board |
 | `governance-risk` | Security, compliance, vendor, AI governance |
 | `strategy-scale` | Scale, diligence, platform bets |
+| `ai-engineering-leadership` | Leading an org through AI adoption |
 | `continuous-edge` | Ongoing updates (fed by `@cto-update`) |
 
 ---

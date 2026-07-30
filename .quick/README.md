@@ -7,6 +7,7 @@ One-page cheat sheets for operators. Prefer these when you need a command fast; 
 | [deploy-to-project.md](deploy-to-project.md) | Scaffolding into another repo |
 | [daily-loop.md](daily-loop.md) | Opening / closing a training day |
 | [programs.md](programs.md) | Installing or designing a program |
+| [progress.md](progress.md) | Checking what's done vs pending |
 | [skills.md](skills.md) | Looking up a skill invoke |
 | [gates.md](gates.md) | Blocked on a readiness gate |
 

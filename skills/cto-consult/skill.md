@@ -22,9 +22,23 @@ description: >-
 
 1. Load PROFILE + relevant program/context; ask ≤3 clarifying questions if stakes unclear.
 2. Assumption ledger (Confirmed / Inferences / Unknowns).
-3. Write memo to `.training.cto/consultancy/YYYY-MM-DD-<slug>.md`.
-4. Recommendation must include: options, tradeoffs, recommended path, risks, first 7-day actions.
-5. Update HANDOFF/NEXT.
+3. Scan `standards/anti-patterns.md` against the situation. If a pattern is present, name it in the memo and run its challenge — do not soften it into a suggestion.
+4. Write memo to `.training.cto/consultancy/YYYY-MM-DD-<slug>.md`.
+5. Recommendation must include: options, tradeoffs, recommended path, risks, first 7-day actions.
+6. Update HANDOFF/NEXT.
+
+## Binding standards
+
+| Standard | When |
+|----------|------|
+| `standards/anti-patterns.md` | Every memo — scan before recommending |
+| `standards/decision-record.md` | `review` mode; also any memo that recommends a reversible/irreversible choice |
+| `standards/metrics.md` | Any memo touching delivery measurement, productivity, or a board metrics question |
+| `standards/citation.md` | Any external claim |
+
+`review` mode scores the decision against the gates in `standards/decision-record.md` —
+options, drivers, consequences, reversal trigger, self-consistency — and reports structural
+failures separately from overall quality.
 
 ## Memo shape
 

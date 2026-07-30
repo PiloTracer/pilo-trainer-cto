@@ -75,10 +75,48 @@ note "Curricula catalog"
 cur_count=0
 while IFS= read -r f; do
   cur_count=$((cur_count + 1))
+  base="$(basename "$f")"
   lines="$(wc -l < "$f")"
-  [[ "$lines" -gt 10 ]] || die "curriculum $(basename "$f") too short"
+  [[ "$lines" -gt 10 ]] || die "curriculum ${base} too short"
+  # program-spec.md required sections
+  for sec in "## Audience / level assumptions" "## Outcomes" "## Duration & cadence" \
+    "## Modules" "## Exit criteria"; do
+    grep -qF "$sec" "$f" || die "curriculum ${base} missing required SPEC section '${sec}'"
+  done
+  grep -qE '^## Assessment' "$f" || die "curriculum ${base} missing an Assessment section"
+  # every catalog file must be registered
+  slug="${base%.md}"
+  grep -qF "\`${slug}\`" "$CTO_ROOT/curricula/README.md" || die "curriculum ${slug} not in curricula/README.md"
+  grep -qF "\`${slug}\`" "$CTO_ROOT/skills/cto-program-standard/skill.md" || die "curriculum ${slug} not in cto-program-standard catalog table"
 done < <(find "$CTO_ROOT/curricula" -maxdepth 1 -type f -name '*.md' ! -name 'README.md' | sort)
-[[ "$cur_count" -ge 7 ]] && ok "${cur_count} curricula" || die "expected ≥7 curricula, got ${cur_count}"
+[[ "$cur_count" -ge 7 ]] && ok "${cur_count} curricula, all SPEC-compliant and registered" || die "expected ≥7 curricula, got ${cur_count}"
+
+note "References library"
+if [[ -f "$CTO_ROOT/references/core-library.md" ]] && [[ -f "$CTO_ROOT/references/README.md" ]]; then
+  grep -qF "Verified" "$CTO_ROOT/references/core-library.md" || die "references/core-library.md has no verification markers"
+  grep -qF "Gaps worth filling" "$CTO_ROOT/references/core-library.md" || die "references/core-library.md missing the gaps section"
+  ok "references/ present with verification status"
+else
+  die "missing references/ library (agents would invent reading lists)"
+fi
+
+note "Drill case library"
+if [[ -f "$CTO_ROOT/drills/case-library.md" ]] && [[ -f "$CTO_ROOT/drills/README.md" ]]; then
+  grep -qF "Pre-read boundary" "$CTO_ROOT/drills/case-library.md" || die "drills/case-library.md missing pre-read boundaries"
+  grep -qF "case-library" "$CTO_ROOT/skills/cto-drill/skill.md" || die "skills/cto-drill does not reference the case library"
+  ok "drills/ present and wired into cto-drill"
+else
+  die "missing drills/ case library"
+fi
+
+note "Standards are bound by a skill"
+for std in "$CTO_ROOT"/standards/*.md; do
+  name="$(basename "$std" .md)"
+  if ! grep -rqF "standards/${name}.md" "$CTO_ROOT/skills" ; then
+    die "standard ${name}.md is orphaned — no skill references it"
+  fi
+done
+ok "every standard is referenced by at least one skill"
 
 note "Task ledger contract"
 LEDGER_TPL="templates/training/programs/progress.md.template"
@@ -118,6 +156,18 @@ bash "$CTO_ROOT/scripts/deploy-basic.sh" "$SMOKE" || die "deploy-basic failed"
 grep -q "TRAINER_CTO_SOURCE=$CTO_ROOT" "$SMOKE/.cursorrules" || die "smoke pointer wrong"
 ok "deploy-basic smoke → $SMOKE"
 rm -rf "$SMOKE"
+
+note "Fat deploy smoke (framework assets must travel)"
+SMOKEF="$(mktemp -d)"
+if bash "$CTO_ROOT/scripts/deploy-files.sh" "$SMOKEF" &>/dev/null; then
+  for d in skills curricula standards references drills templates; do
+    [[ -d "$SMOKEF/.ai.cto/$d" ]] || die "fat-client smoke missing .ai.cto/${d}"
+  done
+  ok "deploy-files smoke carries every framework directory → $SMOKEF"
+else
+  die "deploy-files failed"
+fi
+rm -rf "$SMOKEF"
 
 note "Standalone cto-bootstrap init smoke (thin-client via explicit source arg)"
 SMOKE2="$(mktemp -d)"

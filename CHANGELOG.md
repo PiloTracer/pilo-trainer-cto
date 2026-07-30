@@ -1,5 +1,24 @@
 # Changelog
 
+## v0.0.3 — 2026-07-30
+
+**Ten improvements to training quality.** Every source added here was checked against a live
+public page; anything unconfirmed is labelled Unverified rather than dropped or asserted.
+
+1. **`references/` source library** — verified sources by competency area, ending the cold start where every learner began with an empty reading list and the agent improvised one
+2. **`standards/decision-record.md`** — Nygard's five sections plus the MADR additions, requiring ≥3 options with a genuine defer, decision drivers, and an observable reversal trigger. Two-option records are now a named structural failure
+3. **`drills/case-library.md`** — ten runnable cases built on real public incidents and decisions, each with a pre-read boundary and time-box, replacing scenario improvisation
+4. **Retrieval-based session openings** — sessions now begin closed-book, with a spaced retrieval queue, grounded in the spacing and retrieval-practice literature rather than intuition
+5. **`standards/metrics.md`** — DORA four keys and SPACE, with the corrections a professor should make on sight: the Elite tier disappeared in 2022, reliability was added as a fifth metric in 2021, and change fail rate resists compositing
+6. **Pace detection in `@cto-review status`** — computes required against actual delivery rate, says plainly when a gate has become unreachable at the current budget, and ranks risk by external clock rather than by size of gap
+7. **Anchored competency levels** — 1–5 now means something: scope of effect and whether the behaviour survives pressure. Self-report caps at 3; 3 → 4 needs a second context. Score movement is logged with its artifact
+8. **`standards/anti-patterns.md`** — a catalogue of CTO failure modes with the tell and the challenge for each, so "correct the learner" has something concrete behind it
+9. **`ai-engineering-leadership` curriculum** — built on DORA's 2025 amplifier finding: AI magnifies existing strengths and existing dysfunction alike
+10. **Curricula rebuilt on verified frameworks** — Team Topologies, NIST CSF 2.0, DORA/SPACE, ADR practice. All eight catalog programs now satisfy `program-spec.md`, enforced in `framework-verify.sh`
+
+Also: verify now fails on an orphaned standard, an unregistered curriculum, a curriculum missing
+a SPEC section, or a fat-client deploy that drops a framework directory.
+
 ## v0.0.2 — 2026-07-30
 
 **Task ledger — progress is now reportable.**

@@ -9,6 +9,10 @@ description: >-
 
 **Requires:** profile-ready (or `-y` waiver logged in HANDOFF).
 
+Score against the level anchors in `standards/assessment.md` — scope of effect and whether the
+behaviour survives pressure — not a bare 1–5 impression. Self-report caps every area at 3 until
+a drill artifact exists for it, and 3 → 4 requires evidence from a second context.
+
 ## Parse
 
 | Invoke | Action |

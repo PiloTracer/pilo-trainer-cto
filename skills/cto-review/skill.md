@@ -46,6 +46,38 @@ unreadable walls of text.
 <2–4 sentences: pace against remaining time, and the single biggest risk.>
 ```
 
+### Pace check (compute before writing the Assessment)
+
+```text
+required = (total_deliverables - done) / weeks_remaining
+actual   = done / weeks_elapsed
+```
+
+| Condition | Report |
+|-----------|--------|
+| `actual >= required` | On pace — say so in one clause, no praise |
+| `actual < required` | **Behind by <n> deliverables.** State what per-week rate now clears the gate, and whether that fits the ratified weekly budget in `{PROFILE}` |
+| `required > budget_allows` | **The gate is no longer reachable at the current budget.** Say it plainly and offer the three options: raise the budget, cut scope, or move the date |
+
+Deferred tasks are excluded from both sides — they are not slippage.
+
+A learner one week in with one deliverable is not "on track" merely because the deadline is
+far away; report the rate, not the comfort. Equally, do not manufacture alarm in week one when
+the rate is fine.
+
+### Risk ranking
+
+The Assessment names **one** biggest risk. Rank by this order, not by what is furthest behind:
+
+1. A deliverable with an external clock attached (income, board date, contract) that has not been started
+2. A deliverable every other pending item depends on
+3. The largest `Done/Total` gap
+4. Untouched reading feeding an imminent drill
+
+Say which item and why it outranks the others. Check `standards/anti-patterns.md`
+§ *Training-specific* — comfortable drilling and reading-as-progress are the two failure modes
+a pace check alone will miss.
+
 ### Rules
 
 - **Nothing outside that shape** unless `--full`. No competency table, no unknowns dump, no memo recap, no artifact inventory.

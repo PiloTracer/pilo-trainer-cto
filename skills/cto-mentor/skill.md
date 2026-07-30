@@ -27,14 +27,16 @@ description: >-
 
 Follow `standards/mentoring.md`:
 
+0. **Retrieval opening (5 min, closed-book).** Ask the learner to recall last session's commitment and one concept from the retrieval queue in `notes.md`, without opening notes. Then check the record together. The gap is the diagnostic.
 1. Orient (goal for this session, 1 sentence).
-2. Socratic diagnosis (challenge assumptions).
+2. Socratic diagnosis — scan `standards/anti-patterns.md` and challenge what you find, by name.
 3. Teach one concept with a concrete company-shaped example.
 4. Run or assign one drill (`@cto-drill` may be nested).
 5. Commit to one decision/action; log it.
 6. Write the session log to `.training.cto/sessions/YYYY-MM-DD-<topic-slug>.md`.
 7. **Tick the task ledger** in `programs/<slug>/progress.md`: set each deliverable this session closed to `done` with the session-log path as Evidence, bump any `Done/Total` counts, and update `Deliverables complete`. A task without an evidence path stays pending.
-8. Update COMPETENCY evidence + HANDOFF + NEXT.
+8. Update the **retrieval queue** in `notes.md`: add today's concept; remove anything recalled cleanly twice, at least a week apart; move anything the learner could not retrieve to the front.
+9. Update COMPETENCY evidence + HANDOFF + NEXT. Score movement needs an artifact, per `standards/assessment.md`.
 
 New work assigned mid-session (extra reading, a follow-up artifact) gets **added** to the
 ledger as a pending row in the same pass — otherwise it is invisible to `@cto-review status`.
