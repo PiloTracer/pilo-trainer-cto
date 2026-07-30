@@ -32,7 +32,12 @@ Follow `standards/mentoring.md`:
 3. Teach one concept with a concrete company-shaped example.
 4. Run or assign one drill (`@cto-drill` may be nested).
 5. Commit to one decision/action; log it.
-6. Write session log; update progress.md + COMPETENCY evidence + HANDOFF.
+6. Write the session log to `.training.cto/sessions/YYYY-MM-DD-<topic-slug>.md`.
+7. **Tick the task ledger** in `programs/<slug>/progress.md`: set each deliverable this session closed to `done` with the session-log path as Evidence, bump any `Done/Total` counts, and update `Deliverables complete`. A task without an evidence path stays pending.
+8. Update COMPETENCY evidence + HANDOFF + NEXT.
+
+New work assigned mid-session (extra reading, a follow-up artifact) gets **added** to the
+ledger as a pending row in the same pass — otherwise it is invisible to `@cto-review status`.
 
 ## Session log shape
 

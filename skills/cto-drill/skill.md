@@ -34,7 +34,8 @@ description: >-
 2. Time-box: learner responds; professor critiques.
 3. Score against the `standards/assessment.md` drill rubric (clarity, leverage, risk, stakeholder care, learnability — each 1–5). Pass: average ≥3 and no dimension at 1.
 4. Write `.training.cto/assessments/drill-YYYY-MM-DD-<type>.md`.
-5. Update COMPETENCY evidence if strong (score-backed, per `standards/assessment.md` — do not award 4–5 without evidence).
+5. **Tick the task ledger** in the active `programs/<slug>/progress.md`: mark the matching drill row `done` with this file as Evidence, or bump its `Done/Total`. A failed drill stays `in-progress` — record the score, do not mark it done.
+6. Update COMPETENCY evidence if strong (score-backed, per `standards/assessment.md` — do not award 4–5 without evidence).
 
 ## drill-*.md shape
 

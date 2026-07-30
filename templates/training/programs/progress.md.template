@@ -1,0 +1,36 @@
+# Progress — REPLACE:PROGRAM_SLUG
+
+**Program started:** REPLACE:START_DATE · **Last updated:** REPLACE:START_DATE  
+**Current module:** REPLACE:CURRENT_MODULE
+
+## Modules
+
+| Module | Status | Evidence | Date |
+|--------|--------|----------|------|
+| REPLACE:MODULE_ROWS | pending | | |
+
+Module status: `pending` · `in-progress` · `pass` · `deferred`.
+
+## Task ledger
+
+One row per assigned deliverable. Counted exit-check items (e.g. "≥3 ADRs") get a single
+row with `Done/Total` — do not split them into separate rows.
+
+`done` requires a real Evidence path under `.training.cto/`. No path, not done.
+
+| ID | Task | Type | Module | Done/Total | Status | Evidence |
+|----|------|------|--------|-----------|--------|----------|
+| T1 | REPLACE:FIRST_TASK | drill | M1 | 0/1 | pending | |
+
+Type: `reading` · `drill` · `artifact` · `review` · `decision`  
+Status: `pending` · `in-progress` · `done` · `dropped` (dropped needs a one-line reason in `notes.md`)
+
+**Deliverables complete:** 0 of REPLACE:TOTAL_TASKS
+
+## Deferred
+
+Tasks parked by design (blocked premise, not learner slippage) with the unblocking condition.
+
+| ID | Task | Deferred until |
+|----|------|----------------|
+| | | |

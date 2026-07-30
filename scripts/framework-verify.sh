@@ -80,6 +80,29 @@ while IFS= read -r f; do
 done < <(find "$CTO_ROOT/curricula" -maxdepth 1 -type f -name '*.md' ! -name 'README.md' | sort)
 [[ "$cur_count" -ge 7 ]] && ok "${cur_count} curricula" || die "expected ≥7 curricula, got ${cur_count}"
 
+note "Task ledger contract"
+LEDGER_TPL="templates/training/programs/progress.md.template"
+if [[ -f "$CTO_ROOT/$LEDGER_TPL" ]]; then
+  ok "$LEDGER_TPL present"
+  for hdr in "## Task ledger" "Done/Total" "Deliverables complete"; do
+    grep -qF "$hdr" "$CTO_ROOT/$LEDGER_TPL" || die "$LEDGER_TPL missing '${hdr}'"
+  done
+else
+  die "missing $LEDGER_TPL (task ledger schema)"
+fi
+
+for s in cto-program-standard cto-program-custom; do
+  grep -qF "progress.md.template" "$CTO_ROOT/skills/$s/skill.md" \
+    || die "skills/${s} does not seed the ledger from $LEDGER_TPL"
+done
+for s in cto-mentor cto-drill; do
+  grep -qF "task ledger" "$CTO_ROOT/skills/$s/skill.md" \
+    || die "skills/${s} does not update the task ledger (status would go stale)"
+done
+grep -qF "progress.md" "$CTO_ROOT/skills/cto-review/skill.md" \
+  || die "skills/cto-review does not read progress.md as its status source"
+ok "ledger seeded by program skills, ticked by mentor/drill, read by review"
+
 note ".cursorrules / template sync"
 if diff -q "$CTO_ROOT/.cursorrules" "$CTO_ROOT/templates/cursorrules.template" &>/dev/null; then
   ok ".cursorrules matches templates/cursorrules.template"
