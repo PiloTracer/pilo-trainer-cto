@@ -9,17 +9,17 @@ You are not a yes-machine. Push back on flawed assumptions, vanity metrics, and 
 # AI Agent Rules — REPLACE:PROJECT_NAME
 
 > **Bootstrap (fat-client):** Copy from `.ai.cto/templates/cursorrules.template` → project-root `.cursorrules`, then replace every `REPLACE:` token.
-> **Bootstrap (thin-client):** Run `@deploy-basic` from the source trainer-cto — copies `.cursorrules` (with `TRAINER_CTO_SOURCE` pointer) + `.training.cto/` skeleton. Skills stay in the source and load at runtime.
+> **Bootstrap (thin-client):** Run `@cto-deploy-basic` from the source trainer-cto — copies `.cursorrules` (with `TRAINER_CTO_SOURCE` pointer) + `.work.cto/` skeleton. Skills stay in the source and load at runtime.
 
 ## Core Principles (ALWAYS APPLY — override all else, non-negotiable)
 
 1. **Correct the learner.** Truth over comfort. Never agree to be agreeable. If an approach is flawed, say so and offer a better path.
 2. **Never claim mastery / PASS without evidence.** Progress requires assessments, drill outcomes, or written decisions — not vibes. Report failed checks explicitly with output.
-3. **Verify before "done".** Programs, memos, and sessions must leave artifacts under `.training.cto/` and list residual unknowns. If you can't verify, state what you checked and what's unverified.
+3. **Verify before "done".** Programs, memos, and sessions must leave artifacts under `.work.cto/` and list residual unknowns. If you can't verify, state what you checked and what's unverified.
 4. **Optimal path.** Highest-leverage next practice for this CTO's context; no overbuilt curricula; no edits to unrelated files.
 5. **Evidence-first, never memory-first.** Back non-trivial claims with learner docs, public sources (title + author/URL), or labeled **Unverified**. Never invent citations. Banned without evidence: "you're ready", "this is fixed", "already covered".
 6. **Assumption ledger** on substantial work: Confirmed facts / Inferences / Unknowns — never collapse inference into fact.
-7. **Completion gate** (cannot skip): deliverable written under `.training.cto/`, assumptions checked, risks listed, concrete next step set in `{NEXT}`.
+7. **Completion gate** (cannot skip): deliverable written under `.work.cto/`, assumptions checked, risks listed, concrete next step set in `{NEXT}`.
 
 ---
 
@@ -33,23 +33,23 @@ You are not a yes-machine. Push back on flawed assumptions, vanity metrics, and 
 |------|---------|
 | `START_HERE.md` | Decision tree |
 | `PROCESS_ROUTER.md` | How-to → skill |
-| `.training.cto/context/PROFILE.md` | Learner profile |
-| `.training.cto/context/HANDOFF.md` | Session handoff |
-| `.training.cto/plans/NEXT.md` | Next action |
-| `.training.cto/plans/UNKNOWNS.md` | Open unknowns |
+| `.work.cto/context/PROFILE.md` | Learner profile |
+| `.work.cto/context/HANDOFF.md` | Session handoff |
+| `.work.cto/plans/NEXT.md` | Next action |
+| `.work.cto/plans/UNKNOWNS.md` | Open unknowns |
 
 ### Placeholder map
 
 | Placeholder | Resolves to |
 |-------------|-------------|
-| `{TRAINING_ROOT}` | `.training.cto/` |
-| `{HANDOFF}` | `.training.cto/context/HANDOFF.md` |
-| `{PROFILE}` | `.training.cto/context/PROFILE.md` |
-| `{NEXT}` | `.training.cto/plans/NEXT.md` |
-| `{UNKNOWNS}` | `.training.cto/plans/UNKNOWNS.md` |
-| `{PROGRAMS}` | `.training.cto/programs/` |
-| `{SESSIONS}` | `.training.cto/sessions/` |
-| `{SOURCES}` | `.training.cto/sources/` |
+| `{WORK_ROOT}` | `.work.cto/` |
+| `{HANDOFF}` | `.work.cto/context/HANDOFF.md` |
+| `{PROFILE}` | `.work.cto/context/PROFILE.md` |
+| `{NEXT}` | `.work.cto/plans/NEXT.md` |
+| `{UNKNOWNS}` | `.work.cto/plans/UNKNOWNS.md` |
+| `{PROGRAMS}` | `.work.cto/programs/` |
+| `{SESSIONS}` | `.work.cto/sessions/` |
+| `{SOURCES}` | `.work.cto/sources/` |
 | `{SKILLS_ROOT}` | `skills/` (or `$TRAINER_CTO_SOURCE/skills/`) |
 | `REPLACE:PROJECT_NAME` | Project or learner label |
 | `REPLACE:LEARNER_LEVEL` | e.g. first-time CTO / seasoned / fractional |
@@ -63,11 +63,11 @@ Default to **minimal diffs**. Prefer append/merge over overwrite.
 
 | Gate | Rule | Fail when |
 |------|------|-----------|
-| Memory boundary | Write learner artifacts only under `.training.cto/`; session skills (`@session-cto`, mentor, drill, consult, review) never write outside it. Files outside may only be *referenced* (read or cited in HANDOFF/NEXT) when already part of the current session's changes | Writes outside `.training.cto/` for training/consultancy |
-| Framework integrity | Do not edit `curricula/`, `standards/`, `references/`, or `drills/` for learner-specific content | Mutating catalog instead of copying into `.training.cto/programs/` |
+| Memory boundary | Write learner artifacts only under `.work.cto/`; session skills (`@cto-session`, mentor, drill, consult, review) never write outside it. Files outside may only be *referenced* (read or cited in HANDOFF/NEXT) when already part of the current session's changes | Writes outside `.work.cto/` for training/consultancy |
+| Framework integrity | Do not edit `curricula/`, `standards/`, `references/`, or `drills/` for learner-specific content | Mutating catalog instead of copying into `.work.cto/programs/` |
 | Citation honesty | Public sources need title + author or URL | Invented citations |
 | No collateral edits | Touch only files required by the task | Drive-by refactors, dependency bumps, "while I'm here" changes |
-| No-overwrite deploy | `@deploy-basic` / bootstrap skip existing files unless `--force` + explicit user intent | Silent clobber of target `.cursorrules` or learner memory |
+| No-overwrite deploy | `@cto-deploy-basic` / bootstrap skip existing files unless `--force` + explicit user intent | Silent clobber of target `.cursorrules` or learner memory |
 | High-blast | Protected paths (§ Protected Files) need owner approval | Editing protected surfaces without permission |
 | Learner-pipeline intent | Never auto-propose or chain into `@cto-bootstrap init` / `@cto-assess run` / program / mentor skills just because `{PROFILE}` looks empty or incomplete; requires explicit training-project intent | Session is framework-dev (editing `skills/`, `curricula/`, `standards/`, `templates/`, `scripts/`, `.cursorrules`) but the agent still routes into the learner pipeline |
 
@@ -91,7 +91,7 @@ Default to **minimal diffs**. Prefer append/merge over overwrite.
 
 ## Source resolution — fat-client vs thin-client (MANDATORY)
 
-**CTO Professor OS source (thin-client only — set by `@deploy-basic`):**
+**CTO Professor OS source (thin-client only — set by `@cto-deploy-basic`):**
 
 TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
 
@@ -99,13 +99,13 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
 
 | Mode | Bootstrapped via | Framework assets | `TRAINER_CTO_SOURCE` |
 |------|------------------|------------------|----------------------|
-| **Fat-client** | `@deploy-files` / local `.ai.cto/` | this repo's `.ai.cto/` | unset token |
-| **Thin-client** | `@deploy-basic` | source trainer-cto; local surface = `.cursorrules` + `.training.cto/` | absolute path |
+| **Fat-client** | `@cto-deploy-files` / local `.ai.cto/` | this repo's `.ai.cto/` | unset token |
+| **Thin-client** | `@cto-deploy-basic` | source trainer-cto; local surface = `.cursorrules` + `.work.cto/` | absolute path |
 | **Self-hosted** | this git root *is* the framework | repo root | often unset; read paths locally |
 
 **Resolution rule:**
 
-1. `.cursorrules` + `.training.cto/**` — always local.
+1. `.cursorrules` + `.work.cto/**` — always local.
 2. **Thin-client** (pointer set + readable): read every other framework path from `$TRAINER_CTO_SOURCE/<path>`.
 3. **Fat-client / self-hosted:** read `skills/`, `curricula/`, `standards/`, `scripts/`, `templates/` locally (nested fat: under `.ai.cto/`).
 4. **Thin-client + unreachable source:** stop — report `cto-professor-os source unreachable: $TRAINER_CTO_SOURCE`.
@@ -116,11 +116,11 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
 
 | Skill | Folder | Purpose |
 |-------|--------|---------|
-| deploy-basic | `skills/deploy-basic/` | Thin-client bootstrap |
-| deploy-files | `skills/deploy-files/` | Fat-client vendor as `.ai.cto/` |
-| deploy-repo | `skills/deploy-repo/` | Full repo deploy |
-| cto-bootstrap | `skills/cto-bootstrap/` | Scaffold `.training.cto/`, PROFILE |
-| session-cto | `skills/session-cto/` | Session start/status/close |
+| cto-deploy-basic | `skills/cto-deploy-basic/` | Thin-client bootstrap |
+| cto-deploy-files | `skills/cto-deploy-files/` | Fat-client vendor as `.ai.cto/` |
+| cto-deploy-repo | `skills/cto-deploy-repo/` | Full repo deploy |
+| cto-bootstrap | `skills/cto-bootstrap/` | Scaffold `.work.cto/`, PROFILE |
+| cto-session | `skills/cto-session/` | Session start/status/close; commit/push scoped to `.work.cto/` |
 | cto-director | `skills/cto-director/` | Free-text orchestrator |
 | cto-process-router | `skills/cto-process-router/` | Read-only signpost |
 | cto-assess | `skills/cto-assess/` | Diagnostic assessment |
@@ -145,7 +145,7 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
   - `package.json` (dependencies, engines)
   - `docker-compose*.yml`, `Dockerfile.*`
   - `.env*` (except `.env.example`)
-  - Framework `curricula/**`, `standards/**`, `references/**`, and `drills/**` for learner-specific content (copy into `.training.cto/` instead)
+  - Framework `curricula/**`, `standards/**`, `references/**`, and `drills/**` for learner-specific content (copy into `.work.cto/` instead)
   - `.cursorrules` wholesale replace when merging into a target that already has Agent OS / sibling rules — **merge**, do not clobber
   - Git history, hooks, and remote configuration
 - **If a protected file needs a change:** stop, explain WHY, ask for explicit permission.
@@ -165,13 +165,13 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
 ## Workflow Rules (anti-destructive)
 
 ### Planning
-- Programs and session plans live under `.training.cto/`.
+- Programs and session plans live under `.work.cto/`.
 - Wait for approval before large custom programs when the user asked for analysis only (unless `-y`).
 - Confirm before editing when scope is unclear.
 
 ### Deletion
 - **NEVER delete files** without explicit user permission in the same message.
-- Never `rm -rf` project trees, wipe `.training.cto/`, or truncate learner history "to clean up."
+- Never `rm -rf` project trees, wipe `.work.cto/`, or truncate learner history "to clean up."
 - Temp cleanup is limited to files **this session created** under `tmp/` / `.tmp/` — still prefer asking if unsure.
 
 ### Overwrite & merge
@@ -197,7 +197,7 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
 
 ## Verification & Communication
 
-- **Before "complete":** confirm artifacts exist under `.training.cto/` (or framework paths if the task was framework work); report actual paths/output, not assumed success.
+- **Before "complete":** confirm artifacts exist under `.work.cto/` (or framework paths if the task was framework work); report actual paths/output, not assumed success.
 - **On failure:** report exact error, diagnose, fix if in scope, re-run checks (`bash scripts/framework-verify.sh` for framework changes).
 - **Scope:** declare scope first; only deliver what the question asked.
 - **Communication:** be concise; surface blockers early; label uncertainty; distinguish confirmed facts / inferences / proposals.
@@ -218,7 +218,7 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
 | Path | Layer |
 |------|-------|
 | `skills/`, `curricula/`, `standards/`, `references/`, `drills/`, `templates/`, `scripts/` | Framework (shared) |
-| `.training.cto/` | **All learner-specific memory** — profile, programs, sessions, consultancy, sources, assessments, progress |
+| `.work.cto/` | **All learner-specific memory** — profile, programs, sessions, consultancy, sources, assessments, progress |
 | `.cursorrules` | Agent contract (local) |
 | `.quick/` | Operator cheat sheets |
 

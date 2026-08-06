@@ -186,11 +186,11 @@ fi
 
 note "Thin deploy smoke"
 SMOKE="$(mktemp -d)"
-bash "$CTO_ROOT/scripts/deploy-basic.sh" "$SMOKE" || die "deploy-basic failed"
+bash "$CTO_ROOT/scripts/deploy-basic.sh" "$SMOKE" || die "cto-deploy-basic failed"
 [[ -f "$SMOKE/.cursorrules" ]] || die "smoke missing .cursorrules"
-[[ -d "$SMOKE/.training.cto/context" ]] || die "smoke missing .training.cto"
+[[ -d "$SMOKE/.work.cto/context" ]] || die "smoke missing .work.cto"
 grep -q "TRAINER_CTO_SOURCE=$CTO_ROOT" "$SMOKE/.cursorrules" || die "smoke pointer wrong"
-ok "deploy-basic smoke → $SMOKE"
+ok "cto-deploy-basic smoke → $SMOKE"
 rm -rf "$SMOKE"
 
 note "Fat deploy smoke (framework assets must travel)"
@@ -199,9 +199,9 @@ if bash "$CTO_ROOT/scripts/deploy-files.sh" "$SMOKEF" &>/dev/null; then
   for d in skills curricula standards references drills templates; do
     [[ -d "$SMOKEF/.ai.cto/$d" ]] || die "fat-client smoke missing .ai.cto/${d}"
   done
-  ok "deploy-files smoke carries every framework directory → $SMOKEF"
+  ok "cto-deploy-files smoke carries every framework directory → $SMOKEF"
 else
-  die "deploy-files failed"
+  die "cto-deploy-files failed"
 fi
 rm -rf "$SMOKEF"
 

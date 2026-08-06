@@ -25,11 +25,11 @@ Catalog files: [`curricula/`](../curricula/) · Cases: [`drills/case-library.md`
 ## What install creates
 
 ```text
-.training.cto/programs/<slug>/
+.work.cto/programs/<slug>/
   PROGRAM.md    # the SPEC
   progress.md   # task ledger — every deliverable, evidence path required to mark done
   notes.md      # retrieval queue + deltas
 ```
 
-Sources are seeded into `.training.cto/sources/` at the same time. Check standing with
+Sources are seeded into `.work.cto/sources/` at the same time. Check standing with
 `@cto-review status` — see [`progress.md`](progress.md).

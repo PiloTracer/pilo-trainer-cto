@@ -41,7 +41,7 @@ __pycache__/
 *.pyc
 
 # Working drafts (not tracked)
-.training.cto/local/
+.work.cto/local/
 **/drafts/*.docx
 **/drafts/*.pdf
 
@@ -55,3 +55,4 @@ Thumbs.db
 # Cursor/AI local config
 .cursor/mcp.json
 AI_RULES.md
+reasonix.toml

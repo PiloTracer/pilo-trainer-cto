@@ -26,7 +26,7 @@ fi
 
 DEST_AI="${DEST_ROOT}/.ai.cto"
 
-echo "=== deploy-files (CTO Professor OS fat-client) → $DEST_AI ==="
+echo "=== cto-deploy-files (CTO Professor OS fat-client) → $DEST_AI ==="
 echo "  source: $CTO_ROOT"
 
 if [[ -d "$DEST_AI" ]] && [[ "$FORCE" -ne 1 ]]; then
@@ -37,7 +37,7 @@ fi
 mkdir -p "$DEST_AI"
 rsync -a --delete \
   --exclude '.git/' \
-  --exclude '.training.cto/' \
+  --exclude '.work.cto/' \
   --exclude 'tmp/' \
   --exclude '.tmp/' \
   --exclude '.credentials/' \
@@ -61,4 +61,4 @@ fi
 
 echo ""
 echo "=== Done: fat-client → $DEST_AI ==="
-echo "Next: fill REPLACE: tokens · @session-cto start · @cto-bootstrap init"
+echo "Next: fill REPLACE: tokens · @cto-session start · @cto-bootstrap init"

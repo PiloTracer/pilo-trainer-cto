@@ -22,4 +22,4 @@ Binding for `@cto-program-standard`, `@cto-program-custom`, `@cto-curriculum`.
 
 ## Storage
 
-Only under `.training.cto/programs/<slug>/`. Framework `curricula/` is read-only catalog.
+Only under `.work.cto/programs/<slug>/`. Framework `curricula/` is read-only catalog.

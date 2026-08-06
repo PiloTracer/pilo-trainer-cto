@@ -1,9 +1,9 @@
 # Daily training loop
 
 ```text
-@session-cto start
+@cto-session start
 @cto-mentor run          # or @cto-drill run - <type> / @cto-consult memo - <topic>
-@session-cto close
+@cto-session close       # add flags to also version .work.cto/: close commit [push]
 ```
 
 | Need | Command |

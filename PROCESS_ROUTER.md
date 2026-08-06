@@ -5,7 +5,7 @@
 | You want to… | Run |
 |--------------|-----|
 | Scaffold learner memory | `@cto-bootstrap init` |
-| Open / close a training day | `@session-cto start` / `close` |
+| Open / close a training day | `@cto-session start` / `close` (add `commit` / `push` to close with git) |
 | Describe a goal in plain language | `@cto-director - <text>` |
 | Diagnose level and gaps | `@cto-assess run` |
 | List catalog programs | `@cto-program-standard list` |
@@ -22,10 +22,10 @@
 | Add or curate sources | `@cto-sources add` / `curate` — start from [`references/core-library.md`](references/core-library.md) |
 | Refresh continuous learning | `@cto-update run` |
 | Check gates / progress | `@cto-review status` / `certify` |
-| Deploy into another project | `@deploy-basic - /path` |
-| Re-sync an existing deploy | `@deploy-basic - /path --update` |
-| Vendor framework into project | `@deploy-files copy - /path` |
-| Standalone copy or backup of the framework | `@deploy-repo clone - <url> <target>` / `archive - <dir>` |
+| Deploy into another project | `@cto-deploy-basic - /path` |
+| Re-sync an existing deploy | `@cto-deploy-basic - /path --update` |
+| Vendor framework into project | `@cto-deploy-files copy - /path` |
+| Standalone copy or backup of the framework | `@cto-deploy-repo clone - <url> <target>` / `archive - <dir>` |
 
 **Engineering / UI / biz work?** Route to `@ai-director`, `@ui-director`, `@biz-director`, or `@x-director` — not CTO Professor skills.
 

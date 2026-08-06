@@ -7,7 +7,7 @@ profile-ready → assessed → program-active → mentoring-loop
 
 | State | Unlock with | Evidence |
 |-------|-------------|----------|
-| scaffold | `@cto-bootstrap init` | `.training.cto/` exists |
+| scaffold | `@cto-bootstrap init` | `.work.cto/` exists |
 | profile-ready | Fill `{PROFILE}` | Role + goal filled |
 | assessed | `@cto-assess run` | `assessments/baseline.md` |
 | program-active | `@cto-program-standard install` or `@cto-program-custom` | `programs/<slug>/PROGRAM.md` |

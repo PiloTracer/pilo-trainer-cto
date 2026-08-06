@@ -25,4 +25,4 @@ Optional: year, format (book/article/talk/docs), Why (1 line).
 
 ## Storage
 
-Learner curation lives in `.training.cto/sources/`. Framework curricula may list well-known works by title + author; agents must not invent additional “classic” titles without verification.
+Learner curation lives in `.work.cto/sources/`. Framework curricula may list well-known works by title + author; agents must not invent additional “classic” titles without verification.

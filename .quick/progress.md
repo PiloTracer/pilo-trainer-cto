@@ -10,14 +10,14 @@
 
 ## Where it comes from
 
-One file: `.training.cto/programs/<slug>/progress.md` — the **task ledger**. Every assigned
+One file: `.work.cto/programs/<slug>/progress.md` — the **task ledger**. Every assigned
 deliverable is a row. Counted items ("≥3 ADRs") stay one row with `Done/Total`.
 
 If status looks wrong, fix the ledger, not the report.
 
 ## The done rule
 
-`done` requires an evidence path under `.training.cto/`. No path, not done — regardless of what
+`done` requires an evidence path under `.work.cto/`. No path, not done — regardless of what
 a session log says. A book with no filed notes is `reading`, not `read`.
 
 ## What updates it

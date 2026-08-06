@@ -16,7 +16,7 @@ Module status: `pending` · `in-progress` · `pass` · `deferred`.
 One row per assigned deliverable. Counted exit-check items (e.g. "≥3 ADRs") get a single
 row with `Done/Total` — do not split them into separate rows.
 
-`done` requires a real Evidence path under `.training.cto/`. No path, not done.
+`done` requires a real Evidence path under `.work.cto/`. No path, not done.
 
 | ID | Task | Type | Module | Done/Total | Status | Evidence |
 |----|------|------|--------|-----------|--------|----------|

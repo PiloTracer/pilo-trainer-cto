@@ -2,7 +2,7 @@
 name: cto-consult
 description: >-
   Consultancy: advisory memos, board/exec prep, decision reviews. Writes under
-  .training.cto/consultancy/. Requires profile-ready.
+  .work.cto/consultancy/. Requires profile-ready.
 ---
 
 # cto-consult
@@ -25,7 +25,7 @@ On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`
 1. Load PROFILE + relevant program/context; ask ≤3 clarifying questions if stakes unclear.
 2. Assumption ledger (Confirmed / Inferences / Unknowns).
 3. Scan `standards/anti-patterns.md` against the situation. If a pattern is present, name it in the memo and run its challenge — do not soften it into a suggestion.
-4. Write memo to `.training.cto/consultancy/YYYY-MM-DD-<slug>.md`.
+4. Write memo to `.work.cto/consultancy/YYYY-MM-DD-<slug>.md`.
 5. Recommendation must include: options, tradeoffs, recommended path, risks, first 7-day actions.
 6. Update HANDOFF/NEXT.
 

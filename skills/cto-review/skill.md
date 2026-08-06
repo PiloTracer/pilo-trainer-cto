@@ -7,7 +7,7 @@ description: >-
 
 # cto-review
 
-**Requires:** scaffold (`.training.cto/` exists). No waiver — run `@cto-bootstrap init` first.
+**Requires:** scaffold (`.work.cto/` exists). No waiver — run `@cto-bootstrap init` first.
 
 On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
 
@@ -113,7 +113,7 @@ Promote only with evidence, scored per `standards/assessment.md` (binding — do
 | mentoring-loop | ≥1 real session log (not only prep) |
 | consultancy-ready | profile-ready (+ memo if claiming consult practice) |
 
-On success: write `.training.cto/reports/certify-YYYY-MM-DD.md`, update PROFILE readiness, HANDOFF.
+On success: write `.work.cto/reports/certify-YYYY-MM-DD.md`, update PROFILE readiness, HANDOFF.
 
 ### certify-*.md shape
 

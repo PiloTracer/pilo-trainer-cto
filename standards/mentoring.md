@@ -17,7 +17,7 @@ Binding for `@cto-mentor` and nested teaching in other skills.
 4. Teach (one idea, company-shaped example)
 5. Practice (drill or decision)
 6. Commit (one action + artifact path)
-7. Log under `.training.cto/sessions/`; tick the task ledger
+7. Log under `.work.cto/sessions/`; tick the task ledger
 
 ## Retrieval opening (binding)
 
@@ -56,7 +56,7 @@ Until both are true, the module is in progress regardless of how good the sessio
 ## Forbidden
 
 - Generic TED-talk advice with no artifact
-- Claiming progress without a file under `.training.cto/`
+- Claiming progress without a file under `.work.cto/`
 - Invented citations (see `citation.md`)
 - Overstuffing: >3 major topics in one session without explicit user ask
 - Re-explaining a concept the learner has not yet been asked to retrieve — it feels productive and mostly builds familiarity, not recall

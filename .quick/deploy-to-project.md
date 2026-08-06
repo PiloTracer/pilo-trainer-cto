@@ -10,9 +10,9 @@ bash scripts/deploy-basic.sh /abs/path/to/target
 bash /path/to/pilo-trainer-cto/scripts/deploy-basic.sh /abs/path/to/target
 ```
 
-From source chat: `@deploy-basic - /abs/path/to/target`
+From source chat: `@cto-deploy-basic - /abs/path/to/target`
 
-Creates: `.cursorrules` (`TRAINER_CTO_SOURCE=...`) + `.training.cto/`
+Creates: `.cursorrules` (`TRAINER_CTO_SOURCE=...`) + `.work.cto/`
 
 ## Fat-client
 
@@ -20,17 +20,17 @@ Creates: `.cursorrules` (`TRAINER_CTO_SOURCE=...`) + `.training.cto/`
 bash scripts/deploy-files.sh /abs/path/to/target
 ```
 
-Creates: `.ai.cto/` + `.training.cto/`
+Creates: `.ai.cto/` + `.work.cto/`
 
 ## Then (inside the target project chat)
 
 ```text
-@session-cto start
+@cto-session start
 @cto-bootstrap init
 @cto-assess run
 ```
 
-`@cto-bootstrap init` here only tops up `.training.cto/` and fills PROFILE — the thin-client pointer was already wired by `@deploy-basic` above. Running `@cto-bootstrap init` standalone in a target that has never been deployed to (no `.cursorrules` yet) needs an explicit source: `@cto-bootstrap init - /path/to/pilo-trainer-cto`.
+`@cto-bootstrap init` here only tops up `.work.cto/` and fills PROFILE — the thin-client pointer was already wired by `@cto-deploy-basic` above. Running `@cto-bootstrap init` standalone in a target that has never been deployed to (no `.cursorrules` yet) needs an explicit source: `@cto-bootstrap init - /path/to/pilo-trainer-cto`.
 
 ## Status / update
 

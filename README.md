@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/PiloTracer/pilo-trainer-cto?display_name=tag&sort=semver)](https://github.com/PiloTracer/pilo-trainer-cto/releases)
-[![Version](https://img.shields.io/badge/version-0.0.4-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.2.0-blue.svg)](CHANGELOG.md)
 
-> **Expert CTO professor / mentor** as a portable operating system: gated skills, binding standards, standard + custom programs, and learner memory under `.training.cto/`. Continuous training, consultancy, and source-backed updates — next to your real work.
+> **Expert CTO professor / mentor** as a portable operating system: gated skills, binding standards, standard + custom programs, and learner memory under `.work.cto/`. Continuous training, consultancy, and source-backed updates — next to your real work.
 
 **Repo:** [github.com/PiloTracer/pilo-trainer-cto](https://github.com/PiloTracer/pilo-trainer-cto)  
 **Platform:** Linux (bash, git, rsync). Verify with `bash scripts/framework-verify.sh`.  
@@ -30,12 +30,12 @@ bash scripts/deploy-basic.sh /abs/path/to/target
 In the **target** project chat:
 
 ```text
-@session-cto start
+@cto-session start
 @cto-bootstrap init
 @cto-assess run
 @cto-program-standard install - cto-foundations
 @cto-mentor run
-@session-cto close
+@cto-session close
 ```
 
 **Lost?** → [`START_HERE.md`](START_HERE.md)  
@@ -62,7 +62,7 @@ In the **target** project chat:
 | **7 standards** | Mentoring, citation, assessment, program SPECs, decision records, metrics, anti-patterns |
 | **`references/`** | Verified source library — no empty-reading-list cold start |
 | **`drills/`** | Case library built on real public incidents and decisions |
-| **`.training.cto/`** | Learner memory (profile, programs, sessions, sources, progress) |
+| **`.work.cto/`** | Learner memory (profile, programs, sessions, sources, progress) |
 | **Gates** | `profile-ready` → `assessed` → `program-active` → `mentoring-loop` |
 | **Curricula** | Eight catalog programs + custom design on request |
 | **Task ledger** | Per-program deliverable tracking; evidence path required to mark anything done |
@@ -73,9 +73,9 @@ In the **target** project chat:
 
 | Layout | Framework location | Learner memory |
 |--------|-------------------|----------------|
-| **Self-hosted** (this repo) | git root | `.training.cto/` |
-| **Thin-client** (recommended) | `$TRAINER_CTO_SOURCE` | target `.training.cto/` |
-| **Fat-client** | target `.ai.cto/` | target `.training.cto/` |
+| **Self-hosted** (this repo) | git root | `.work.cto/` |
+| **Thin-client** (recommended) | `$TRAINER_CTO_SOURCE` | target `.work.cto/` |
+| **Fat-client** | target `.ai.cto/` | target `.work.cto/` |
 
 ---
 
@@ -83,7 +83,7 @@ In the **target** project chat:
 
 ```text
   @cto-bootstrap init
-        │  .training.cto/ + PROFILE
+        │  .work.cto/ + PROFILE
         ▼
   @cto-assess run
         │  assessed
@@ -92,21 +92,21 @@ In the **target** project chat:
   @cto-program-custom - <request>
         │  program-active
         ▼
-  @session-cto start → @cto-mentor / @cto-drill / @cto-consult / @cto-update
+  @cto-session start → @cto-mentor / @cto-drill / @cto-consult / @cto-update
         │
         ▼
-  @session-cto close
+  @cto-session close
 ```
 
 ### Skills at a glance
 
 | Skill | One line | Typical invoke |
 |-------|----------|----------------|
-| **deploy-basic** | Thin-client scaffold | `- /path` · `status` · `update` |
-| **deploy-files** | Fat-client as `.ai.cto/` | `copy - /path` |
-| **deploy-repo** | Clone or archive | `clone` · `archive` |
+| **cto-deploy-basic** | Thin-client scaffold | `- /path` · `status` · `update` |
+| **cto-deploy-files** | Fat-client as `.ai.cto/` | `copy - /path` |
+| **cto-deploy-repo** | Clone or archive | `clone` · `archive` |
 | **cto-bootstrap** | Scaffold + PROFILE | `init` · `status` |
-| **session-cto** | Session bookends | `start` · `status` · `close` |
+| **cto-session** | Session bookends | `start` · `status` · `close` · `commit` · `push` |
 | **cto-director** | Free-text orchestrator | `- <request>` |
 | **cto-process-router** | Read-only signpost | `- <question>` |
 | **cto-assess** | Diagnostic | `run` · `status` |
@@ -143,9 +143,9 @@ bash scripts/deploy-repo.sh clone <url> /abs/path/to/target
 bash scripts/deploy-repo.sh archive /abs/path/to/dir
 ```
 
-Or from source chat: `@deploy-basic - /abs/path/to/target`.
+Or from source chat: `@cto-deploy-basic - /abs/path/to/target`.
 
-Target receives `.cursorrules` (`TRAINER_CTO_SOURCE`) + `.training.cto/`. **All generated training stays under `.training.cto/`.**
+Target receives `.cursorrules` (`TRAINER_CTO_SOURCE`) + `.work.cto/`. **All generated training stays under `.work.cto/`.**
 
 ---
 

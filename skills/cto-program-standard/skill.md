@@ -2,7 +2,7 @@
 name: cto-program-standard
 description: >-
   List and install standard curricula from the framework catalog into
-  .training.cto/programs/. Never mutate curricula/ in the framework for learner content.
+  .work.cto/programs/. Never mutate curricula/ in the framework for learner content.
 ---
 
 # cto-program-standard
@@ -36,12 +36,12 @@ Resolve curricula path via `$TRAINER_CTO_SOURCE/curricula/` (thin) or local / `.
 ## install
 
 1. Confirm slug exists.
-2. Create `.training.cto/programs/<slug>/`.
+2. Create `.work.cto/programs/<slug>/`.
 3. Copy catalog → `PROGRAM.md` (adapt lightly to PROFILE: duration notes, company stage — do not gut outcomes). Verify the result carries every section required by `standards/program-spec.md` (binding); if the catalog file is missing one, fill it during the copy rather than installing a non-compliant SPEC.
 4. Create `progress.md` from `templates/training/programs/progress.md.template` and seed the **task ledger** (see below). Create `notes.md` from `templates/training/programs/notes.md.template` — it carries the retrieval queue that `@cto-mentor` reads at every session opening, so an empty file breaks the retrieval protocol.
 5. Set PROFILE active program; readiness → `program-active`.
 6. Update NEXT → `@cto-mentor prepare` or `run`.
-7. Seed `.training.cto/sources/README.md` from every `Sources:` line in the program (one row per work, `Status: assigned`), per `standards/citation.md`. Carry the verification status across from `references/core-library.md` rather than re-asserting it. Chain `@cto-sources curate` to enrich.
+7. Seed `.work.cto/sources/README.md` from every `Sources:` line in the program (one row per work, `Status: assigned`), per `standards/citation.md`. Carry the verification status across from `references/core-library.md` rather than re-asserting it. Chain `@cto-sources curate` to enrich.
 
 ## Seeding the task ledger (binding)
 

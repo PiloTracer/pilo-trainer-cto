@@ -74,5 +74,5 @@ learnability — average ≥3, no dimension at 1.
 
 ## Exit criteria (program complete)
 
-All module exit checks met; artifacts stored under `.training.cto/` and linked from the task
+All module exit checks met; artifacts stored under `.work.cto/` and linked from the task
 ledger; `@cto-review status` run with evidence paths cited.

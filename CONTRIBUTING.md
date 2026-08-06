@@ -27,7 +27,7 @@ rubrics, and exit criteria.
 ## Naming
 
 - Domain skills: `cto-<role>` (kebab-case)
-- Infrastructure: `deploy-*`, `session-cto`
+- Infrastructure: `cto-deploy-*`, `cto-session`
 
 ## Verify
 
@@ -40,6 +40,6 @@ a check that cannot fail is not a check.
 
 ## Memory vs framework
 
-Learner artifacts belong only under `.training.cto/`. Framework content lives under
+Learner artifacts belong only under `.work.cto/`. Framework content lives under
 `templates/`, `curricula/`, `standards/`, `references/`, and `drills/` — never edit those for
 one learner's content; copy out instead.

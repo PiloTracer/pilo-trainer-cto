@@ -2,12 +2,12 @@
 name: cto-sources
 description: >-
   Curate and cite publicly available books, articles, talks, and docs into
-  .training.cto/sources/. Never invent citations.
+  .work.cto/sources/. Never invent citations.
 ---
 
 # cto-sources
 
-**Requires:** scaffold (`.training.cto/` exists). No waiver — run `@cto-bootstrap init` first.
+**Requires:** scaffold (`.work.cto/` exists). No waiver — run `@cto-bootstrap init` first.
 
 On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
 
@@ -34,7 +34,7 @@ a live public page, or an explicit **Unverified** label.
 1. Every entry needs **title** + (**author** or **URL**).
 2. Prefer primary/public sources. If unsure a work exists, mark **Unverified** or omit.
 3. Add Why (1 line) tied to learner goal.
-4. Update the `.training.cto/sources/README.md` table (canonical). Use `sources/<topic>.md` only for long annotated lists, and keep a README row pointing to it.
+4. Update the `.work.cto/sources/README.md` table (canonical). Use `sources/<topic>.md` only for long annotated lists, and keep a README row pointing to it.
 5. `Status` is one of `assigned` · `reading` · `read` · `dropped`.
 
 ## Reading is a task

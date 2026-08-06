@@ -53,4 +53,4 @@ Pass if communications force a decision and surface risk honestly. Drill dimensi
 ## Exit criteria (program complete)
 
 Partnership charter, sample board appendix, and a passing drill score; artifacts stored under
-`.training.cto/` and linked from the task ledger; `@cto-review status` run with evidence paths.
+`.work.cto/` and linked from the task ledger; `@cto-review status` run with evidence paths.

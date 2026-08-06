@@ -31,7 +31,7 @@ Ongoing, monthly. One `@cto-update run` per month, one drill per quarter minimum
 ### M2 — Monthly edge review
 - Objectives: Convert new material into a practice change, or discard it
 - Cadence: `@cto-update run` → pick 1 drill or mentor focus
-- Artifact: `.training.cto/reports/update-YYYY-MM-DD.md`
+- Artifact: `.work.cto/reports/update-YYYY-MM-DD.md`
 - Exit check: Each theme carries a practice implication; anything without one is cut
 
 ### M3 — Teach-back

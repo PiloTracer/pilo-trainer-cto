@@ -2,7 +2,7 @@
 name: cto-curriculum
 description: >-
   Design or refine curriculum modules, sequencing, outcomes, and drills for
-  an active or draft program under .training.cto/programs/.
+  an active or draft program under .work.cto/programs/.
 ---
 
 # cto-curriculum
@@ -23,7 +23,7 @@ On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`
 
 Produce a module plan following `standards/program-spec.md`'s required sections (outcomes, audience/level, duration, modules with drill + sources + exit check, assessment rubrics, exit criteria).
 
-**Output:** `.training.cto/programs/<slug>/PROGRAM.md` with every SPEC section present, stubbed where unknown — never a plan that exists only in chat. If the scope is a full program rather than a module set, hand off to `@cto-program-custom` instead of half-building one here.
+**Output:** `.work.cto/programs/<slug>/PROGRAM.md` with every SPEC section present, stubbed where unknown — never a plan that exists only in chat. If the scope is a full program rather than a module set, hand off to `@cto-program-custom` instead of half-building one here.
 
 Seed `progress.md` and `notes.md` from their templates alongside it, per `@cto-program-standard` § *Seeding the task ledger*. A program folder without a ledger is invisible to `@cto-review status`.
 

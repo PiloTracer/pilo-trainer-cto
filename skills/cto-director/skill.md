@@ -26,13 +26,13 @@ description: >-
 | Install catalog program | `@cto-program-standard list` → `install - <slug>` |
 | Custom program / special request | `@cto-program-custom - <request>` |
 | Module design | `@cto-curriculum design` |
-| Mentoring / teach / coach today | `@session-cto start` → `@cto-mentor run` |
+| Mentoring / teach / coach today | `@cto-session start` → `@cto-mentor run` |
 | Consultancy / advice / decision | `@cto-consult memo` / `review` / `board` |
 | Drill / practice / simulation | `@cto-drill run - <type>` |
 | Reading list / sources | `@cto-sources curate` |
 | Stay current / trends | `@cto-update run` |
 | Progress / certify | `@cto-review status` |
-| Deploy to another repo | `@deploy-basic - <path>` |
+| Deploy to another repo | `@cto-deploy-basic - <path>` |
 | Engineering / code / backend | Redirect `@ai-director` or `@x-director` |
 | UI / design | Redirect `@ui-director` |
 | Biz / sales / content biz | Redirect `@biz-director` |

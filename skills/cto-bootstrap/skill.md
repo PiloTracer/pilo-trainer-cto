@@ -1,7 +1,7 @@
 ---
 name: cto-bootstrap
 description: >-
-  Scaffold .training.cto/ learner memory and drive PROFILE intake.
+  Scaffold .work.cto/ learner memory and drive PROFILE intake.
   Modes: init, status. Marks profile-ready when required PROFILE fields are filled.
 ---
 
@@ -18,9 +18,9 @@ description: >-
 ## I0 — Pre-checks
 
 - Resolve framework root, in order: explicit `<source-path>` arg → existing `.cursorrules`' `$TRAINER_CTO_SOURCE` → self-hosted (this repo is the framework) → local `.ai.cto/`.
-- Target project root = parent of memory (repo with `.training.cto` or cwd).
-- **Standalone-init limitation:** a fresh target repo with no `.cursorrules` yet and no `<source-path>` arg has no way to discover the trainer-cto source (no file to read it from). In that case `init` can only self-host or leave the thin-client pointer as `REPLACE_BASICSOURCE` — it cannot fully wire a thin-client target on its own. Tell the user to either pass `@cto-bootstrap init - <source-path>`, or run `@deploy-basic` from the source repo instead (that command already knows its own path).
-- **Explicit-intent guard:** only run `init` on an explicit request to create/initialize a training project (a new project, or "set up my profile/training"). Do not self-trigger `init` just because `{PROFILE}` still has `REPLACE:` tokens, because a routing table suggests it, or because this looks like a fresh `.training.cto/` — those are necessary conditions, not sufficient ones. If invoked ambiguously while the same session is doing framework-dev work (editing `skills/`, `curricula/`, `standards/`, `templates/`, `scripts/`), ask for explicit confirmation before writing PROFILE or running the interview.
+- Target project root = parent of memory (repo with `.work.cto` or cwd).
+- **Standalone-init limitation:** a fresh target repo with no `.cursorrules` yet and no `<source-path>` arg has no way to discover the trainer-cto source (no file to read it from). In that case `init` can only self-host or leave the thin-client pointer as `REPLACE_BASICSOURCE` — it cannot fully wire a thin-client target on its own. Tell the user to either pass `@cto-bootstrap init - <source-path>`, or run `@cto-deploy-basic` from the source repo instead (that command already knows its own path).
+- **Explicit-intent guard:** only run `init` on an explicit request to create/initialize a training project (a new project, or "set up my profile/training"). Do not self-trigger `init` just because `{PROFILE}` still has `REPLACE:` tokens, because a routing table suggests it, or because this looks like a fresh `.work.cto/` — those are necessary conditions, not sufficient ones. If invoked ambiguously while the same session is doing framework-dev work (editing `skills/`, `curricula/`, `standards/`, `templates/`, `scripts/`), ask for explicit confirmation before writing PROFILE or running the interview.
 
 ## I1 — init
 
@@ -32,8 +32,8 @@ description: >-
 
 ## I2 — status
 
-Report existence of `.training.cto/`, PROFILE completeness, readiness state.
+Report existence of `.work.cto/`, PROFILE completeness, readiness state.
 
 ## Completion
 
-Artifacts only under `.training.cto/`. Do not invent company facts.
+Artifacts only under `.work.cto/`. Do not invent company facts.

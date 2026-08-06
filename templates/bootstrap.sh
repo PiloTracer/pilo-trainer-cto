@@ -32,7 +32,7 @@ else
   REPO_ROOT="${CTO_ROOT}"
 fi
 
-WORK="${REPO_ROOT}/.training.cto"
+WORK="${REPO_ROOT}/.work.cto"
 
 copy_if_missing() {
   local src="$1" dest="$2"

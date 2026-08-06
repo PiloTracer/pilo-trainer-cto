@@ -22,16 +22,16 @@ cto-review status / certify
 
 ## System skills (no gate)
 
-`deploy-basic`, `deploy-files`, `deploy-repo`, `session-cto`, `cto-director`, `cto-process-router` — infrastructure / routing; invoke anytime.
+`cto-deploy-basic`, `cto-deploy-files`, `cto-deploy-repo`, `cto-session`, `cto-director`, `cto-process-router` — infrastructure / routing; invoke anytime.
 
 ## Gate table
 
 | Gate | State | Check | Unlocked by |
 |------|-------|-------|-------------|
-| — | scaffold | `.training.cto/` exists | `@cto-bootstrap init` |
+| — | scaffold | `.work.cto/` exists | `@cto-bootstrap init` |
 | 1 | profile-ready | `{PROFILE}` has role + goal (no REPLACE: leftovers for required fields) | `@cto-bootstrap init` + PROFILE fill |
-| 2 | assessed | `.training.cto/assessments/baseline.md` exists | `@cto-assess run` |
-| 3 | program-active | At least one `.training.cto/programs/<slug>/PROGRAM.md` | `@cto-program-standard install` or `@cto-program-custom` |
+| 2 | assessed | `.work.cto/assessments/baseline.md` exists | `@cto-assess run` |
+| 3 | program-active | At least one `.work.cto/programs/<slug>/PROGRAM.md` | `@cto-program-standard install` or `@cto-program-custom` |
 | 4 | mentoring-loop | Active program + ≥1 **real** session log (a prep file alone does not count) | `@cto-mentor run` |
 | 5 | consultancy-ready | profile-ready (assessed recommended) | `@cto-bootstrap init` |
 

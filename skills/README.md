@@ -6,7 +6,7 @@ Portable mentoring workflows. Each skill is a folder with `skill.md`.
 
 **Invocation:** `@<skill-id> <mode> - <arg>` with ASCII hyphen.
 
-**Memory:** `{TRAINING_ROOT}` = `.training.cto/` at project root.
+**Memory:** `{WORK_ROOT}` = `.work.cto/` at project root.
 
 ---
 
@@ -16,7 +16,7 @@ Portable mentoring workflows. Each skill is a folder with `skill.md`.
 |------|-------------|
 | **Shape** | kebab-case |
 | **Domain prefix** | `cto-` |
-| **System** | `deploy-*`, `session-cto` |
+| **System** | `cto-deploy-*`, `cto-session` |
 | **Stable id** | Folder = `name:` = `@` handle |
 
 ---
@@ -25,11 +25,11 @@ Portable mentoring workflows. Each skill is a folder with `skill.md`.
 
 | Skill id | Folder | Role |
 |----------|--------|------|
-| deploy-basic | `deploy-basic/` | Thin-client bootstrap (`.cursorrules` + `.training.cto/`); skills via `TRAINER_CTO_SOURCE` |
-| deploy-files | `deploy-files/` | Fat-client vendor as `.ai.cto/` |
-| deploy-repo | `deploy-repo/` | Full git clone or archive deploy |
-| cto-bootstrap | `cto-bootstrap/` | Scaffold `.training.cto/`, PROFILE intake |
-| session-cto | `session-cto/` | Session open/close; HANDOFF, NEXT |
+| cto-deploy-basic | `cto-deploy-basic/` | Thin-client bootstrap (`.cursorrules` + `.work.cto/`); skills via `TRAINER_CTO_SOURCE` |
+| cto-deploy-files | `cto-deploy-files/` | Fat-client vendor as `.ai.cto/` |
+| cto-deploy-repo | `cto-deploy-repo/` | Full git clone or archive deploy |
+| cto-bootstrap | `cto-bootstrap/` | Scaffold `.work.cto/`, PROFILE intake |
+| cto-session | `cto-session/` | Session open/close; HANDOFF, NEXT |
 | cto-director | `cto-director/` | Free-text → skill routing |
 | cto-process-router | `cto-process-router/` | Read-only how-to → skill |
 | cto-assess | `cto-assess/` | Diagnostic; unlocks **assessed** |
@@ -43,7 +43,7 @@ Portable mentoring workflows. Each skill is a folder with `skill.md`.
 | cto-update | `cto-update/` | Continuous learning refresh |
 | cto-review | `cto-review/` | Progress + gate certification |
 
-**Typical greenfield:** `@cto-bootstrap init` → `@cto-assess run` → `@cto-program-standard install - cto-foundations` → `@session-cto start` → `@cto-mentor run` → `@session-cto close`
+**Typical greenfield:** `@cto-bootstrap init` → `@cto-assess run` → `@cto-program-standard install - cto-foundations` → `@cto-session start` → `@cto-mentor run` → `@cto-session close`
 
 ---
 
@@ -54,7 +54,7 @@ Portable mentoring workflows. Each skill is a folder with `skill.md`.
 | `status` | Read-only report |
 | `init` | One-time setup |
 | `run` | Execute |
-| `install` | Copy catalog → `.training.cto/programs/` |
+| `install` | Copy catalog → `.work.cto/programs/` |
 | `list` | Enumerate options |
 | `design` / `refine` | Curriculum authoring |
 | `prepare` | Pre-work |
@@ -64,7 +64,7 @@ Portable mentoring workflows. Each skill is a folder with `skill.md`.
 | `tasks` | Alias for `status` on `cto-review` |
 | `start` / `close` | Session bookends |
 | `copy` / `clone` / `archive` | Deploy modes |
-| `update` | Re-sync an existing deploy (`deploy-basic`) |
+| `update` | Re-sync an existing deploy (`cto-deploy-basic`) |
 
 Flags: `-y` skips a gate where a waiver exists (logged in HANDOFF) · `--full` expands a
 `status` report · `--force` overwrites on deploy · `--dry-run` plans without writing.

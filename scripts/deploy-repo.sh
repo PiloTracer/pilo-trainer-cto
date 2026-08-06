@@ -30,7 +30,7 @@ case "$MODE" in
     ARCHIVE="${DEST}/cto-professor-os-$(date +%Y%m%d).tar.gz"
     tar -C "$CTO_ROOT" \
       --exclude '.git' \
-      --exclude '.training.cto' \
+      --exclude '.work.cto' \
       --exclude 'tmp' \
       --exclude '.tmp' \
       -czf "$ARCHIVE" .

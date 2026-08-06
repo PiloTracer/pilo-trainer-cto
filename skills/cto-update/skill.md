@@ -7,7 +7,7 @@ description: >-
 
 # cto-update
 
-**Requires:** scaffold (`.training.cto/` exists). No waiver — run `@cto-bootstrap init` first.
+**Requires:** scaffold (`.work.cto/` exists). No waiver — run `@cto-bootstrap init` first.
 
 On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`.
 
@@ -20,10 +20,10 @@ On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`
 
 ## run
 
-1. Load PROFILE, active program, `.training.cto/sources/`, continuous-edge program if installed.
+1. Load PROFILE, active program, `.work.cto/sources/`, continuous-edge program if installed.
 2. Identify 3–7 timely themes relevant to the learner (AI ops, reliability, org, security, platform — based on PROFILE).
 3. Research with web tools when available; add only verifiable sources via `@cto-sources` rules.
-4. Write `.training.cto/reports/update-YYYY-MM-DD.md` with themes, new sources, recommended drill/mentor focus.
+4. Write `.work.cto/reports/update-YYYY-MM-DD.md` with themes, new sources, recommended drill/mentor focus.
 5. Update NEXT (one concrete action).
 
 ## update-*.md shape
@@ -48,7 +48,7 @@ On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`
 <if the field genuinely produced nothing worth acting on, say so; a thin month is a finding>
 ```
 
-New sources go to `.training.cto/sources/README.md` with `Status: assigned`, and get a
+New sources go to `.work.cto/sources/README.md` with `Status: assigned`, and get a
 `reading` row in the active program's task ledger. A source added nowhere but this report is
 invisible by next week.
 

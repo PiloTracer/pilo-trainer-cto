@@ -62,4 +62,4 @@ average ≥3, no dimension at 1.
 ## Exit criteria (program complete)
 
 Scale plan, platform memo, and a passing diligence drill; artifacts stored under
-`.training.cto/` and linked from the task ledger; `@cto-review status` run with evidence paths.
+`.work.cto/` and linked from the task ledger; `@cto-review status` run with evidence paths.

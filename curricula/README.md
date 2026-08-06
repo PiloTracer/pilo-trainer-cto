@@ -1,6 +1,6 @@
 # Curricula catalog
 
-Framework-owned standard programs. **Install** via `@cto-program-standard install - <slug>` — copies into `.training.cto/programs/`. Never edit these files for one learner.
+Framework-owned standard programs. **Install** via `@cto-program-standard install - <slug>` — copies into `.work.cto/programs/`. Never edit these files for one learner.
 
 | Slug | File | Focus |
 |------|------|-------|

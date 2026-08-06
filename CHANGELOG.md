@@ -1,5 +1,29 @@
 # Changelog
 
+## v0.2.0 — 2026-08-06
+
+**Naming standardization + working-directory scope.** All skills now carry the `cto-` domain prefix
+(the sibling `mlt-*` / `flutter-*` frameworks already do); the learner-memory root is renamed to
+`.work.cto/` to match the `.work.flutter` convention; the session skill owns a tighter, explicit
+git contract scoped to that directory.
+
+- **Skill renames (folders, `name:` frontmatter, `@` handles, and every reference):**
+  `deploy-basic` → `cto-deploy-basic`, `deploy-files` → `cto-deploy-files`,
+  `deploy-repo` → `cto-deploy-repo`, `session-cto` → `cto-session`. Updated across `.cursorrules`,
+  `skills/README.md`, `SKILL_DEPENDENCIES.md`, `README.md`, `START_HERE.md`, `PROCESS_ROUTER.md`,
+  `CONTRIBUTING.md`, `.quick/`, scripts, templates, curricula, and standards. Script filenames
+  (`scripts/deploy-*.sh`) are unchanged — they are shell files, not skill ids.
+- **Working root renamed `.training.cto/` → `.work.cto/`** everywhere (skills, scripts, templates,
+  `.gitignore`, docs, curricula, standards); placeholder `{TRAINING_ROOT}` → `{WORK_ROOT}`.
+  *Upgrade note:* existing deployments must rename their learner-memory dir once
+  (`mv .training.cto .work.cto`) — the session skill and deploy scripts now look for `.work.cto/`.
+- **`cto-session` scope + git contract.** Every action is limited to `.work.cto/` in the target
+  repo/dir. The skill parses any combination of `commit` / `close` / `push` order-independently;
+  `commit` stages via the explicit pathspec `git add -A -- .work.cto` (new untracked files/dirs
+  included), uses a `docs: cto session <date>` message, skips empty commits, and reports SHA +
+  status; `push` pushes the current branch and reports a missing upstream instead of setting one.
+  Git stays strictly opt-in — flags in the invocation are the explicit request.
+
 ## v0.0.4 — 2026-07-30
 
 **Contract completion pass.** v0.0.3 added capability; this closes the gaps that audit exposed,

@@ -2,11 +2,11 @@
 
 | Skill | Invoke examples |
 |-------|-----------------|
-| deploy-basic | `@deploy-basic - /path` · `status` · `update` |
-| deploy-files | `@deploy-files copy - /path` |
-| deploy-repo | `@deploy-repo clone` · `archive` |
+| cto-deploy-basic | `@cto-deploy-basic - /path` · `status` · `update` |
+| cto-deploy-files | `@cto-deploy-files copy - /path` |
+| cto-deploy-repo | `@cto-deploy-repo clone` · `archive` |
 | cto-bootstrap | `@cto-bootstrap init` · `status` |
-| session-cto | `@session-cto start` · `status` · `close` |
+| cto-session | `@cto-session start` · `status` · `close` · `close commit [push]` |
 | cto-director | `@cto-director - <request>` |
 | cto-process-router | `@cto-process-router - <question>` |
 | cto-assess | `@cto-assess run` · `status` |

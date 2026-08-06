@@ -3,7 +3,7 @@
 #
 # Copies ONLY:
 #   - .cursorrules (TRAINER_CTO_SOURCE → absolute path of THIS source)
-#   - .training.cto/ skeleton
+#   - .work.cto/ skeleton
 #
 # Skills/curricula/standards stay in the source.
 #
@@ -25,7 +25,7 @@ if [[ "${1:-}" == "--status" ]]; then
     DEST_ROOT="$(cd "$RAW_TARGET" && pwd)"
   fi
   CURS_DEST="${DEST_ROOT}/.cursorrules"
-  echo "=== deploy-basic status → $DEST_ROOT ==="
+  echo "=== cto-deploy-basic status → $DEST_ROOT ==="
   if [[ -f "$CURS_DEST" ]]; then
     echo "  .cursorrules: present"
     src="$(grep -oE 'TRAINER_CTO_SOURCE=[^ ]*' "$CURS_DEST" 2>/dev/null | head -1 | cut -d= -f2- || true)"
@@ -39,7 +39,7 @@ if [[ "${1:-}" == "--status" ]]; then
   else
     echo "  .cursorrules: MISSING"
   fi
-  [[ -d "${DEST_ROOT}/.training.cto/context" ]] && echo "  .training.cto/: present" || echo "  .training.cto/: missing"
+  [[ -d "${DEST_ROOT}/.work.cto/context" ]] && echo "  .work.cto/: present" || echo "  .work.cto/: missing"
   [[ -d "${DEST_ROOT}/.ai.cto/skills" ]] && echo "  local .ai.cto/skills/: present (WARN — fat-client leak)" || echo "  local .ai.cto/skills/: absent (thin-client ok)"
   exit 0
 fi
@@ -92,7 +92,7 @@ WORK_FILES=(
   "reports/README.md" "standards/README.md"
 )
 
-echo "=== deploy-basic (CTO Professor OS) → $DEST_ROOT (thin-client) ==="
+echo "=== cto-deploy-basic (CTO Professor OS) → $DEST_ROOT (thin-client) ==="
 echo "  source: $CTO_ROOT"
 echo "  mode:   $MODE"
 
@@ -140,9 +140,9 @@ fi
 
 BOOTSTRAP_SKIP_CURSERRULES=1 REPO_ROOT="$DEST_ROOT" TRAINER_CTO_SOURCE="$CTO_ROOT" \
   bash "$CTO_ROOT/templates/bootstrap.sh" \
-  > /tmp/deploy-basic-cto-bootstrap.$$.log 2>&1 || { cat /tmp/deploy-basic-cto-bootstrap.$$.log; rm -f /tmp/deploy-basic-cto-bootstrap.$$.log; exit 1; }
-grep -E '(created:|skip )' /tmp/deploy-basic-cto-bootstrap.$$.log | sed 's/^/  training: /' || true
-rm -f /tmp/deploy-basic-cto-bootstrap.$$.log
+  > /tmp/cto-deploy-basic-cto-bootstrap.$$.log 2>&1 || { cat /tmp/cto-deploy-basic-cto-bootstrap.$$.log; rm -f /tmp/cto-deploy-basic-cto-bootstrap.$$.log; exit 1; }
+grep -E '(created:|skip )' /tmp/cto-deploy-basic-cto-bootstrap.$$.log | sed 's/^/  training: /' || true
+rm -f /tmp/cto-deploy-basic-cto-bootstrap.$$.log
 
 if [[ "$MODE" == "update" ]]; then
   echo ""
@@ -158,10 +158,10 @@ if [[ "$MODE" == "update" ]]; then
   TPL_WORK="${CTO_ROOT}/templates/training"
   for f in "${WORK_FILES[@]}"; do
     src="${TPL_WORK}/${f}.template"
-    dest="${DEST_ROOT}/.training.cto/${f}"
+    dest="${DEST_ROOT}/.work.cto/${f}"
     [[ -f "$src" && -f "$dest" ]] || continue
     if ! cmp -s "$src" "$dest"; then
-      echo "  merge: .training.cto/${f}"
+      echo "  merge: .work.cto/${f}"
     fi
   done
 fi
@@ -170,8 +170,8 @@ echo ""
 echo "=== Done: thin-client bootstrap → $DEST_ROOT ==="
 echo "  .cursorrules: $([ -f "$CURS_DEST" ] && echo present || echo MISSING)"
 echo "  TRAINER_CTO_SOURCE: $(grep -oE 'TRAINER_CTO_SOURCE=[^ ]*' "$CURS_DEST" 2>/dev/null | head -1 | cut -d= -f2- || echo '<unset>')"
-echo "  .training.cto/: $([ -d "${DEST_ROOT}/.training.cto" ] && echo present || echo MISSING)"
+echo "  .work.cto/: $([ -d "${DEST_ROOT}/.work.cto" ] && echo present || echo MISSING)"
 echo ""
 echo "Next:"
 echo "  1. Fill REPLACE: tokens in .cursorrules (except TRAINER_CTO_SOURCE)"
-echo "  2. @session-cto start → @cto-bootstrap init → @cto-assess run"
+echo "  2. @cto-session start → @cto-bootstrap init → @cto-assess run"

@@ -2,7 +2,7 @@
 name: cto-mentor
 description: >-
   Run or prepare a mentoring session against the active program. Writes session
-  logs under .training.cto/sessions/. Requires program-active (or -y).
+  logs under .work.cto/sessions/. Requires program-active (or -y).
 ---
 
 # cto-mentor
@@ -21,7 +21,7 @@ On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`
 ## prepare
 
 1. Load active PROGRAM + progress + HANDOFF.
-2. Write `.training.cto/sessions/YYYY-MM-DD-prep-<slug>.md` with agenda, pre-read, drill, success check.
+2. Write `.work.cto/sessions/YYYY-MM-DD-prep-<slug>.md` with agenda, pre-read, drill, success check.
 3. Update NEXT.
 
 ## run
@@ -34,7 +34,7 @@ Follow `standards/mentoring.md`:
 3. Teach one concept with a concrete company-shaped example.
 4. Run or assign one drill (`@cto-drill` may be nested).
 5. Commit to one decision/action; log it.
-6. Write the session log to `.training.cto/sessions/YYYY-MM-DD-<topic-slug>.md`.
+6. Write the session log to `.work.cto/sessions/YYYY-MM-DD-<topic-slug>.md`.
 7. **Tick the task ledger** in `programs/<slug>/progress.md`: set each deliverable this session closed to `done` with the session-log path as Evidence, bump any `Done/Total` counts, and update `Deliverables complete`. A task without an evidence path stays pending.
 8. Update the **retrieval queue** in `notes.md`: add today's concept; remove anything recalled cleanly twice, at least a week apart; move anything the learner could not retrieve to the front.
 9. Update COMPETENCY evidence + HANDOFF + NEXT. Score movement needs an artifact, per `standards/assessment.md`.

@@ -1,4 +1,4 @@
-# `.training.cto/` — learner memory
+# `.work.cto/` — learner memory
 
 All CTO training, consultancy, and progress artifacts for this project live here.
 
