@@ -36,4 +36,6 @@ Read-only version of the summary. No writes.
 
 ## Rules
 
-Never claim progress without referencing an artifact path under `.training.cto/`.
+- **Write scope (mandatory):** `start` / `status` / `close` write only under `.training.cto/` (HANDOFF, NEXT, session files). Never create, edit, stage, move, or delete files outside `.training.cto/` as part of a session-cto action — `.training.cto/` is the full domain of this framework in the target repo.
+- Files outside `.training.cto/` may only be *referenced* — read, or mentioned in HANDOFF/NEXT — when they are already part of the changes in the current session context (e.g. code the learner worked on). Even then, session-cto never modifies them.
+- Never claim progress without referencing an artifact path under `.training.cto/`.

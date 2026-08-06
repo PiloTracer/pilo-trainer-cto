@@ -63,7 +63,7 @@ Default to **minimal diffs**. Prefer append/merge over overwrite.
 
 | Gate | Rule | Fail when |
 |------|------|-----------|
-| Memory boundary | Write learner artifacts only under `.training.cto/` | Writes outside `.training.cto/` for training/consultancy |
+| Memory boundary | Write learner artifacts only under `.training.cto/`; session skills (`@session-cto`, mentor, drill, consult, review) never write outside it. Files outside may only be *referenced* (read or cited in HANDOFF/NEXT) when already part of the current session's changes | Writes outside `.training.cto/` for training/consultancy |
 | Framework integrity | Do not edit `curricula/`, `standards/`, `references/`, or `drills/` for learner-specific content | Mutating catalog instead of copying into `.training.cto/programs/` |
 | Citation honesty | Public sources need title + author or URL | Invented citations |
 | No collateral edits | Touch only files required by the task | Drive-by refactors, dependency bumps, "while I'm here" changes |
