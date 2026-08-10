@@ -7,16 +7,25 @@
 #
 # Skills/curricula/standards stay in the source.
 #
-# Usage:
+# Usage (modes/flags accept an optional `--` prefix: `update` ≡ `--update`):
 #   bash scripts/deploy-basic.sh <target-path>
-#   bash scripts/deploy-basic.sh --status [target-path]
-#   bash scripts/deploy-basic.sh <target-path> --update
+#   bash scripts/deploy-basic.sh status [target-path]
+#   bash scripts/deploy-basic.sh verify [target-path]
+#   bash scripts/deploy-basic.sh <target-path> update
 #   bash scripts/deploy-basic.sh <target-path> --force
 #   TRAINER_CTO_SOURCE=/path bash scripts/deploy-basic.sh <target-path>
 #
 set -euo pipefail
 
-if [[ "${1:-}" == "--status" ]]; then
+# Normalize: every mode/flag works with or without the `--` prefix.
+norm() { local a="$1"; [[ "$a" == --* ]] && a="${a#--}"; printf '%s' "$a"; }
+
+if [[ "$(norm "${1:-}")" == "verify" ]]; then
+  shift
+  exec bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/verify-target.sh" "${1:-.}"
+fi
+
+if [[ "$(norm "${1:-}")" == "status" ]]; then
   shift
   RAW_TARGET="${1:-.}"
   if [[ "$RAW_TARGET" == "." || "$RAW_TARGET" == "$PWD" ]]; then
@@ -44,13 +53,14 @@ if [[ "${1:-}" == "--status" ]]; then
   exit 0
 fi
 
-RAW_TARGET="${1:?Usage: $0 [--status] <target-path> [--force|--update]}"
+RAW_TARGET="${1:?Usage: $0 [status|verify] <target-path> [force|update] (optional -- prefix on any mode)}"
 shift || true
 MODE="skip"
 while [[ $# -gt 0 ]]; do
-  case "$1" in
-    --force)  MODE="force" ;;
-    --update) MODE="update" ;;
+  case "$(norm "$1")" in
+    force)  MODE="force" ;;
+    update) MODE="update" ;;
+    verify) exec bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/verify-target.sh" "$RAW_TARGET" ;;
     *) echo "ERROR: unknown flag: $1" >&2; exit 1 ;;
   esac
   shift
@@ -175,3 +185,10 @@ echo ""
 echo "Next:"
 echo "  1. Fill REPLACE: tokens in .cursorrules (except TRAINER_CTO_SOURCE)"
 echo "  2. @cto-session start → @cto-bootstrap init → @cto-assess run"
+
+echo ""
+if ! bash "$(dirname "${BASH_SOURCE[0]}")/verify-target.sh" "$DEST_ROOT"; then
+  echo "" >&2
+  echo "DEPLOY INCOMPLETE: resolve the FAIL items above (existing non-CTO .cursorrules needs a rules-aware merge, not a clobber)." >&2
+  exit 1
+fi

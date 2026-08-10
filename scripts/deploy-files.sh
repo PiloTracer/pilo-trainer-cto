@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
 # deploy-files.sh — Fat-client: vendor CTO Professor OS as .ai.cto/ into a target.
 #
-# Usage:
+# Usage (flags accept an optional `--` prefix: `force` ≡ `--force`):
 #   bash scripts/deploy-files.sh <target-path>
-#   bash scripts/deploy-files.sh <target-path> --force
+#   bash scripts/deploy-files.sh <target-path> force
+#   bash scripts/deploy-files.sh verify <target-path>
 #
 set -euo pipefail
 
-RAW_TARGET="${1:?Usage: $0 <target-path> [--force]}"
+# Normalize: every mode/flag works with or without the `--` prefix.
+norm() { local a="$1"; [[ "$a" == --* ]] && a="${a#--}"; printf '%s' "$a"; }
+
+if [[ "$(norm "${1:-}")" == "verify" ]]; then
+  shift
+  exec bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/verify-target.sh" "${1:-.}"
+fi
+
+RAW_TARGET="${1:?Usage: $0 [verify] <target-path> [force] (optional -- prefix)}"
 shift || true
 FORCE=0
-[[ "${1:-}" == "--force" ]] && FORCE=1
+[[ "$(norm "${1:-}")" == "force" ]] && FORCE=1
 
 if [[ -n "${TRAINER_CTO_SOURCE:-}" ]]; then
   CTO_ROOT="$(cd "$TRAINER_CTO_SOURCE" && pwd)"
@@ -62,3 +71,10 @@ fi
 echo ""
 echo "=== Done: fat-client → $DEST_AI ==="
 echo "Next: fill REPLACE: tokens · @cto-session start · @cto-bootstrap init"
+
+echo ""
+if ! bash "$(dirname "${BASH_SOURCE[0]}")/verify-target.sh" "$DEST_ROOT"; then
+  echo "" >&2
+  echo "DEPLOY INCOMPLETE: resolve the FAIL items above." >&2
+  exit 1
+fi

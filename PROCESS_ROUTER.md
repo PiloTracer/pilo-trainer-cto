@@ -23,7 +23,8 @@
 | Refresh continuous learning | `@cto-update run` |
 | Check gates / progress | `@cto-review status` / `certify` |
 | Deploy into another project | `@cto-deploy-basic - /path` |
-| Re-sync an existing deploy | `@cto-deploy-basic - /path --update` |
+| Re-sync an existing deploy | `@cto-deploy-basic - /path update` (≡ `--update`) |
+| Audit a deployed target's `.cursorrules` wiring | `@cto-deploy-basic verify - /path` |
 | Vendor framework into project | `@cto-deploy-files copy - /path` |
 | Standalone copy or backup of the framework | `@cto-deploy-repo clone - <url> <target>` / `archive - <dir>` |
 

@@ -65,9 +65,12 @@ Portable mentoring workflows. Each skill is a folder with `skill.md`.
 | `start` / `close` | Session bookends |
 | `copy` / `clone` / `archive` | Deploy modes |
 | `update` | Re-sync an existing deploy (`cto-deploy-basic`) |
+| `verify` | Audit a deploy target's `.cursorrules` wiring (pointer, REPLACE tokens, sister frameworks) |
 
 Flags: `-y` skips a gate where a waiver exists (logged in HANDOFF) · `--full` expands a
 `status` report · `--force` overwrites on deploy · `--dry-run` plans without writing.
+Deploy modes/flags take an optional `--` prefix: `update` ≡ `--update`, `force` ≡ `--force`,
+`verify` ≡ `--verify`.
 
 ---
 

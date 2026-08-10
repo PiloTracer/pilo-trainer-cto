@@ -32,9 +32,16 @@ Creates: `.ai.cto/` + `.work.cto/`
 
 `@cto-bootstrap init` here only tops up `.work.cto/` and fills PROFILE — the thin-client pointer was already wired by `@cto-deploy-basic` above. Running `@cto-bootstrap init` standalone in a target that has never been deployed to (no `.cursorrules` yet) needs an explicit source: `@cto-bootstrap init - /path/to/pilo-trainer-cto`.
 
-## Status / update
+## Status / update / verify
+
+Modes and flags work with or without the `--` prefix (`update` ≡ `--update`).
 
 ```bash
-bash scripts/deploy-basic.sh --status /abs/path/to/target
-bash scripts/deploy-basic.sh /abs/path/to/target --update
+bash scripts/deploy-basic.sh status /abs/path/to/target
+bash scripts/deploy-basic.sh /abs/path/to/target update
+bash scripts/deploy-basic.sh verify /abs/path/to/target   # deep .cursorrules wiring audit
 ```
+
+Every deploy/update ends with an automatic verify: pointer reachable and matching the
+current source location, remaining `REPLACE:` tokens, sister frameworks (`.ai`, `.ai.ui`,
+`.ai.biz`, `.ai.soc`) resolvable, `.work.cto/` skeleton present. FAIL = deploy incomplete.

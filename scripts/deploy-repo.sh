@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 # deploy-repo.sh — Full deploy of CTO Professor OS (clone or archive).
 #
-# Usage:
+# Usage (modes accept an optional `--` prefix: `--clone` ≡ `clone`):
 #   bash scripts/deploy-repo.sh clone <git-url> <target-path>
 #   bash scripts/deploy-repo.sh archive <target-path>
 #
 set -euo pipefail
 
-MODE="${1:?Usage: $0 clone <url> <target> | archive <target>}"
+MODE_RAW="${1:?Usage: $0 clone <url> <target> | archive <target> (optional -- prefix on mode)}"
+MODE="$MODE_RAW"
+[[ "$MODE" == --* ]] && MODE="${MODE#--}"
 shift
 
 if [[ -n "${TRAINER_CTO_SOURCE:-}" ]]; then

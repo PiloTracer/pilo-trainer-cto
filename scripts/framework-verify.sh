@@ -27,7 +27,7 @@ git rev-parse --is-inside-work-tree &>/dev/null && ok "inside git work tree" || 
 
 note "Core files"
 for f in README.md START_HERE.md PROCESS_ROUTER.md LICENSE templates/bootstrap.sh \
-  scripts/deploy-basic.sh scripts/deploy-files.sh scripts/deploy-repo.sh; do
+  scripts/deploy-basic.sh scripts/deploy-files.sh scripts/deploy-repo.sh scripts/verify-target.sh; do
   [[ -f "$CTO_ROOT/$f" ]] && ok "$f" || die "missing $f"
 done
 
@@ -191,6 +191,31 @@ bash "$CTO_ROOT/scripts/deploy-basic.sh" "$SMOKE" || die "cto-deploy-basic faile
 [[ -d "$SMOKE/.work.cto/context" ]] || die "smoke missing .work.cto"
 grep -q "TRAINER_CTO_SOURCE=$CTO_ROOT" "$SMOKE/.cursorrules" || die "smoke pointer wrong"
 ok "cto-deploy-basic smoke → $SMOKE"
+
+bash "$CTO_ROOT/scripts/verify-target.sh" "$SMOKE" &>/dev/null || die "verify-target failed on a fresh thin deploy"
+ok "verify-target passes on fresh thin deploy (auto-verify ran at deploy end)"
+
+note "Deploy flag equivalence (bare ≡ --)"
+bash "$CTO_ROOT/scripts/deploy-basic.sh" "$SMOKE" update &>/dev/null || die "bare 'update' rejected"
+grep -q "TRAINER_CTO_SOURCE=$CTO_ROOT" "$SMOKE/.cursorrules" || die "bare 'update' broke the pointer"
+bash "$CTO_ROOT/scripts/deploy-basic.sh" "$SMOKE" --update &>/dev/null || die "'--update' rejected"
+bash "$CTO_ROOT/scripts/deploy-basic.sh" status "$SMOKE" &>/dev/null || die "bare 'status' rejected"
+bash "$CTO_ROOT/scripts/deploy-basic.sh" --status "$SMOKE" &>/dev/null || die "'--status' rejected"
+bash "$CTO_ROOT/scripts/deploy-basic.sh" verify "$SMOKE" &>/dev/null || die "bare 'verify' rejected"
+bash "$CTO_ROOT/scripts/deploy-basic.sh" "$SMOKE" --verify &>/dev/null || die "'--verify' after target rejected"
+ok "update / status / verify accept bare and -- forms"
+
+note "Stale pointer detection + update re-sync"
+perl -i -pe 's{^TRAINER_CTO_SOURCE=.*}{TRAINER_CTO_SOURCE=/nonexistent-cto-source}' "$SMOKE/.cursorrules"
+if bash "$CTO_ROOT/scripts/verify-target.sh" "$SMOKE" &>/dev/null; then
+  die "verify-target did not fail on an unreachable pointer"
+else
+  ok "verify-target fails on an unreachable pointer"
+fi
+bash "$CTO_ROOT/scripts/deploy-basic.sh" "$SMOKE" update &>/dev/null || die "update re-sync failed"
+grep -q "TRAINER_CTO_SOURCE=$CTO_ROOT" "$SMOKE/.cursorrules" || die "update did not re-sync the pointer"
+bash "$CTO_ROOT/scripts/verify-target.sh" "$SMOKE" &>/dev/null || die "verify-target still failing after update re-sync"
+ok "update re-syncs a stale pointer and verify passes"
 rm -rf "$SMOKE"
 
 note "Fat deploy smoke (framework assets must travel)"
@@ -200,6 +225,14 @@ if bash "$CTO_ROOT/scripts/deploy-files.sh" "$SMOKEF" &>/dev/null; then
     [[ -d "$SMOKEF/.ai.cto/$d" ]] || die "fat-client smoke missing .ai.cto/${d}"
   done
   ok "cto-deploy-files smoke carries every framework directory → $SMOKEF"
+  bash "$CTO_ROOT/scripts/verify-target.sh" "$SMOKEF" &>/dev/null \
+    || die "verify-target failed on a fresh fat deploy"
+  ok "verify-target passes on fresh fat deploy (fat mode detected)"
+  bash "$CTO_ROOT/scripts/deploy-files.sh" "$SMOKEF" force &>/dev/null \
+    || die "cto-deploy-files bare 'force' rsync update failed"
+  bash "$CTO_ROOT/scripts/deploy-files.sh" "$SMOKEF" --force &>/dev/null \
+    || die "cto-deploy-files '--force' rsync update failed"
+  ok "cto-deploy-files force accepts bare and -- forms"
 else
   die "cto-deploy-files failed"
 fi

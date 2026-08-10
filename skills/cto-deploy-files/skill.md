@@ -7,7 +7,10 @@ description: >-
 
 # cto-deploy-files
 
-**Shell:** `bash <source>/scripts/deploy-files.sh <target-path> [--force]`
+**Shell:** `bash <source>/scripts/deploy-files.sh <target-path> [force|--force]`  
+**Verify:** `bash <source>/scripts/deploy-files.sh verify <target-path>`
+
+**Flag equivalence:** flags work with or without the `--` prefix — `<path> force` is identical to `<path> --force`.
 
 ## Parse
 
@@ -15,7 +18,8 @@ description: >-
 |-----------|------|
 | `@cto-deploy-files copy - /path/to/target` | Vendor the framework as `<target>/.ai.cto/` |
 | `@cto-deploy-files - /path/to/target` | Same; `copy` is the default and may be omitted |
-| `@cto-deploy-files copy - /path --force` | rsync update over an existing `.ai.cto/` |
+| `@cto-deploy-files copy - /path force` | rsync update over an existing `.ai.cto/` (`--force` is the same thing) |
+| `@cto-deploy-files verify - /path/to/target` | Deep wiring audit of the target's `.cursorrules` |
 
 ## Thin or fat?
 
@@ -30,8 +34,8 @@ Fat-client costs you upgrades: each target holds its own snapshot and drifts ind
 
 1. **Target directory must already exist.** This skill scaffolds into a directory; it does not create the repo. If missing, say so and stop.
 2. Validate the source has `templates/`, `skills/`, `standards/`, `curricula/`, `references/`, `drills/`.
-3. Run `scripts/deploy-files.sh <target-path> [--force]` (rsync into `.ai.cto/`, excluding `.git/`, `.work.cto/`, and scratch dirs).
-4. Confirm `.work.cto/` scaffolded and `.cursorrules` created **only if missing** — leave `TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE`, which is how fat-client is detected.
+3. Run `scripts/deploy-files.sh <target-path> [force]` (rsync into `.ai.cto/`, excluding `.git/`, `.work.cto/`, and scratch dirs).
+4. Confirm `.work.cto/` scaffolded and `.cursorrules` created **only if missing** — leave `TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE`, which is how fat-client is detected. **Verification is automatic:** the script ends with `scripts/verify-target.sh`, which audits the target's `.cursorrules` (mode detection, local `.ai.cto/skills/`, REPLACE tokens, sister frameworks, `.work.cto/`); FAIL items abort with exit 1.
 5. Report the output contract below, then tell the user to fill REPLACE tokens and run `@cto-session start`.
 
 ## Output contract

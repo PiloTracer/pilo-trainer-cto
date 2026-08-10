@@ -9,6 +9,8 @@ description: >-
 **Clone:** `bash <source>/scripts/deploy-repo.sh clone <url> <target>`  
 **Archive:** `bash <source>/scripts/deploy-repo.sh archive <target-dir>`
 
+**Flag equivalence:** modes accept an optional `--` prefix — `--clone` ≡ `clone`, `--archive` ≡ `archive`.
+
 ## Parse
 
 | User says | Mode |

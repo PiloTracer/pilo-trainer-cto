@@ -8,24 +8,29 @@ description: >-
 
 # cto-deploy-basic
 
-**Shell:** `bash <source>/scripts/deploy-basic.sh <target-path> [--update|--force]`  
-**Status:** `bash <source>/scripts/deploy-basic.sh --status [target-path]`
+**Shell:** `bash <source>/scripts/deploy-basic.sh <target-path> [update|--update|force|--force]`  
+**Status:** `bash <source>/scripts/deploy-basic.sh status [target-path]`  
+**Verify:** `bash <source>/scripts/deploy-basic.sh verify [target-path]`
+
+**Flag equivalence:** modes and flags work with or without the `--` prefix — `<path> update` is identical to `<path> --update`, `status` to `--status`.
 
 ## Parse invocation
 
 | User says | Mode |
 |-----------|------|
 | `@cto-deploy-basic - /path/to/target` | outbound thin bootstrap |
-| `@cto-deploy-basic status` | read-only report |
-| `@cto-deploy-basic - /path/to/target --update` | re-sync pointer + merge candidates (target path always required, `--` prefix on the flag) |
+| `@cto-deploy-basic status` | read-only quick report |
+| `@cto-deploy-basic verify - /path/to/target` | deep wiring audit of the target's `.cursorrules` (pointer, REPLACE tokens, sister frameworks, `.work.cto/`) |
+| `@cto-deploy-basic - /path/to/target update` | re-sync pointer + merge candidates (target path always required; `--update` is the same thing) |
 
 ## Protocol
 
 1. **Target directory must already exist** (`mkdir -p` and, if it should be a repo, `git init` — done by the user or agent *before* this skill runs). This skill never creates the target repo itself; it only scaffolds the CTO Professor OS layer into an existing directory. If missing, stop and say so rather than erroring opaquely.
 2. Validate source has `templates/cursorrules.template` + `skills/`.
-3. Run `scripts/deploy-basic.sh <target-path> [--update|--force]` (agent may invoke shell directly).
-4. Report pointer value, `.work.cto/` presence, next steps.
-5. If target already has Agent OS `.cursorrules` without `TRAINER_CTO_SOURCE`, **do not clobber** — merge Source-resolution + CTO skills table + professor Identity section.
+3. Run `scripts/deploy-basic.sh <target-path> [update|force]` (agent may invoke shell directly).
+4. **Verification is automatic:** every deploy/update ends with `scripts/verify-target.sh`, which audits the target's `.cursorrules` — `TRAINER_CTO_SOURCE` set + reachable + matching the current source location, remaining `REPLACE:` tokens, sister-framework discovery (`.ai`, `.ai.ui`, `.ai.biz`, `.ai.soc`), and the `.work.cto/` skeleton. FAIL items abort the deploy with exit 1; WARN items (e.g. unfilled `REPLACE:PROJECT_NAME`) are reported for the operator.
+5. Report pointer value, `.work.cto/` presence, verify result, next steps.
+6. If target already has Agent OS `.cursorrules` without `TRAINER_CTO_SOURCE`, **do not clobber** — merge Source-resolution + CTO skills table + professor Identity section, then re-run `verify`.
 
 ## New target repo, start to finish
 

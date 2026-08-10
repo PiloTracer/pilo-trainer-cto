@@ -2,7 +2,7 @@
 
 | Skill | Invoke examples |
 |-------|-----------------|
-| cto-deploy-basic | `@cto-deploy-basic - /path` · `status` · `update` |
+| cto-deploy-basic | `@cto-deploy-basic - /path` · `status` · `update` · `verify` |
 | cto-deploy-files | `@cto-deploy-files copy - /path` |
 | cto-deploy-repo | `@cto-deploy-repo clone` · `archive` |
 | cto-bootstrap | `@cto-bootstrap init` · `status` |

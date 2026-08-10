@@ -1,5 +1,27 @@
 # Changelog
 
+## Unreleased
+
+**Deploy verification + flag equivalence.** Any deploy now proves the target's wiring instead of
+assuming it, and deploy modes/flags parse identically with or without the `--` prefix.
+
+- **New `scripts/verify-target.sh`** — canonical audit of a deploy target's `.cursorrules`:
+  mode detection (thin / fat / self-hosted), `TRAINER_CTO_SOURCE` reachable + matching the current
+  source location (stale-pointer warning after a source move/rename), remaining `REPLACE:` tokens
+  classified (operator-filled vs auto-discovered `*_PATH`), frameworks-registry sister discovery
+  (`.ai`, `.ai.ui`, `.ai.biz`, `.ai.soc` — filled path cell wins, otherwise sibling auto-discovery),
+  `.work.cto/` skeleton, and fat-client-leak detection in thin targets. FAIL items exit 1.
+- **Automatic verify at deploy end.** `deploy-basic.sh` and `deploy-files.sh` close every
+  deploy/update with `verify-target.sh`; a FAIL aborts with "DEPLOY INCOMPLETE" (e.g. an existing
+  non-CTO `.cursorrules` that still needs a rules-aware merge).
+- **Flag equivalence everywhere.** `update` ≡ `--update`, `force` ≡ `--force`, `status` ≡ `--status`,
+  `verify` ≡ `--verify`, `--clone` ≡ `clone`, `--archive` ≡ `archive` across all three deploy scripts.
+- **New `verify` canonical verb** (`@cto-deploy-basic verify - /path`,
+  `@cto-deploy-files verify - /path`), documented in the deploy skills, `skills/README.md`,
+  `PROCESS_ROUTER.md`, and `.quick/`.
+- **`framework-verify.sh`** gained smokes: verify passes on fresh thin+fat deploys, bare/`--` forms
+  are interchangeable, an unreachable pointer fails verify, and `update` re-syncs it back to green.
+
 ## v0.2.0 — 2026-08-06
 
 **Naming standardization + working-directory scope.** All skills now carry the `cto-` domain prefix
