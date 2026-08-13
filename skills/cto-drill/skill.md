@@ -42,8 +42,8 @@ three options is a structural failure reported separately from the rubric averag
 
 ## Protocol
 
-1. Select a case from `drills/case-library.md`, or set a scenario using PROFILE company stage (invent plausible details, labeled as scenario). State the pre-read boundary before the learner starts.
-2. Time-box: learner responds; professor critiques.
+1. Select a case from `drills/case-library.md`, or set a scenario using PROFILE company stage (invent plausible details, labeled as scenario). State the pre-read boundary before the learner starts. **Synthetic briefs are deliberately incomplete: tell the learner the brief omits facts on purpose, and require every deliverable to carry an "Assumptions / unknowns" block — missing facts are named as gaps, never invented.**
+2. Set the difficulty dials for the learner's level in this area per `standards/level-adaptation.md` (default: mid; at most two dials), then time-box: learner responds; professor critiques.
 3. Score against the `standards/assessment.md` drill rubric (clarity, leverage, risk, stakeholder care, learnability — each 1–5). Pass: average ≥3 and no dimension at 1.
 4. Write `.work.cto/assessments/drill-YYYY-MM-DD-<type>.md`.
 5. **Tick the task ledger** in the active `programs/<slug>/progress.md`: mark the matching drill row `done` with this file as Evidence, or bump its `Done/Total`. A failed drill stays `in-progress` — record the score, do not mark it done.

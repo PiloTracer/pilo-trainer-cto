@@ -28,6 +28,8 @@ that is not confirmed here.
 | progression.fyi | https://progression.fyi/ | Directory of public engineering career ladders — comparison set when writing your own | Verified 2026-07-30 |
 | Dropbox Engineering Career Framework | https://dropbox.github.io/dbx-career-framework/ | Level expectations by scope, collaborative reach, and levers for impact; explicitly *not* a promotion checklist | Verified 2026-07-30 |
 | Rent the Runway Engineering Ladder | https://progression.fyi/f/rent-the-runway | The original four-pillar ladder (technical skill, get stuff done, impact, communication & leadership) that most others descend from | Verified 2026-07-30 |
+| *Radical Candor* | Kim Scott | Direct feedback without cruelty — the 1:1 and coaching vocabulary behind the leadership drills | Unverified (page) |
+| *Who: The A Method for Hiring* | Geoff Smart & Randy Street | Role scorecards and structured interviews — feeds the hire-plan drill (case 10) | Unverified (page) |
 
 ## Delivery & systems
 
@@ -55,6 +57,8 @@ that is not confirmed here.
 | Source | Author / URL | Why | Status |
 |--------|--------------|-----|--------|
 | *Empowered* | Marty Cagan | Product/engineering partnership; the coaching half of the CTO job | Unverified (page) |
+| *Shape Up* | Ryan Singer — https://basecamp.com/shapeup | Free online. Appetite-based scoping, fixed-time/variable-scope, bets not backlogs — the product-side scoping vocabulary | Verified 2026-08-12 |
+| *The Pyramid Principle* | Barbara Minto | Conclusion-first structured communication; the writing discipline behind BLUF updates and board material | Unverified (page) |
 
 ## Governance & risk
 
@@ -63,6 +67,8 @@ that is not confirmed here.
 | NIST Cybersecurity Framework 2.0 | NIST, Feb 2024 — https://doi.org/10.6028/nist.cswp.29 | Six functions: Govern, Identify, Protect, Detect, Respond, Recover. Govern is new in 2.0 and is the CTO-facing one | Verified 2026-07-30 |
 | CSF 2.0 release announcement | NIST — https://www.nist.gov/news-events/news/2024/02/nist-releases-version-20-landmark-cybersecurity-framework | Scope now all organisations, not just critical infrastructure; governance elevated to a first-class function | Verified 2026-07-30 |
 | CSF FAQ — v1.1 → v2.0 transition | NIST — https://www.nist.gov/cyberframework/faqs | What moved where; useful when a board asks why the old mapping changed | Verified 2026-07-30 |
+| NIST AI Risk Management Framework 1.0 (NIST AI 100-1) | NIST, Jan 2023 — https://www.nist.gov/itl/ai-risk-management-framework | Voluntary AI-risk framework — Govern / Map / Measure / Manage; the governance vocabulary for AI-adoption decisions (case 8) | Verified 2026-08-12 |
+| OWASP Top 10 | OWASP — https://owasp.org/Top10/ | The consensus web-application risk list (2025 release current); the security baseline a board expects you to know cold | Verified 2026-08-12 |
 
 ## Incidents & learning from failure
 

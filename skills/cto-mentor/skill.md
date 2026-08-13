@@ -20,7 +20,7 @@ On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`
 
 ## prepare
 
-1. Load active PROGRAM + progress + HANDOFF.
+1. Load active PROGRAM + progress + HANDOFF + the learner's per-area levels (PROFILE + latest assessment); set scaffolding per `standards/level-adaptation.md`.
 2. Write `.work.cto/sessions/<program-slug>/YYYY-MM-DD-prep-<slug>.md` with agenda, pre-read, drill, success check. Create the program subdirectory if it does not exist yet (ad-hoc sessions under `-y` use `sessions/ad-hoc/`).
 3. Update NEXT.
 
@@ -31,7 +31,7 @@ Follow `standards/mentoring.md`:
 0. **Retrieval opening (5 min, closed-book).** Ask the learner to recall last session's commitment and one concept from the retrieval queue in `notes.md`, without opening notes. Then check the record together. The gap is the diagnostic.
 1. Orient (goal for this session, 1 sentence).
 2. Socratic diagnosis — scan `standards/anti-patterns.md` and challenge what you find, by name.
-3. Teach one concept with a concrete company-shaped example.
+3. Teach one concept with a concrete company-shaped example, scaffolded to the learner's level per `standards/level-adaptation.md`.
 4. Run or assign one drill (`@cto-drill` may be nested).
 5. Commit to one decision/action; log it.
 6. Write the session log to `.work.cto/sessions/<program-slug>/YYYY-MM-DD-<topic-slug>.md` (same program subdirectory as the prep; drill artifacts and feedback files for the session live alongside it).

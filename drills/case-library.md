@@ -62,6 +62,10 @@ health-check responses and reads were down until it was reverted.)
 **Prompt:** you have 10 minutes of incident and no confirmed cause. Write the first customer
 comms, the internal escalation, and the one question you ask that most narrows the space.
 
+**Assumptions / unknowns required:** this brief is deliberately incomplete — no confirmed
+cause, no system context. Name what you do not know as gaps in your response; never invent
+the missing facts.
+
 **Testing:** whether "what changed recently" is your first instinct, and whether you can
 communicate honestly before you know the cause.
 
@@ -111,6 +115,10 @@ The migration slipped a second time. You have one page.
 
 **Requirements:** BLUF, ≤3 decisions you need from the CEO, ≤2 risks, exactly one ask.
 No status theatre — if the page does not force a decision, it failed.
+
+**Assumptions / unknowns required:** the brief omits *why* the migration slipped and what
+the recovery plan is. State those as named gaps (or labelled assumptions) in the update —
+inventing a cause is the failure.
 
 **Testing:** whether you lead with the bad news. Burying it in paragraph four is the tell.
 
@@ -178,6 +186,9 @@ You have one open req and two critical gaps.
 **Requirements:** a scorecard for the one role, an explicit statement of which gap stays open,
 and the compensating control for the gap you are not filling.
 
+**Assumptions / unknowns required:** the brief omits team context and the reason for the
+freeze. State your assumptions on the page — named as assumptions, not presented as facts.
+
 **Testing:** whether you can allocate scarcity without pretending both gaps get covered.
 
 ---
@@ -193,6 +204,10 @@ engineer proposes a rewrite. The CEO asks what it buys.
 rewrite with a range, and what you would ship *instead* with the same budget. Then pick, and
 name one debt item you are explicitly choosing to keep.
 
+**Assumptions / unknowns required:** the brief supplies no figures. Your cost numbers must
+arrive labelled as assumptions with a range — invented precision is the failure this drill
+scores down.
+
 **Testing:** whether debt is a number or a mood. "It slows us down" is not an answer, and
 neither is a rewrite without the counterfactual — the money spent rewriting is money not spent
 on something else, and that comparison is the decision.
@@ -202,8 +217,46 @@ range, then ask which end they would tell the board.
 
 ---
 
+## 12. Engagement charter under scope-creep pressure
+
+**Type:** `decision-case` variant — charter draft · **Time-box:** 45 min · **Synthetic**
+
+You are signing a fractional CTO seat: a 40-engineer fintech, monolith plus one standalone
+service, a database migration scheduled in 30 days, a board meeting in 14 days, a
+non-technical CEO, and an engineering org split 60/40 on freezing features. Bandwidth is
+~10 hrs/week. Write the one-page engagement charter.
+
+**Pre-read boundary:** the brief above only — no template and no prior charter. The
+structure is part of the test.
+
+**Requirements:** own/advise/escalate with a named decision owner per row; an Own column
+sized to the stated bandwidth, not to appetite; ≥3 explicit out-of-scope items; success
+criteria that each carry the five anchors (what is measured · with what instrument · whose
+number · baseline + date · trigger); exit criteria naming both endings (renew vs handoff)
+with pre-agreed outputs each.
+
+**Assumptions / unknowns required:** the brief deliberately omits the tooling, the current
+delivery baseline, and the engineering-leadership situation. An **Assumptions / unknowns**
+block naming those gaps is part of the deliverable — inventing the missing facts is the
+failure.
+
+**Testing:** a charter is checkable at three levels — promises to the client (verifiable
+only in a real engagement), decision architecture (checkable on the page), and structure
+(checkable in 30 seconds). The drill grades the latter two. A charter whose success
+criteria have no instrument, no owner, and no trigger reads well and is unverifiable; that
+gap is the lesson.
+
+**Failure mode to catch:** success criteria that escalate toward 100% ("100% sprint-goal
+completion by sprint 4"). Sustained 100% is sandbagging — the metric is predictability,
+and a criterion that rewards under-committing teaches the wrong lesson twice.
+
+---
+
 ## Adding cases
 
 `@cto-update` may extend this file. Requirements: a real URL, an explicit pre-read boundary,
 a stated time-box, and a line on what the case tests. Synthetic scenarios are allowed but must
 be labelled in the first line and must be built on a documented pattern, not an invented one.
+Synthetic scenarios must also say that facts are deliberately omitted — the learner surfaces
+the unknowns as named gaps in the deliverable (an "Assumptions / unknowns" block); inventing
+the missing numbers is the failure the drill exists to catch.

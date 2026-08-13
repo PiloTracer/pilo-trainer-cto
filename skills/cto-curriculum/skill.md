@@ -25,7 +25,7 @@ Produce a module plan following `standards/program-spec.md`'s required sections 
 
 **Output:** `.work.cto/programs/<slug>/PROGRAM.md` with every SPEC section present, stubbed where unknown — never a plan that exists only in chat. If the scope is a full program rather than a module set, hand off to `@cto-program-custom` instead of half-building one here.
 
-Seed `progress.md` and `notes.md` from their templates alongside it, per `@cto-program-standard` § *Seeding the task ledger*. A program folder without a ledger is invisible to `@cto-review status`.
+Seed `progress.md` and `notes.md` from their templates alongside it, per `@cto-program-standard` § *Seeding the task ledger*. A program folder without a ledger is invisible to `@cto-review status`. Create `.work.cto/sessions/<slug>/` alongside the program folder — session logs for the program live there, per `standards/mentoring.md`.
 
 ## refine
 

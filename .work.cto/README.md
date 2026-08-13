@@ -13,8 +13,10 @@ All CTO training, consultancy, and progress artifacts for this project live here
 | `plans/NEXT.md` | Next action |
 | `plans/UNKNOWNS.md` | Open unknowns |
 | `plans/ASSUMPTIONS.md` | Assumption ledger |
-| `programs/` | Active / archived programs |
-| `sessions/` | Mentoring session logs — one `<program-slug>/` subdir per program |
+| `programs/<slug>/PROGRAM.md` | The program SPEC |
+| `programs/<slug>/progress.md` | **Task ledger** — every deliverable; evidence path required to mark done |
+| `programs/<slug>/notes.md` | Retrieval queue + program deltas |
+| `sessions/<program-slug>/` | Mentoring session logs — one directory per program |
 | `consultancy/` | Advisory memos |
 | `sources/` | Curated reading/video backlog |
 | `assessments/` | Diagnostics and rubrics |

@@ -56,6 +56,16 @@ Report as: `PASS, avg 3.2 — structural miss: <what>, required in next attempt.
 Never let a passing average bury a structural miss, and never fail an otherwise strong artifact
 solely on a structural miss — carry it forward as a hard requirement instead.
 
+## Written feedback files
+
+A scored drill may leave a feedback file alongside the learner's artifact: the corrected
+version with every change marked (e.g. `» CORRECTION`) and the reason inline. Rules:
+
+- The learner's original is never edited — it is the data; the feedback file is separate.
+- Every change carries its reason; a corrected artifact without reasons is just a model answer.
+- It ends with the concrete deltas the next attempt must show — feedback closes the loop only
+  when the next artifact can be checked against it.
+
 ## Baseline assessment
 
 Must cover six areas: Role & leverage, Org & people, Delivery & systems, Product & stakeholders,

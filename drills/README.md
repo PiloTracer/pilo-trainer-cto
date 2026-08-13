@@ -2,7 +2,7 @@
 
 Concrete, runnable practice material for `@cto-drill`.
 
-**Why this exists:** `@cto-drill` listed eight drill *types* with a one-line description each,
+**Why this exists:** `@cto-drill` listed nine drill *types* with a one-line description each,
 so every run began by inventing a scenario. Invented scenarios drift toward the comfortable —
 they rarely include the missing information, political pressure, or bad options that make real
 CTO decisions hard.
@@ -27,6 +27,6 @@ is the entire yield of the exercise. Editing it away leaves a tidy document and 
 ## Rules
 
 - Public cases only. Never build a drill from a learner's confidential employer material unless they have explicitly cleared it, and then at the credential level only.
-- Every case cites a real URL, per `standards/citation.md`. Where a case is synthetic, it says so in the first line.
+- Every case cites a real URL, per `standards/citation.md`. Where a case is synthetic, it says so in the first line — and its deliverable must include an **Assumptions / unknowns** block: the brief omits facts on purpose, missing facts are named as gaps, never invented.
 - Scenarios are practice, not instructions to act on real systems.
 - A failed drill is a result, not a problem — record the score and re-queue the skill rather than retrying until it passes.

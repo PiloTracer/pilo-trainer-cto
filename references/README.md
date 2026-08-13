@@ -10,6 +10,7 @@ against a live public page. Anything unverified is labelled, not quietly dropped
 | File | Contents |
 |------|----------|
 | [`core-library.md`](core-library.md) | Annotated sources by competency area, with verification status |
+| [`glossary.md`](glossary.md) | Plain definitions of exec/advisory vocabulary (BLUF, triage, air cover, SOW…) |
 
 ## How skills use this
 
@@ -17,7 +18,7 @@ against a live public page. Anything unverified is labelled, not quietly dropped
 |-------|-----|
 | `@cto-program-standard` / `@cto-program-custom` | Seed `.work.cto/sources/` at install from the areas the program covers |
 | `@cto-sources curate` | Draw from here first; search the web only for gaps |
-| `@cto-mentor` / `@cto-drill` | Cite pre-read material without re-verifying |
+| `@cto-mentor` / `@cto-drill` | Cite pre-read material without re-verifying; define exec/advisory vocabulary from `glossary.md` on first use |
 | `@cto-update` | Add *new* material here only after verifying a live page |
 
 ## Rules
