@@ -17,7 +17,7 @@ Binding for `@cto-mentor` and nested teaching in other skills.
 4. Teach (one idea, company-shaped example)
 5. Practice (drill or decision)
 6. Commit (one action + artifact path)
-7. Log under `.work.cto/sessions/`; tick the task ledger
+7. Log under `.work.cto/sessions/<program-slug>/`; tick the task ledger
 
 ## Retrieval opening (binding)
 

@@ -97,7 +97,7 @@ a pace check alone will miss.
 | Field | Source |
 |-------|--------|
 | Readiness state | PROFILE + artifacts |
-| Sessions this month | `sessions/` |
+| Sessions this month | `sessions/<program-slug>/` |
 | Open unknowns | `{UNKNOWNS}` |
 | Competency deltas | `progress/COMPETENCY.md` |
 

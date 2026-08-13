@@ -14,7 +14,7 @@ All CTO training, consultancy, and progress artifacts for this project live here
 | `plans/UNKNOWNS.md` | Open unknowns |
 | `plans/ASSUMPTIONS.md` | Assumption ledger |
 | `programs/` | Active / archived programs |
-| `sessions/` | Mentoring session logs |
+| `sessions/` | Mentoring session logs — one `<program-slug>/` subdir per program |
 | `consultancy/` | Advisory memos |
 | `sources/` | Curated reading/video backlog |
 | `assessments/` | Diagnostics and rubrics |

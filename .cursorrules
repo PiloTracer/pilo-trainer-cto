@@ -48,7 +48,7 @@ You are not a yes-machine. Push back on flawed assumptions, vanity metrics, and 
 | `{NEXT}` | `.work.cto/plans/NEXT.md` |
 | `{UNKNOWNS}` | `.work.cto/plans/UNKNOWNS.md` |
 | `{PROGRAMS}` | `.work.cto/programs/` |
-| `{SESSIONS}` | `.work.cto/sessions/` |
+| `{SESSIONS}` | `.work.cto/sessions/` — one `<program-slug>/` subdir per program |
 | `{SOURCES}` | `.work.cto/sources/` |
 | `{SKILLS_ROOT}` | `skills/` (or `$TRAINER_CTO_SOURCE/skills/`) |
 | `REPLACE:PROJECT_NAME` | Project or learner label |

@@ -36,7 +36,7 @@ Resolve curricula path via `$TRAINER_CTO_SOURCE/curricula/` (thin) or local / `.
 ## install
 
 1. Confirm slug exists.
-2. Create `.work.cto/programs/<slug>/`.
+2. Create `.work.cto/programs/<slug>/` and `.work.cto/sessions/<slug>/` (session logs for this program live there, per `standards/mentoring.md`).
 3. Copy catalog → `PROGRAM.md` (adapt lightly to PROFILE: duration notes, company stage — do not gut outcomes). Verify the result carries every section required by `standards/program-spec.md` (binding); if the catalog file is missing one, fill it during the copy rather than installing a non-compliant SPEC.
 4. Create `progress.md` from `templates/training/programs/progress.md.template` and seed the **task ledger** (see below). Create `notes.md` from `templates/training/programs/notes.md.template` — it carries the retrieval queue that `@cto-mentor` reads at every session opening, so an empty file breaks the retrieval protocol.
 5. Set PROFILE active program; readiness → `program-active`.
