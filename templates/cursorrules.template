@@ -147,6 +147,7 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
   - `.env*` (except `.env.example`)
   - Framework `curricula/**`, `standards/**`, `references/**`, and `drills/**` for learner-specific content (copy into `.work.cto/` instead)
   - `.cursorrules` wholesale replace when merging into a target that already has Agent OS / sibling rules — **merge**, do not clobber
+  - `agent.os.framework.md` (framework source marker — fixed content)
   - Git history, hooks, and remote configuration
 - **If a protected file needs a change:** stop, explain WHY, ask for explicit permission.
 

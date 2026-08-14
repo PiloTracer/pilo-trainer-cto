@@ -21,8 +21,10 @@ with exactly one `## Next action`.
   contract close (template copy kept identical).
 - **Verifier enforcement.** `scripts/framework-verify.sh` hard-fails on any skill.md missing
   the handoff reference and any doc-generating skill missing the clarity reference.
-- **Audit.** `.work.cto/reports/20260814-cto-audit.md`: checks 1–6, 8 PASS; Check 7 (protected
-  surfaces) FAIL on `agent.os.framework.md` drift — fixes F1/F2 proposed, awaiting approval.
+- **Audit + marker fix.** `.work.cto/reports/20260814-cto-audit.md`: all 8 checks PASS.
+  `agent.os.framework.md` rewritten for CTO Professor OS (real detection rule, documentary
+  status), added to `.cursorrules` § Protected Files, and genuinely excluded from fat-client
+  vendoring via `--exclude` in `scripts/deploy-files.sh`.
 
 **`cto-session` aligned with Agent OS `session-control`.** The session skill now speaks the
 same verb set and enforces the same evidence discipline as its `.ai` sibling, adapted to the

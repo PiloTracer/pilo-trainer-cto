@@ -8,14 +8,15 @@
 ## Latest action
 
 **Date:** 2026-08-14  
-**Request:** adopt framework improvements per `.work.cto/prompts/adopt-framework-improvements.md` → `@cto-session close commit push` (incl. `agent.os.framework.md`)  
+**Request:** adopt framework improvements per `.work.cto/prompts/adopt-framework-improvements.md`; audit fixes F1/F2 approved → `@cto-session close commit push`  
 **Executed:**
 1. Phase 1 — Operator handoff contract added at `skills/SKILL_DEPENDENCIES.md:3`; referenced from all 17 `skills/*/skill.md`; close rule synced into `.cursorrules` + `templates/cursorrules.template`; verifier hard-fail at `scripts/framework-verify.sh:129`.
 2. Phase 2 — Document clarity contract at `skills/SKILL_DEPENDENCIES.md:37`; 10 doc-generating skills reference it; artifact shapes + 8 learner-memory templates gained Status/Needs + `## Next action`; verifier hard-fail at `scripts/framework-verify.sh:142`.
-3. Phase 3 — audit written to `.work.cto/reports/20260814-cto-audit.md`: checks 1–6, 8 PASS; Check 7 FAIL (agent.os.framework.md drift — fixes F1/F2 proposed, not applied).
-4. `bash scripts/framework-verify.sh` → exit 0 (`=== PASS ===`) after each phase and at close.
+3. Phase 3 — audit at `.work.cto/reports/20260814-cto-audit.md`: all 8 checks PASS after fixes.
+4. F1/F2 applied (owner-approved): `agent.os.framework.md` rewritten for CTO Professor OS + protected in `.cursorrules`/template; real `--exclude` added to `scripts/deploy-files.sh` (fat-deploy smoke confirms the marker no longer ships).
+5. `bash scripts/framework-verify.sh` → exit 0 (`=== PASS ===`) at every checkpoint.
 **Blockers:** none  
-**Next recommended:** see `.work.cto/plans/NEXT.md` — decide audit fixes F1/F2, then continue in thin-client target `trainer-cto-custom`.
+**Next recommended:** see `.work.cto/plans/NEXT.md` — cut release, then continue in thin-client target `trainer-cto-custom`.
 
 ## Active focus
 
@@ -27,6 +28,6 @@
 ## Carry-forward
 
 - PROFILE.md REPLACE tokens in source repo intentionally unfilled — only fill if this repo becomes a real training project
-- Audit open item: `agent.os.framework.md` claims protection via nonexistent `standards/PROTECTED_SURFACES.json` and a false `deploy-files` exclusion — F1/F2 in `.work.cto/reports/20260814-cto-audit.md` await owner decision
+- Audit item closed: F1/F2 applied — `agent.os.framework.md` rewritten for CTO Professor OS, protected in `.cursorrules`, excluded from fat-client vendoring (`scripts/deploy-files.sh`)
 - `trainer-cto-custom`: open in Cursor → optional `git init` → `@cto-session start` → `@cto-bootstrap init` → `@cto-assess run`
 - Source repo: CHANGELOG Unreleased holds clarity-contracts + `cto-session` alignment + deploy-verify entries — cut a release when ready

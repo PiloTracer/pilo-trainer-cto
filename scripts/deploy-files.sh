@@ -52,6 +52,7 @@ rsync -a --delete \
   --exclude '.credentials/' \
   --exclude '.private/' \
   --exclude '.cursor/' \
+  --exclude 'agent.os.framework.md' \
   --exclude '*.zip' \
   "${CTO_ROOT}/" "${DEST_AI}/"
 

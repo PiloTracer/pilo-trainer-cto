@@ -1,7 +1,7 @@
-# Agent OS Framework — source marker
+# CTO Professor OS — framework source marker
 
-This file marks the repository root as the **Agent OS framework source repo** (self-hosted `.ai`).
+This file marks the repository root as the **CTO Professor OS framework source repo** (self-hosted `.ai.cto`).
 
-- **Detection:** `session-control` and deploy skills treat a repo as framework source ⇔ this file exists at the repo root. Absence ⇒ consumer project.
-- **Never modify:** this file is a protected surface (`standards/PROTECTED_SURFACES.json`, `.cursorrules` §Protected Files). Its content is fixed; do not edit, rename, or delete it.
-- **Never deployed:** `deploy-files` explicitly excludes it; `deploy-basic` never writes root files; it must never appear in a consumer project.
+- **Detection:** `@cto-session` treats a repo as the self-hosted framework source when `skills/cto-session/skill.md` exists at the repo root (see `skills/cto-session/skill.md` § Repo mode). This marker is documentary; no script or skill reads it.
+- **Never modify:** this file is a protected surface (`.cursorrules` § Protected Files). Its content is fixed; do not edit, rename, or delete it.
+- **Never deployed:** `scripts/deploy-files.sh` excludes it from fat-client vendoring; `deploy-basic` never writes root files. It must never appear in a consumer project.
