@@ -50,6 +50,8 @@ unreadable walls of text.
 <2–4 sentences: pace against remaining time, and the single biggest risk.>
 ```
 
+Close the chat response with Form A or Form B per the Operator handoff contract — the `### Next` section above is report content, not the close.
+
 ### Pace check (compute before writing the Assessment)
 
 ```text
@@ -91,6 +93,8 @@ a pace check alone will miss.
 - A task with no evidence path is **pending**, whatever the session logs claim.
 - Consultancy memos and advisory output are not tasks — exclude them unless a ledger row assigns them.
 - The Assessment is a trainer's read, not encouragement. Name slippage and the highest-value untouched item plainly.
+- **Operator handoff:** every response that ends a turn follows the [Operator handoff contract](../SKILL_DEPENDENCIES.md#operator-handoff-contract) — terse output; approvals under `**Needs your approval:**` citing `path:L<n>`; questions numbered under `**Needs your answer:**`; exactly one `**Next step:**` command; one line when nothing is needed (Form A). Decisions and questions never mixed; empty sections omitted.
+- **Document clarity:** every generated document follows the [Document clarity contract](../SKILL_DEPENDENCIES.md#document-clarity-contract) — Status + Needs header, separate Decisions/Open questions lists, one `## Next action`, no placeholder scaffolding left behind.
 
 ### `--full` adds
 
@@ -119,6 +123,8 @@ On success: write `.work.cto/reports/certify-YYYY-MM-DD.md`, update PROFILE read
 
 ```markdown
 # Certification — YYYY-MM-DD — <target state>
+**Status:** Draft | In review | Approved | Superseded — YYYY-MM-DD
+**Needs:** <one line, or nothing>
 
 ## Target state
 <from → to>
@@ -132,8 +138,8 @@ On success: write `.work.cto/reports/certify-YYYY-MM-DD.md`, update PROFILE read
 ## Not certified
 <what was claimed but not supported, and what would support it>
 
-## Next gate
-<state, and the concrete work that unlocks it>
+## Next action
+<state, and the concrete work that unlocks it — or `Next action: none — <reason>`>
 ```
 
 Competency moves recorded here must also land in `progress/COMPETENCY.md` § *Movement log*,

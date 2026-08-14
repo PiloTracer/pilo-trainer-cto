@@ -34,6 +34,7 @@ Bookend CTO training sessions so the next chat (or the learner) can resume witho
 - Never paste secrets from `.env`, `credentials/`, or tokens into chat or HANDOFF.
 - Every git-capable mode ends with a **Completion checklist** — each item `pass` | `fail` | `skip` with evidence.
 - No `Co-authored-by:` trailers, no `--no-verify`, no force-push, no amend.
+- **Operator handoff:** every response that ends a turn follows the [Operator handoff contract](../SKILL_DEPENDENCIES.md#operator-handoff-contract) — terse output; approvals under `**Needs your approval:**` citing `path:L<n>`; questions numbered under `**Needs your answer:**`; exactly one `**Next step:**` command; one line when nothing is needed (Form A). Decisions and questions never mixed; empty sections omitted.
 
 ### Path resolution (mandatory before any Read)
 
@@ -163,6 +164,8 @@ Read-only snapshot. **No** HANDOFF/NEXT writes. **No** completion checklist.
 **Blockers:** <short list or none>
 ```
 
+Close the response with Form A or Form B per the Operator handoff contract.
+
 Optional: one line on dirty files (no full diff). For full context load, use **start**. For full context load **without** HANDOFF writes + uncommitted-aware detail, use **context**.
 
 ---
@@ -255,7 +258,7 @@ Session state → `idle`, Latest action block rewrite, active focus + carry-forw
 
 ### C6 — Update NEXT.md (mandatory on close)
 
-Done / Immediate next action / Queue / Blocked refresh: [reference.md § Close protocol (detailed)](reference.md#close-protocol-detailed) (C6).
+Done / Next action / Queue / Blocked refresh: [reference.md § Close protocol (detailed)](reference.md#close-protocol-detailed) (C6).
 
 ### C7 — Close report (mandatory output)
 

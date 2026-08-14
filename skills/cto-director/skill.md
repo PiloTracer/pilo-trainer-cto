@@ -8,6 +8,8 @@ description: >-
 
 # cto-director
 
+- **Operator handoff:** every response that ends a turn follows the [Operator handoff contract](../SKILL_DEPENDENCIES.md#operator-handoff-contract) — terse output; approvals under `**Needs your approval:**` citing `path:L<n>`; questions numbered under `**Needs your answer:**`; exactly one `**Next step:**` command; one line when nothing is needed (Form A). Decisions and questions never mixed; empty sections omitted.
+
 ## Free-text intake
 
 1. **Capture** — quote user request in HANDOFF when executing.
@@ -44,6 +46,8 @@ Plan:
 1. @skill mode - arg
 Confirm? (reply yes / pass -y next time)
 ```
+
+While the confirm is pending, close with Form B per the Operator handoff contract (the plan under `**Needs your approval:**`; reply `yes` as the `**Next step:**`).
 
 ## New skill protocol
 

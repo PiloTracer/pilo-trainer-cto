@@ -46,6 +46,8 @@ forking for modification, or archiving a known-good version. It does not scaffol
 
 Neither mode writes `.cursorrules` or `.work.cto/` into an application repo.
 
+Close the response with Form A or Form B per the Operator handoff contract.
+
 ## Failure handling
 
 | Condition | Response |
@@ -59,3 +61,5 @@ Neither mode writes `.cursorrules` or `.work.cto/` into an application repo.
 
 Never delete an existing target to make room. Never clone over a directory that contains
 `.work.cto/` — learner memory is not replaceable from a remote.
+
+- **Operator handoff:** every response that ends a turn follows the [Operator handoff contract](../SKILL_DEPENDENCIES.md#operator-handoff-contract) — terse output; approvals under `**Needs your approval:**` citing `path:L<n>`; questions numbered under `**Needs your answer:**`; exactly one `**Next step:**` command; one line when nothing is needed (Form A). Decisions and questions never mixed; empty sections omitted.

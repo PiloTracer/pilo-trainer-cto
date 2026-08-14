@@ -2,6 +2,28 @@
 
 ## Unreleased
 
+**Clarity contracts adopted (operator handoff + document clarity).** Ported from Agent OS
+`.ai` via `.work.cto/prompts/adopt-framework-improvements.md`: every skill response now closes
+with a predictable operator handoff, and every generated document carries a Status/Needs header
+with exactly one `## Next action`.
+
+- **`skills/SKILL_DEPENDENCIES.md` contracts.** New `## Operator handoff contract` (Form A /
+  Form B close; approvals cite `path:L<n>`; decisions and questions never mixed) and
+  `## Document clarity contract` (Status/Needs header, separate Decisions/Open questions lists,
+  one `## Next action`, no leftover scaffolding).
+- **Skill adoption.** All 17 `skills/*/skill.md` reference the handoff contract; the 10
+  doc-generating skills also reference the clarity contract, and their artifact shapes
+  (baseline, memo, drill, session log, PROGRAM.md, certify, update) gained Status/Needs +
+  `## Next action`. Operator-facing report templates close with Form A/B.
+- **Templates + `.cursorrules`.** Learner-memory templates carry Status/Needs headers;
+  `## Immediate next action` renamed to `## Next action` (template, `cto-session`, live
+  `.work.cto/plans/NEXT.md`); `.cursorrules` § Verification & Communication requires the
+  contract close (template copy kept identical).
+- **Verifier enforcement.** `scripts/framework-verify.sh` hard-fails on any skill.md missing
+  the handoff reference and any doc-generating skill missing the clarity reference.
+- **Audit.** `.work.cto/reports/20260814-cto-audit.md`: checks 1–6, 8 PASS; Check 7 (protected
+  surfaces) FAIL on `agent.os.framework.md` drift — fixes F1/F2 proposed, awaiting approval.
+
 **`cto-session` aligned with Agent OS `session-control`.** The session skill now speaks the
 same verb set and enforces the same evidence discipline as its `.ai` sibling, adapted to the
 `.work.cto/` learner-memory scope.

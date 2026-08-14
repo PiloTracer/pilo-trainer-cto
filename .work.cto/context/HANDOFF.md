@@ -8,14 +8,14 @@
 ## Latest action
 
 **Date:** 2026-08-14  
-**Request:** align `cto-session` with Agent OS `session-control` (verbs, protocols, repo-mode commit scope) → `@cto-session close commit push`  
+**Request:** adopt framework improvements per `.work.cto/prompts/adopt-framework-improvements.md` → `@cto-session close commit push` (incl. `agent.os.framework.md`)  
 **Executed:**
-1. Rewrote `skills/cto-session/skill.md` — full verb parity with `.ai/skills/session-control`: `start`/`status`/`context`/`close`/`commit`/`push` + `scoped` modifier + aliases; hard rules; completion checklists.
-2. Added `skills/cto-session/reference.md` — detailed protocols (S1–S6, X1–X3, M1–M6, C1–C7), report templates, secrets scan, edge cases, anti-patterns.
-3. Added repo-mode commit scope: repo-wide (`git add -A`) in this self-hosted source; `.work.cto/`-only in thin/fat targets; detection table in skill.md § Repo mode.
-4. Synced registry/docs: `.cursorrules` + `templates/cursorrules.template` (identical), `skills/README.md`, `PROCESS_ROUTER.md`, `README.md`, `START_HERE.md`, `.quick/skills.md`, `.quick/daily-loop.md`, `CHANGELOG.md` (Unreleased).
+1. Phase 1 — Operator handoff contract added at `skills/SKILL_DEPENDENCIES.md:3`; referenced from all 17 `skills/*/skill.md`; close rule synced into `.cursorrules` + `templates/cursorrules.template`; verifier hard-fail at `scripts/framework-verify.sh:129`.
+2. Phase 2 — Document clarity contract at `skills/SKILL_DEPENDENCIES.md:37`; 10 doc-generating skills reference it; artifact shapes + 8 learner-memory templates gained Status/Needs + `## Next action`; verifier hard-fail at `scripts/framework-verify.sh:142`.
+3. Phase 3 — audit written to `.work.cto/reports/20260814-cto-audit.md`: checks 1–6, 8 PASS; Check 7 FAIL (agent.os.framework.md drift — fixes F1/F2 proposed, not applied).
+4. `bash scripts/framework-verify.sh` → exit 0 (`=== PASS ===`) after each phase and at close.
 **Blockers:** none  
-**Next recommended:** see `.work.cto/plans/NEXT.md` — continue in thin-client target `trainer-cto-custom`.
+**Next recommended:** see `.work.cto/plans/NEXT.md` — decide audit fixes F1/F2, then continue in thin-client target `trainer-cto-custom`.
 
 ## Active focus
 
@@ -27,6 +27,6 @@
 ## Carry-forward
 
 - PROFILE.md REPLACE tokens in source repo intentionally unfilled — only fill if this repo becomes a real training project
+- Audit open item: `agent.os.framework.md` claims protection via nonexistent `standards/PROTECTED_SURFACES.json` and a false `deploy-files` exclusion — F1/F2 in `.work.cto/reports/20260814-cto-audit.md` await owner decision
 - `trainer-cto-custom`: open in Cursor → optional `git init` → `@cto-session start` → `@cto-bootstrap init` → `@cto-assess run`
-- Source repo: CHANGELOG Unreleased holds `cto-session` alignment + deploy-verify entries — cut a release when ready
-- `cto-session` prompt contract is verified structurally (framework-verify PASS, anchor lint, repo-mode smoke); behavioral proof continues with live use
+- Source repo: CHANGELOG Unreleased holds clarity-contracts + `cto-session` alignment + deploy-verify entries — cut a release when ready

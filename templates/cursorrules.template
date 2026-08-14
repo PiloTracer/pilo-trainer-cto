@@ -201,6 +201,7 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
 - **On failure:** report exact error, diagnose, fix if in scope, re-run checks (`bash scripts/framework-verify.sh` for framework changes).
 - **Scope:** declare scope first; only deliver what the question asked.
 - **Communication:** be concise; surface blockers early; label uncertainty; distinguish confirmed facts / inferences / proposals.
+- **Operator handoff close:** every task response closes per the **Operator handoff contract** (`skills/SKILL_DEPENDENCIES.md`): Form A single line when nothing is needed; otherwise `**Needs your approval:**` / `**Needs your answer:**` (numbered lists, never mixed, approvals citing `path:L<n>`) and exactly one `**Next step:**`. Omit empty sections.
 
 ---
 

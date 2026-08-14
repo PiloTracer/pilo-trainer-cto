@@ -39,3 +39,6 @@ Seed `progress.md` and `notes.md` from their templates alongside it, per `@cto-p
 Follow `standards/program-spec.md`. Cite public sources honestly via `@cto-sources` patterns, drawing from `references/core-library.md` first.
 
 Refining a module never rewrites completed history — a module split creates new rows, it does not erase evidence already filed against the old ones.
+
+- **Operator handoff:** every response that ends a turn follows the [Operator handoff contract](../SKILL_DEPENDENCIES.md#operator-handoff-contract) — terse output; approvals under `**Needs your approval:**` citing `path:L<n>`; questions numbered under `**Needs your answer:**`; exactly one `**Next step:**` command; one line when nothing is needed (Form A). Decisions and questions never mixed; empty sections omitted.
+- **Document clarity:** every generated document follows the [Document clarity contract](../SKILL_DEPENDENCIES.md#document-clarity-contract) — Status + Needs header, separate Decisions/Open questions lists, one `## Next action`, no placeholder scaffolding left behind.

@@ -34,6 +34,8 @@ a drill artifact exists for it, and 3 → 4 requires evidence from a second cont
 
 ```markdown
 # Baseline assessment — YYYY-MM-DD
+**Status:** Draft | In review | Approved | Superseded — YYYY-MM-DD
+**Needs:** <one line, or nothing>
 
 ## Scores
 | Area | Score | Evidence |
@@ -47,8 +49,14 @@ a drill artifact exists for it, and 3 → 4 requires evidence from a second cont
 
 ## Learning style
 - ...
+
+## Next action
+<one action in exact syntax — or `Next action: none — <reason>`>
 ```
 
 ## Rules
 
 Follow `standards/assessment.md` (binding). Do not inflate scores. Mark unverified self-reports clearly.
+
+- **Operator handoff:** every response that ends a turn follows the [Operator handoff contract](../SKILL_DEPENDENCIES.md#operator-handoff-contract) — terse output; approvals under `**Needs your approval:**` citing `path:L<n>`; questions numbered under `**Needs your answer:**`; exactly one `**Next step:**` command; one line when nothing is needed (Form A). Decisions and questions never mixed; empty sections omitted.
+- **Document clarity:** every generated document follows the [Document clarity contract](../SKILL_DEPENDENCIES.md#document-clarity-contract) — Status + Needs header, separate Decisions/Open questions lists, one `## Next action`, no placeholder scaffolding left behind.

@@ -30,6 +30,8 @@ On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`
 
 ```markdown
 # Update — YYYY-MM-DD
+**Status:** Draft | In review | Approved | Superseded — YYYY-MM-DD
+**Needs:** <one line, or nothing>
 
 ## Themes (3–7)
 | Theme | Why it matters to this learner | Practice implication |
@@ -46,6 +48,9 @@ On failure emit the canonical BLOCKED report from `skills/SKILL_DEPENDENCIES.md`
 
 ## Nothing-changed note
 <if the field genuinely produced nothing worth acting on, say so; a thin month is a finding>
+
+## Next action
+<one action in exact syntax — or `Next action: none — <reason>`>
 ```
 
 New sources go to `.work.cto/sources/README.md` with `Status: assigned`, and get a
@@ -57,3 +62,5 @@ invisible by next week.
 - No filler "thought leadership" without a practice implication.
 - Prefer durable principles + a few current pieces — not trend spam.
 - Label anything not verified as **Unverified**.
+- **Operator handoff:** every response that ends a turn follows the [Operator handoff contract](../SKILL_DEPENDENCIES.md#operator-handoff-contract) — terse output; approvals under `**Needs your approval:**` citing `path:L<n>`; questions numbered under `**Needs your answer:**`; exactly one `**Next step:**` command; one line when nothing is needed (Form A). Decisions and questions never mixed; empty sections omitted.
+- **Document clarity:** every generated document follows the [Document clarity contract](../SKILL_DEPENDENCIES.md#document-clarity-contract) — Status + Needs header, separate Decisions/Open questions lists, one `## Next action`, no placeholder scaffolding left behind.

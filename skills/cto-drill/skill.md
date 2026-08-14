@@ -53,6 +53,8 @@ three options is a structural failure reported separately from the rubric averag
 
 ```markdown
 # Drill — YYYY-MM-DD — <type>
+**Status:** Draft | In review | Approved | Superseded — YYYY-MM-DD
+**Needs:** <one line, or nothing>
 
 ## Scenario
 ## Learner response
@@ -68,6 +70,9 @@ three options is a structural failure reported separately from the rubric averag
 
 ## Pass/fail
 ## Follow-up
+
+## Next action
+<one action in exact syntax — or `Next action: none — <reason>`>
 ```
 
 ## Rules
@@ -76,3 +81,6 @@ Drills are practice — not real instructions to harm systems. Keep scenarios re
 
 Never let the learner edit a decision-case record after reading the real outcome. The gap
 between the two is the entire result of the drill.
+
+- **Operator handoff:** every response that ends a turn follows the [Operator handoff contract](../SKILL_DEPENDENCIES.md#operator-handoff-contract) — terse output; approvals under `**Needs your approval:**` citing `path:L<n>`; questions numbered under `**Needs your answer:**`; exactly one `**Next step:**` command; one line when nothing is needed (Form A). Decisions and questions never mixed; empty sections omitted.
+- **Document clarity:** every generated document follows the [Document clarity contract](../SKILL_DEPENDENCIES.md#document-clarity-contract) — Status + Needs header, separate Decisions/Open questions lists, one `## Next action`, no placeholder scaffolding left behind.

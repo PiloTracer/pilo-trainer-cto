@@ -48,6 +48,8 @@ Report actual paths, not assumed success:
 .cursorrules       created only if absent; TRAINER_CTO_SOURCE stays REPLACE_BASICSOURCE
 ```
 
+Close the response with Form A or Form B per the Operator handoff contract.
+
 ## Failure handling
 
 | Condition | Response |
@@ -62,3 +64,5 @@ Report actual paths, not assumed success:
 Never vendor into a target that is already thin-client (a `.cursorrules` with a real
 `TRAINER_CTO_SOURCE`) without saying so — the two modes disagree about where skills live, and
 the resulting target reads some paths from the source and others locally.
+
+- **Operator handoff:** every response that ends a turn follows the [Operator handoff contract](../SKILL_DEPENDENCIES.md#operator-handoff-contract) — terse output; approvals under `**Needs your approval:**` citing `path:L<n>`; questions numbered under `**Needs your answer:**`; exactly one `**Next step:**` command; one line when nothing is needed (Form A). Decisions and questions never mixed; empty sections omitted.

@@ -48,6 +48,8 @@ failures separately from overall quality.
 # Consultancy — <title>
 **Date:** YYYY-MM-DD
 **Mode:** memo | board | review
+**Status:** Draft | In review | Approved | Superseded — YYYY-MM-DD
+**Needs:** <one line, or nothing>
 
 ## Situation
 ## Recommendation (bottom line)
@@ -55,6 +57,12 @@ failures separately from overall quality.
 ## Risks & unknowns
 ## 7-day actions
 ## Sources
+
+## Next action
+<one action in exact syntax — or `Next action: none — <reason>`>
 ```
 
 Push back on politics-disguised-as-strategy. No invented market numbers — mark Unverified.
+
+- **Operator handoff:** every response that ends a turn follows the [Operator handoff contract](../SKILL_DEPENDENCIES.md#operator-handoff-contract) — terse output; approvals under `**Needs your approval:**` citing `path:L<n>`; questions numbered under `**Needs your answer:**`; exactly one `**Next step:**` command; one line when nothing is needed (Form A). Decisions and questions never mixed; empty sections omitted.
+- **Document clarity:** every generated document follows the [Document clarity contract](../SKILL_DEPENDENCIES.md#document-clarity-contract) — Status + Needs header, separate Decisions/Open questions lists, one `## Next action`, no placeholder scaffolding left behind.

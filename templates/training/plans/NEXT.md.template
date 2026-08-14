@@ -1,8 +1,9 @@
 # NEXT — CTO training
 
+**Status:** Active — YYYY-MM-DD · **Needs:** <review/approval or "nothing">
 **Updated:** YYYY-MM-DD
 
-## Immediate next action
+## Next action
 
 1. `@cto-bootstrap init` (if PROFILE incomplete) **or** `@cto-assess run` **or** `@cto-mentor run`
 

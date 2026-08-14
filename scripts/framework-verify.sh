@@ -126,6 +126,33 @@ while IFS='|' read -r _ sid req waiver _; do
 done < <(awk '/^## Skill requirements$/{flag=1; next} flag && /^## /{flag=0} flag && /^\|/{print}' "$deps")
 ok "gated skills declare Requires, BLOCKED, and their waivers"
 
+note "Operator handoff contract adoption"
+# Every skill must reference the Operator handoff contract so operator-facing
+# responses always close with Form A / Form B (see SKILL_DEPENDENCIES.md).
+grep -q '^## Operator handoff contract' "$CTO_ROOT/skills/SKILL_DEPENDENCIES.md" \
+  || die "skills/SKILL_DEPENDENCIES.md is missing '## Operator handoff contract'"
+while IFS= read -r d; do
+  skill_md="$d/skill.md"
+  [[ -f "$skill_md" ]] || continue
+  grep -q "Operator handoff contract" "$skill_md" \
+    || die "skills/$(basename "$d")/skill.md does not reference the Operator handoff contract"
+done < <(find "$CTO_ROOT/skills" -mindepth 1 -maxdepth 1 -type d ! -name '.*' | sort)
+ok "SKILL_DEPENDENCIES.md defines the contract and every skill.md references it"
+
+note "Document clarity contract adoption"
+# Doc-generating skills must reference the Document clarity contract so every
+# generated document carries Status/Needs header + one '## Next action'.
+grep -q '^## Document clarity contract' "$CTO_ROOT/skills/SKILL_DEPENDENCIES.md" \
+  || die "skills/SKILL_DEPENDENCIES.md is missing '## Document clarity contract'"
+DOC_GENERATING="cto-assess cto-consult cto-curriculum cto-drill cto-mentor cto-program-custom cto-program-standard cto-review cto-sources cto-update"
+for sid in $DOC_GENERATING; do
+  skill_md="$CTO_ROOT/skills/${sid}/skill.md"
+  [[ -f "$skill_md" ]] || { die "doc-generating skill '${sid}' has no skill.md"; continue; }
+  grep -q "Document clarity contract" "$skill_md" \
+    || die "skills/${sid}/skill.md does not reference the Document clarity contract"
+done
+ok "doc-generating skills reference the Document clarity contract"
+
 # Drill types referenced by curricula must exist in the cto-drill type table.
 while IFS= read -r dtype; do
   grep -qF "\`${dtype}\`" "$CTO_ROOT/skills/cto-drill/skill.md" \

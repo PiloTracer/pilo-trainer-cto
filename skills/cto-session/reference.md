@@ -681,7 +681,7 @@ An `idle` HANDOFF must not say "in progress". Do not drop historical context the
 
 - `**Updated:**` → today.
 - Move completed items out of the queue (note done + date where the file tracks it).
-- Set **one** clear `## Immediate next action` (a concrete skill invoke).
+- Set **one** clear `## Next action` (a concrete skill invoke).
 - Refresh `## Queue` and `## Blocked` (owner + how to unblock).
 
 ### C7 — Close report (mandatory output)
