@@ -29,7 +29,7 @@ Portable mentoring workflows. Each skill is a folder with `skill.md`.
 | cto-deploy-files | `cto-deploy-files/` | Fat-client vendor as `.ai.cto/` |
 | cto-deploy-repo | `cto-deploy-repo/` | Full git clone or archive deploy |
 | cto-bootstrap | `cto-bootstrap/` | Scaffold `.work.cto/`, PROFILE intake |
-| cto-session | `cto-session/` | Session open/close; HANDOFF, NEXT |
+| cto-session | `cto-session/` | Session bookends (`start`/`status`/`context`/`close`); HANDOFF, NEXT; git `commit`/`push`/`scoped` under `.work.cto/` |
 | cto-director | `cto-director/` | Free-text → skill routing |
 | cto-process-router | `cto-process-router/` | Read-only how-to → skill |
 | cto-assess | `cto-assess/` | Diagnostic; unlocks **assessed** |

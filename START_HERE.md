@@ -61,6 +61,7 @@
 | Need | Command |
 |------|---------|
 | Where am I / what's next? | `@cto-session status` + `.work.cto/context/HANDOFF.md` + `.work.cto/plans/NEXT.md` |
+| Full context load (read-only, dirty-tree aware) | `@cto-session context` |
 | Free-text / unknown skill | `@cto-director - <what you want>` |
 | Gate / readiness state | `@cto-review status` |
 

@@ -2,6 +2,30 @@
 
 ## Unreleased
 
+**`cto-session` aligned with Agent OS `session-control`.** The session skill now speaks the
+same verb set and enforces the same evidence discipline as its `.ai` sibling, adapted to the
+`.work.cto/` learner-memory scope.
+
+- **New verbs and modifiers.** `context` (read-only full context load with uncommitted-aware,
+  secrets-flagged snapshot — writes nothing), `push` standalone (warns when `.work.cto/` is
+  dirty), `close commit scoped` (bookend files only), and aliases `begin`/`open`/`end`/`handoff`.
+  Parsing stays order-insensitive; `commit`/`push` on `start`/`status`/`context` are ignored with
+  a note.
+- **Detailed protocols in `skills/cto-session/reference.md`.** Start (S1–S6), status, context
+  (X1–X3), commit (M1–M6), and close (C1–C7) protocols mirroring `session-control`: mandatory
+  baseline reads, working-tree audit with secrets scan (halts the run on match), verification
+  gate (framework changes require `framework-verify.sh`), follow-ups detection, mandatory
+  completion checklists with evidence, and a commit message block in every close/commit report.
+- **Git contract kept, hardened, and repo-mode aware.** Commit scope follows the repo the skill
+  runs in: **repo-wide** (`git add -A` — every safe modified/added/untracked file) in the
+  self-hosted framework source, and `.work.cto/`-only (`git add -A -- .work.cto`) in deployed
+  thin/fat targets — never HANDOFF-only, never the full target repo tree. Empty commits are
+  skipped; push reports a missing upstream instead of setting one; optional `REF-123:` prefix
+  auto-detected from HANDOFF goal, branch, or last commit — otherwise the `docs: cto session
+  <date>` default. Git remains strictly opt-in.
+- **Session-type classification.** Framework-dev sessions bookend normally but skip
+  PROFILE/program reads and never route into the learner pipeline unprompted.
+
 **Deploy verification + flag equivalence.** Any deploy now proves the target's wiring instead of
 assuming it, and deploy modes/flags parse identically with or without the `--` prefix.
 

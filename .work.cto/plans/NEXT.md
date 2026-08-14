@@ -1,6 +1,6 @@
 # NEXT — CTO training
 
-**Updated:** 2026-08-06
+**Updated:** 2026-08-14
 
 ## Immediate next action
 
@@ -16,7 +16,8 @@ Optional first: `git init` in the target if version control is desired.
 
 | Priority | Action | Skill |
 |----------|--------|-------|
-| 1 | (none — v0.2.0 released 2026-08-06; CHANGELOG current) | — |
+| 1 | Cut release covering Unreleased (cto-session alignment + deploy verification) | manual / `@cto-director` |
+| 2 | ~~Align `cto-session` with `session-control` (verbs, protocols, repo-mode commit scope)~~ — done 2026-08-14 | `@cto-session` |
 
 ## Blocked
 

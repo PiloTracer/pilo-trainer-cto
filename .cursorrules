@@ -120,7 +120,7 @@ TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE
 | cto-deploy-files | `skills/cto-deploy-files/` | Fat-client vendor as `.ai.cto/` |
 | cto-deploy-repo | `skills/cto-deploy-repo/` | Full repo deploy |
 | cto-bootstrap | `skills/cto-bootstrap/` | Scaffold `.work.cto/`, PROFILE |
-| cto-session | `skills/cto-session/` | Session start/status/close; commit/push scoped to `.work.cto/` |
+| cto-session | `skills/cto-session/` | Session bookends: start/status/context/close; commit/push/scoped — repo-wide in the self-hosted source, `.work.cto/`-scoped in targets |
 | cto-director | `skills/cto-director/` | Free-text orchestrator |
 | cto-process-router | `skills/cto-process-router/` | Read-only signpost |
 | cto-assess | `skills/cto-assess/` | Diagnostic assessment |

@@ -106,7 +106,7 @@ In the **target** project chat:
 | **cto-deploy-files** | Fat-client as `.ai.cto/` | `copy - /path` |
 | **cto-deploy-repo** | Clone or archive | `clone` · `archive` |
 | **cto-bootstrap** | Scaffold + PROFILE | `init` · `status` |
-| **cto-session** | Session bookends | `start` · `status` · `close` · `commit` · `push` |
+| **cto-session** | Session bookends | `start` · `status` · `context` · `close` · `commit` · `push` · `scoped` |
 | **cto-director** | Free-text orchestrator | `- <request>` |
 | **cto-process-router** | Read-only signpost | `- <question>` |
 | **cto-assess** | Diagnostic | `run` · `status` |

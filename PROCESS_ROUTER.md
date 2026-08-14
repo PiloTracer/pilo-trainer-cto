@@ -5,7 +5,9 @@
 | You want to… | Run |
 |--------------|-----|
 | Scaffold learner memory | `@cto-bootstrap init` |
-| Open / close a training day | `@cto-session start` / `close` (add `commit` / `push` to close with git) |
+| Open / close a training day | `@cto-session start` / `close` (add `commit` / `push` to close with git; `scoped` for bookend-files-only) |
+| Full context load without writes | `@cto-session context` (compact: `@cto-session status`) |
+| Checkpoint learner memory mid-session | `@cto-session commit` / `commit push` (no close, no HANDOFF/NEXT writes) |
 | Describe a goal in plain language | `@cto-director - <text>` |
 | Diagnose level and gaps | `@cto-assess run` |
 | List catalog programs | `@cto-program-standard list` |

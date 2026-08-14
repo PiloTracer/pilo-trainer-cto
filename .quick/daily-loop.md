@@ -3,7 +3,9 @@
 ```text
 @cto-session start
 @cto-mentor run          # or @cto-drill run - <type> / @cto-consult memo - <topic>
-@cto-session close       # add flags to also version .work.cto/: close commit [push]
+@cto-session close       # add flags to also version .work.cto/: close commit [scoped] [push]
+# mid-session checkpoint without closing: @cto-session commit [push]
+# read-only re-orientation: @cto-session status (compact) / context (full load)
 ```
 
 | Need | Command |

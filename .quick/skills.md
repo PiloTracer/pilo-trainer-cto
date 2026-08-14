@@ -6,7 +6,7 @@
 | cto-deploy-files | `@cto-deploy-files copy - /path` |
 | cto-deploy-repo | `@cto-deploy-repo clone` · `archive` |
 | cto-bootstrap | `@cto-bootstrap init` · `status` |
-| cto-session | `@cto-session start` · `status` · `close` · `close commit [push]` |
+| cto-session | `@cto-session start` · `status` · `context` · `close` · `close commit [scoped] [push]` · `commit [push]` |
 | cto-director | `@cto-director - <request>` |
 | cto-process-router | `@cto-process-router - <question>` |
 | cto-assess | `@cto-assess run` · `status` |
