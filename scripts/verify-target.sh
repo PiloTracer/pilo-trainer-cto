@@ -11,8 +11,9 @@
 #      and matches the source this script belongs to (stale-pointer warning)
 #   4. Fat: local .ai.cto/skills/ present; self-hosted: repo root is the framework
 #   5. Remaining REPLACE: tokens (operator-filled vs auto-discovered *_PATH)
-#   6. Frameworks registry: sister frameworks (.ai, .ai.ui, .ai.biz, .ai.soc)
-#      resolvable via filled path cell or sibling auto-discovery
+#   6. Frameworks registry: the six sister frameworks (.ai.<fw>, legacy + family
+#      naming) + Agent OS anchor (.ai / pilo.ai.logicbison) resolvable via
+#      filled path cell or sibling auto-discovery
 #   7. .work.cto/ learner-memory skeleton
 #   8. Thin target with a local .ai.cto/skills/ → fat-client leak warning
 #
@@ -96,7 +97,7 @@ else
     case "$tok" in
       REPLACE:PROJECT_NAME|REPLACE:LEARNER_LEVEL|REPLACE:PRIMARY_GOAL)
         warn "$tok unfilled — operator must set it" ;;
-      REPLACE:AI_PATH|REPLACE:AI_UI_PATH|REPLACE:AI_BIZ_PATH|REPLACE:AI_SOC_PATH)
+      REPLACE:AI_PATH|REPLACE:AI_UI_PATH|REPLACE:AI_BIZ_PATH|REPLACE:AI_SOC_PATH|REPLACE:AI_FLUTTER_PATH|REPLACE:AI_MLT_PATH)
         info "$tok unset — sibling auto-discovery applies (see registry check below)" ;;
       *) warn "$tok unfilled" ;;
     esac
@@ -105,28 +106,27 @@ fi
 
 # --- 6. Frameworks registry (sister discovery) --------------------------------
 if [[ -n "$DISCOVERY_BASE" ]]; then
-  for fw in .ai .ai.ui .ai.biz .ai.soc; do
-    row="$(grep -E "^\|[[:space:]]*\`${fw}\`" "$CURS" | head -1 || true)"
-    cell=""
-    [[ -n "$row" ]] && cell="$(echo "$row" | awk -F'|' '{gsub(/^[ \t]+|[ \t]+$/, "", $4); print $4}')"
-    if [[ -n "$cell" && "$cell" != *REPLACE:* && "$cell" != "*this framework*" ]]; then
-      p="$(echo "$cell" | grep -oE '(/[^ `|]+|\.\./[^ `|]+)' | head -1 || true)"
-      if [[ -n "$p" ]]; then
-        [[ "$p" == /* ]] && fwpath="$p" || fwpath="$(cd "${DEST_ROOT}/$(dirname "$p")" 2>/dev/null && pwd)/$(basename "$p")"
-      fi
-    fi
-    [[ -z "${fwpath:-}" ]] && fwpath="${DISCOVERY_BASE}/${fw}"
-    if [[ -d "$fwpath" ]]; then
-      if [[ -f "${fwpath}/skills/README.md" ]]; then
-        ok "$fw → $fwpath (bootstrap artifact present)"
-      else
-        warn "$fw → $fwpath exists but skills/README.md missing (bootstrap artifact absent)"
-      fi
+  # Sister frameworks: the six .ai.<fw> slots (legacy + family naming via
+  # sister-discovery.sh) + the Agent OS anchor (.ai / pilo.ai.logicbison).
+  source "$(dirname "${BASH_SOURCE[0]}")/sister-discovery.sh"
+  fw_dir=""
+  for fw in $FRAMEWORK_SLOTS; do
+    fw_dir="$(find_sister_dir "$CTO_ROOT" "$fw" "$DISCOVERY_BASE" || true)"
+    if [[ -n "$fw_dir" ]]; then
+      ok ".ai.$fw → $fw_dir (bootstrap artifact present)"
     else
-      warn "$fw not found at $fwpath — do not route to its director until installed"
+      warn ".ai.$fw not found — do not route to its director until installed"
     fi
-    unset fwpath
   done
+  # Agent OS anchor (not a .ai.<fw> slot): .ai or pilo.ai.logicbison.
+  ag_found=0
+  for ag in .ai pilo.ai.logicbison; do
+    if [[ -f "$DISCOVERY_BASE/$ag/skills/README.md" ]]; then
+      ok "$ag → $DISCOVERY_BASE/$ag (Agent OS anchor present)"
+      ag_found=1
+    fi
+  done
+  [[ "$ag_found" -eq 1 ]] || warn "no Agent OS anchor (.ai / pilo.ai.logicbison) found under $DISCOVERY_BASE — set REPLACE:AI_PATH manually before routing @x-director work"
 else
   info "frameworks registry skipped (no discovery base — resolve source pointer first)"
 fi

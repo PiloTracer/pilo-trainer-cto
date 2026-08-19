@@ -27,7 +27,8 @@ git rev-parse --is-inside-work-tree &>/dev/null && ok "inside git work tree" || 
 
 note "Core files"
 for f in README.md START_HERE.md PROCESS_ROUTER.md LICENSE templates/bootstrap.sh \
-  scripts/deploy-basic.sh scripts/deploy-files.sh scripts/deploy-repo.sh scripts/verify-target.sh; do
+  scripts/deploy-basic.sh scripts/deploy-files.sh scripts/deploy-repo.sh scripts/verify-target.sh \
+  scripts/sister-discovery.sh; do
   [[ -f "$CTO_ROOT/$f" ]] && ok "$f" || die "missing $f"
 done
 

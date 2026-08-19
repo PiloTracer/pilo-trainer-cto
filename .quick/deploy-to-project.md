@@ -43,5 +43,6 @@ bash scripts/deploy-basic.sh verify /abs/path/to/target   # deep .cursorrules wi
 ```
 
 Every deploy/update ends with an automatic verify: pointer reachable and matching the
-current source location, remaining `REPLACE:` tokens, sister frameworks (`.ai`, `.ai.ui`,
-`.ai.biz`, `.ai.soc`) resolvable, `.work.cto/` skeleton present. FAIL = deploy incomplete.
+current source location, remaining `REPLACE:` tokens, sister frameworks (the six `.ai.<fw>`
+slots — legacy + family naming — plus the Agent OS anchor `.ai` / `pilo.ai.logicbison`)
+resolvable, `.work.cto/` skeleton present. FAIL = deploy incomplete.

@@ -1,6 +1,13 @@
 # Changelog
 
-## Unreleased
+## v0.6.1 — 2026-08-19
+
+**Sister-framework discovery + Agent OS anchor checks.** Deploy and verify now discover all six sisters under both namings (legacy `.ai.<fw>` and family `pilo.ai.<fw>.logicbison`) via the shared `scripts/sister-discovery.sh` lib.
+
+- **7-row Frameworks registry** (`.cursorrules` + `templates/cursorrules.template`, kept byte-congruent): added `.ai.flutter` and `.ai.mlt` rows; resolution text is family-aware (sister dir = source basename with `<fw>` inserted before its last `.segment`, else legacy `.ai.<fw>`; missing → `[degraded: <framework> not installed]`, never into the void).
+- **`scripts/deploy-basic.sh` deploy-time fill.** `subst_cursorules()` fills every `REPLACE:AI_<FW>_PATH` cell with the discovered absolute path (or prints the checked candidates). The Agent OS anchor row checks `../.ai` **or** `../pilo.ai.logicbison` and fills `REPLACE:AI_PATH`; when neither exists, the deploy prints a manual-fill instruction instead of routing into the void.
+- **`scripts/verify-target.sh` six-slot verification.** The hardcoded 4-name loop was replaced with the `FRAMEWORK_SLOTS` loop over a single discovery base (dual-base bug fixed); the Agent OS anchor is reported when present, and a WARN tells the operator to set `REPLACE:AI_PATH` manually when neither name resolves.
+- **Verifier + docs.** `scripts/framework-verify.sh` requires `scripts/sister-discovery.sh`; skill/quick/README prose refreshed to the seven frameworks.
 
 **Clarity contracts adopted (operator handoff + document clarity).** Ported from Agent OS
 `.ai` via `.work.cto/prompts/adopt-framework-improvements.md`: every skill response now closes

@@ -79,13 +79,15 @@ Default to **minimal diffs**. Prefer append/merge over overwrite.
 
 | Framework | Director | Path | Bootstrap artifact |
 |-----------|----------|------|--------------------|
-| `.ai` (Agent OS) | `@ai-director` | REPLACE:AI_PATH (default `../.ai`) | `.ai/skills/README.md` |
+| `.ai` (Agent OS) | `@ai-director` | REPLACE:AI_PATH (default `../.ai` / `../pilo.ai.logicbison`) | `.ai/skills/README.md` |
 | `.ai.ui` (UI Design OS) | `@ui-director` | REPLACE:AI_UI_PATH (default `../.ai.ui`) | `.ai.ui/skills/README.md` |
 | `.ai.biz` (Business OS) | `@biz-director` | REPLACE:AI_BIZ_PATH (default `../.ai.biz`) | `.ai.biz/skills/README.md` |
 | `.ai.soc` (Social OS) | `@soc-director` | REPLACE:AI_SOC_PATH (default `../.ai.soc`) | `.ai.soc/skills/README.md` |
+| `.ai.flutter` (Flutter Agent OS) | `@flutter-director` | REPLACE:AI_FLUTTER_PATH (default `../.ai.flutter`) | `.ai.flutter/skills/README.md` |
+| `.ai.mlt` (MLT Agent OS) | `@mlt-director` | REPLACE:AI_MLT_PATH (default `../.ai.mlt`) | `.ai.mlt/skills/README.md` |
 | `.ai.cto` (CTO Professor OS) | `@cto-director` | *this framework* | `skills/README.md` |
 
-**Path resolution:** filled path cell wins; `REPLACE:*`/empty → auto-discover siblings of thin-client parent (`$TRAINER_CTO_SOURCE/..`) or fat-client parent. Missing framework → do not route into the void.
+**Path resolution:** filled path cell wins; `REPLACE:*`/empty → auto-discover siblings of thin-client parent (`$TRAINER_CTO_SOURCE/..`) or fat-client parent; sister dir = source basename with `<fw>` inserted before its last `.segment` (e.g. `pilo.ai.ui.logicbison` for a `pilo.ai.logicbison` source; `.ai`-prefixed sources resolve `.ai.<fw>` directly), else legacy `.ai.<fw>`; missing → "not installed" — route with `[degraded: <framework> not installed]`, never into the void.
 
 ---
 

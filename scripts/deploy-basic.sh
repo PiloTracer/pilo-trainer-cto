@@ -72,6 +72,9 @@ else
   CTO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 fi
 
+# Shared sister-framework discovery (family naming `pilo.ai.ui.logicbison` + legacy `.ai.ui`).
+source "${CTO_ROOT}/scripts/sister-discovery.sh"
+
 if [[ "$RAW_TARGET" == "." || "$RAW_TARGET" == "$PWD" ]]; then
   DEST_ROOT="$(pwd)"
 else
@@ -115,8 +118,71 @@ if [[ -d "${DEST_ROOT}/.ai.cto/skills" ]]; then
 fi
 
 subst_cursorules() {
+  local CTO_ROOT_ESC SIBLING_PARENT tmpfile
   CTO_ROOT_ESC="${CTO_ROOT//\//\\/}"
-  perl -pe "s/TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE/TRAINER_CTO_SOURCE=${CTO_ROOT_ESC}/" "$TPL_CURS"
+  SIBLING_PARENT="$(cd "$CTO_ROOT/.." && pwd)"
+  tmpfile="$(mktemp)"
+
+  # Step 1: substitute TRAINER_CTO_SOURCE
+  perl -pe "s/TRAINER_CTO_SOURCE=REPLACE_BASICSOURCE/TRAINER_CTO_SOURCE=${CTO_ROOT_ESC}/" "$TPL_CURS" > "$tmpfile"
+
+  # Step 2: discover and fill sister framework paths at bootstrap time.
+  # Sister dir names: family naming (source basename with `<fw>` inserted before
+  # its last .segment, e.g. `pilo.ai.ui.logicbison` for a `pilo.ai.logicbison`
+  # source; `.ai`-prefixed sources use `.ai.<fw>`; sister-framework sources
+  # replace their own slot) then legacy `.ai.<fw>`. If a sister exists on disk,
+  # write its absolute path. If absent, leave the REPLACE: token and tell the
+  # user what was checked + how to adjust (manual cell fill; see .cursorrules
+  # § Frameworks registry).
+  local fw
+  for fw in $FRAMEWORK_SLOTS; do
+    local token_upper token fw_dir_abs fw_esc
+    token_upper="$(echo "$fw" | tr '[:lower:]' '[:upper:]')"
+    token="REPLACE:AI_${token_upper}_PATH"
+    fw_dir_abs="$(find_sister_dir "$CTO_ROOT" "$fw" "$SIBLING_PARENT" || true)"
+    if [[ -n "$fw_dir_abs" ]]; then
+      fw_esc="${fw_dir_abs//\//\\/}"
+      perl -i -pe "s{${token} \\(default:? \\\`[^)]*\\)}{${fw_esc} (discovered at deploy time)}" "$tmpfile"
+      if grep -q "$token" "$tmpfile"; then
+        echo "  frameworks: WARN ${token} cell did not match expected template shape — left for runtime auto-discover" >&2
+      else
+        echo "  frameworks: resolved ${token} → ${fw_dir_abs}" >&2
+      fi
+    else
+      local checked
+      checked="$(sister_names "$fw" "$CTO_ROOT" | paste -sd' ' -)"
+      echo "  frameworks: ${token} not found (checked ${checked} in $SIBLING_PARENT) —" >&2
+      echo "    if the sister exists under another dir name, fill ${token} manually in" >&2
+      echo "    the target .cursorrules; naming conventions: legacy .ai.<fw> or family" >&2
+      echo "    <source-name with <fw> before its last .segment> (e.g. pilo.ai.ui.logicbison)." >&2
+    fi
+  done
+  # Step 2b: Agent OS anchor (not a .ai.<fw> slot) — .ai or pilo.ai.logicbison.
+  # Fill REPLACE:AI_PATH when one exists; if neither, leave the token and ask
+  # the operator to set the proper value manually (never route into the void).
+  local ag ag_dir ag_esc
+  ag_dir=""
+  for ag in .ai pilo.ai.logicbison; do
+    if [[ -f "$SIBLING_PARENT/$ag/skills/README.md" ]]; then
+      ag_dir="$SIBLING_PARENT/$ag"
+      break
+    fi
+  done
+  if [[ -n "$ag_dir" ]]; then
+    ag_esc="${ag_dir//\//\\/}"
+    perl -i -pe "s{REPLACE:AI_PATH \\(default:? \\\`[^)]*\\)}{${ag_esc} (discovered at deploy time)}" "$tmpfile"
+    if grep -q "REPLACE:AI_PATH" "$tmpfile"; then
+      echo "  frameworks: WARN REPLACE:AI_PATH cell did not match expected template shape — left for manual fill" >&2
+    else
+      echo "  frameworks: resolved REPLACE:AI_PATH → ${ag_dir}" >&2
+    fi
+  else
+    echo "  frameworks: REPLACE:AI_PATH — no Agent OS anchor found (checked .ai, pilo.ai.logicbison in $SIBLING_PARENT);" >&2
+    echo "    set REPLACE:AI_PATH manually in the target .cursorrules to the Agent OS path." >&2
+  fi
+
+  cat "$tmpfile"
+  rm -f "$tmpfile"
 }
 
 existing_source=""

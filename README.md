@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/PiloTracer/pilo-trainer-cto?display_name=tag&sort=semver)](https://github.com/PiloTracer/pilo-trainer-cto/releases)
-[![Version](https://img.shields.io/badge/version-0.2.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.6.1-blue.svg)](CHANGELOG.md)
 
 > **Expert CTO professor / mentor** as a portable operating system: gated skills, binding standards, standard + custom programs, and learner memory under `.work.cto/`. Continuous training, consultancy, and source-backed updates — next to your real work.
 
@@ -174,7 +174,7 @@ Catalog: [`curricula/`](curricula/) · Cases: [`drills/`](drills/) · Sources: [
 
 ## Coexistence
 
-Sibling of Agent OS (`.ai`), Business OS (`.ai.biz`), UI OS (`.ai.ui`), Social OS (`.ai.soc`). Use `@x-director` for cross-domain work. `@cto-director` redirects pure engineering/UI/biz requests to the matching director.
+Sibling of Agent OS (`.ai`), Business OS (`.ai.biz`), UI OS (`.ai.ui`), Social OS (`.ai.soc`), Flutter Agent OS (`.ai.flutter`), MLT Agent OS (`.ai.mlt`). Use `@x-director` for cross-domain work. `@cto-director` redirects pure engineering/UI/biz requests to the matching director.
 
 ---
 
