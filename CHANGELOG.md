@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.6.2 — 2026-08-19
+
+**`cto-deploy-repo` removed.** The standalone clone/archive deploy path (`@cto-deploy-repo`, `scripts/deploy-repo.sh`) is gone. Thin-client (`@cto-deploy-basic`) and fat-client (`@cto-deploy-files`) remain the two supported deploy modes; cloning or backing up the framework itself is plain `git clone` / archive tooling, not a skill.
+
+- **Skill + script deleted.** `skills/cto-deploy-repo/` and `scripts/deploy-repo.sh` removed; all references cleaned from `.cursorrules` (template kept byte-congruent), `README.md` (skills table + Deploy section), `PROCESS_ROUTER.md`, `skills/README.md`, `skills/SKILL_DEPENDENCIES.md`, and `scripts/framework-verify.sh`.
+- **Verifier.** `bash scripts/framework-verify.sh` → `=== PASS ===` with the skill registry, gate contracts, and deploy smokes re-checked at 16 registered skills.
+
 ## v0.6.1 — 2026-08-19
 
 **Sister-framework discovery + Agent OS anchor checks.** Deploy and verify now discover all six sisters under both namings (legacy `.ai.<fw>` and family `pilo.ai.<fw>.logicbison`) via the shared `scripts/sister-discovery.sh` lib.

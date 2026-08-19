@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/PiloTracer/pilo-trainer-cto?display_name=tag&sort=semver)](https://github.com/PiloTracer/pilo-trainer-cto/releases)
-[![Version](https://img.shields.io/badge/version-0.6.1-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.6.2-blue.svg)](CHANGELOG.md)
 
 > **Expert CTO professor / mentor** as a portable operating system: gated skills, binding standards, standard + custom programs, and learner memory under `.work.cto/`. Continuous training, consultancy, and source-backed updates — next to your real work.
 
@@ -104,7 +104,6 @@ In the **target** project chat:
 |-------|----------|----------------|
 | **cto-deploy-basic** | Thin-client scaffold | `- /path` · `status` · `update` |
 | **cto-deploy-files** | Fat-client as `.ai.cto/` | `copy - /path` |
-| **cto-deploy-repo** | Clone or archive | `clone` · `archive` |
 | **cto-bootstrap** | Scaffold + PROFILE | `init` · `status` |
 | **cto-session** | Session bookends | `start` · `status` · `context` · `close` · `commit` · `push` · `scoped` |
 | **cto-director** | Free-text orchestrator | `- <request>` |
@@ -137,10 +136,6 @@ bash scripts/deploy-basic.sh /abs/path/to/target --update
 
 # Fat-client — target gets its own .ai.cto/ copy, works offline
 bash scripts/deploy-files.sh /abs/path/to/target
-
-# Standalone copy or backup of the framework itself
-bash scripts/deploy-repo.sh clone <url> /abs/path/to/target
-bash scripts/deploy-repo.sh archive /abs/path/to/dir
 ```
 
 Or from source chat: `@cto-deploy-basic - /abs/path/to/target`.

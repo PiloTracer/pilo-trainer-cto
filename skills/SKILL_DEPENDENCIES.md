@@ -71,7 +71,7 @@ cto-review status / certify
 
 ## System skills (no gate)
 
-`cto-bootstrap`, `cto-deploy-basic`, `cto-deploy-files`, `cto-deploy-repo`, `cto-session`, `cto-director`, `cto-process-router` — infrastructure / routing; invoke anytime.
+`cto-bootstrap`, `cto-deploy-basic`, `cto-deploy-files`, `cto-session`, `cto-director`, `cto-process-router` — infrastructure / routing; invoke anytime.
 
 ## Gate table
 
